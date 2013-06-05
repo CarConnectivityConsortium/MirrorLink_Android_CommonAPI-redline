@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.9 Notifications
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
 /**
- * Interface used to implement the CNotifications call backs
+ * Provides the interface related to 4.9 Notifications - Callbacks
  */
 oneway interface INotificationListener
 {

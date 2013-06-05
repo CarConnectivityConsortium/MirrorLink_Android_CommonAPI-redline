@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.8 Data Services
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
-import com.android.mirrorlink.commonapi.IDataServicesListener;
+import com.mirrorlink.commonapi.IDataServicesListener;
 
 /**
- * Interface used to access the Data Services related features
+ * Provides the interface related to 4.8 Data Services
  */
 interface IDataServicesManager {
     /**

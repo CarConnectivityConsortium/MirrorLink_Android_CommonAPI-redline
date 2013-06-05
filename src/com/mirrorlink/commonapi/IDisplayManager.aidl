@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.4 Display
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
-import com.android.mirrorlink.commonapi.IDisplayListener;
+import com.mirrorlink.commonapi.IDisplayListener;
 
 /**
- * Interface used to access the Display related features
+ * Provides the interface related to 4.4 Display
  */
 interface IDisplayManager {
 

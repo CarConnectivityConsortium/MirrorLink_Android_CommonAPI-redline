@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.6 Context Information
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
  /**
- * Interface used to implement the Context Information call backs
+ * Provides the interface related to 4.6 Context Information - Callbacks
  */
 oneway interface IContextListener {
 

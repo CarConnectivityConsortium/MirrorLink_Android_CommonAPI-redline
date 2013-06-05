@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
+package com.mirrorlink.commonapi;
+
+import com.mirrorlink.commonapi.IContextListener;
+
 /**
  * Provides the interface related to 4.6 Context Information
- */
-
-package com.android.mirrorlink.commonapi;
-
-import com.android.mirrorlink.commonapi.IContextListener;
-
-/**
- * Interface used to access the Connection Information related features
  */
 interface IContextManager {
 

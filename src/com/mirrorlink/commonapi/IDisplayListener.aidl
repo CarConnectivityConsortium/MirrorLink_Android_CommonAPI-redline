@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.4 Display
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
 import android.os.Parcelable;
 
 /**
- * Interface used to implement the Display call backs
+ * Provides the interface related to 4.4 Display - Callbacks
  */
+
 oneway interface IDisplayListener {
     /**
      * 4.4.2 Client Display Configuration Callback

@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
+package com.mirrorlink.commonapi;
+
+import com.mirrorlink.commonapi.IDeviceStatusListener;
+
 /**
  * Provides the interface related to 4.7 Device Status
- */
-
-package com.android.mirrorlink.commonapi;
-
-import com.android.mirrorlink.commonapi.IDeviceStatusListener;
-
-/**
- * Interface used to access the Device Status related features
  */
 interface IDeviceStatusManager {
 

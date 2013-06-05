@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.1 MirrorLink Device Info
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
- /**
- * Interface used to implement the MirrorLink Device Info call backs
+/**
+ * Provides the interface related to 4.5 Event Features - Callbacks
  */
-oneway interface IDeviceInfoListener {
+oneway interface IEventMappingListener {
+    /**
+     * 4.5.2 Event Configuration Callback
+     * MirrorLink session event configuration information has changed.
+     *
+     * @param eventConfiguration the event configuration of the MirrorLink session
+     */
+    void onEventConfigurationChanged(in Bundle eventConfiguration);
 
     /**
-     * 4.1.5 MirrorLink Client Manufacturer and Model Information Callback
-     * Indicates that the Client information has changed;
-     * @param mirrorLinkVersionMajor MirrorLink Session major version
+     * 4.5.5 Get Event Mapping Callback
+     * The application MUST be notified, whenever the MirrorLink Server and Client change the mapping.
      *
-     * @param mirrorLinkVersionMinor MirrorLink Session minor version
-     *
-     * @param Bundle containg the client information or null if no client is connected
+     * @param eventMapping the mapping information about remote events and local events
      */
-    void onDeviceInfoChanged(in int mirrorLinkVersionMajor, in int mirrorLinkVersionMinor, in Bundle clientInformation);
+    void onEventMappingChanged(in Bundle eventMapping);
 
 }

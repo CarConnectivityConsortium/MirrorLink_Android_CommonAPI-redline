@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.2 Certification Information
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
  /**
- * Interface used to access the Certification Information related features
+ * Provides the interface related to 4.2 Certification Information
  */
 interface ICertificationManager {
 

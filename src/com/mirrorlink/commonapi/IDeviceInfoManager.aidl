@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.1 MirrorLink Device Info
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
-import com.android.mirrorlink.commonapi.IDeviceInfoListener;
+import com.mirrorlink.commonapi.IDeviceInfoListener;
 
 /**
- * Interface used to access the MirrorLink Device Info related features
+ * Provides the interface related to 4.1 MirrorLink Device Info
  */
 interface IDeviceInfoManager {
 
@@ -51,7 +47,7 @@ interface IDeviceInfoManager {
      */
     Bundle getMirrorLinkClientInformation();
 
-   /**
+    /**
      * Register the listener for monitoring the DeviceInfoManager
      *
      * @param   listener the listener to register

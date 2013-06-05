@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
+package com.mirrorlink.commonapi;
+
 /**
  * The Common API specifies an interface to the MirrorLink Server,
  * which allows any application to either get information about
- * MirrorLink Server’s or Client’s properties or to set them to specific values.
+ * MirrorLink Server or Client properties or to set them to specific values.
  * In addition, the API specifies callback functions, which are used from the
  * MirrorLink Server to inform the application about any change.
  *
  * The Common API uses a set of Data Types, given in the table below, together
  * with the Java type used to represent the original Data type.
- *
+ * <pre>
  * Data Type | Java Type | Description
  * ----------|-----------|-----------------------------------------------------
  * bool      | boolean   | the logical values true and false.
@@ -38,10 +40,8 @@
  * string8   | String    | Array of UTF8 characters. Each character takes 1 byte (UTF8).
  * string16  | String    | Array of UTF16 characters. Each character takes 2 bytes (UTF16).
  * url       | String    | Data type representing a URL
- *
+ * </pre>
  */
-package com.android.mirrorlink.commonapi;
-
 public class MirrorLink {
     /**
      *  Common API Level provided by this interface
@@ -52,9 +52,9 @@ public class MirrorLink {
      *  Intent used to bind to the MirrorLink Server CommonAPI service
      */
     public static final class Intents {
-        public static final String BIND_MIRRORLINK_API = "com.android.mirrorlink.service.BIND";
-        public static final String LAUNCH_MIRRORLINK_APP = "com.android.mirrorlink.app.LAUNCH";
-        public static final String TERMINATE_MIRRORLINK_APP = "com.android.mirrorlink.app.TERMINATE";
+        public static final String BIND_MIRRORLINK_API = "com.mirrorlink.service.BIND";
+        public static final String LAUNCH_MIRRORLINK_APP = "com.mirrorlink.app.LAUNCH";
+        public static final String TERMINATE_MIRRORLINK_APP = "com.mirrorlink.app.TERMINATE";
     }
     /*****************************************************************************
      3 DEFINITIONS
@@ -148,27 +148,27 @@ public class MirrorLink {
          * Identifier of the MirrorLink client
          * String
          */
-        public static final String CLIENT_IDENTIFIER = "com.android.mirrorlink.service.CLIENT_IDENTIFIER";
+        public static final String CLIENT_IDENTIFIER = "CLIENT_IDENTIFIER";
         /**
          * Short user-friendly description of the MirrorLink client
          * String
          */
-        public static final String CLIENT_FRIENDLY_NAME = "com.android.mirrorlink.service.CLIENT_FRIENDLY_NAME";
+        public static final String CLIENT_FRIENDLY_NAME = "CLIENT_FRIENDLY_NAME";
         /**
          * Manufacturer Name of the MirrorLink client
          * String
          */
-        public static final String CLIENT_MANUFACTURER = "com.android.mirrorlink.service.CLIENT_MANUFACTURER";
+        public static final String CLIENT_MANUFACTURER = "CLIENT_MANUFACTURER";
         /**
          * Model name of the MirrorLink client
          * String
          */
-        public static final String CLIENT_MODEL_NAME = "com.android.mirrorlink.service.CLIENT_MODEL_NAME";
+        public static final String CLIENT_MODEL_NAME = "CLIENT_MODEL_NAME";
         /**
          * Model number of the MirrorLink client
          * String
          */
-        public static final String CLIENT_MODEL_NUMBER = "com.android.mirrorlink.service.CLIENT_MODEL_NUMBER";
+        public static final String CLIENT_MODEL_NUMBER = "CLIENT_MODEL_NUMBER";
     }
 
     /** 4.2 Certification Information */

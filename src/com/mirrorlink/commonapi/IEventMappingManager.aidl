@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-/**
- * Provides the interface related to 4.5 Event Features
- */
-
-package com.android.mirrorlink.commonapi;
+package com.mirrorlink.commonapi;
 
 import android.os.Bundle;
 
-import com.android.mirrorlink.commonapi.IEventMappingListener;
+import com.mirrorlink.commonapi.IEventMappingListener;
 
 /**
- * Interface used to access the Event related features
+ * Provides the interface related to 4.5 Event Features
  */
 interface IEventMappingManager {
 
