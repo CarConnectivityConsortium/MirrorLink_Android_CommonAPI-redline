@@ -9,6 +9,6 @@ javadoc -verbose  \
              -overview ../src/com/mirrorlink/android/commonapi/overview.html \
  	           -classpath $ANDROID_SDK/platforms/android-14/android.jar \
 	           ../src/com/mirrorlink/android/commonapi/*.java \
-	           classpath ../gen/com/mirrorlink/android/commonapi/I*.java
+	           ../gen/com/mirrorlink/android/commonapi/I*.java
 	           
 popd
