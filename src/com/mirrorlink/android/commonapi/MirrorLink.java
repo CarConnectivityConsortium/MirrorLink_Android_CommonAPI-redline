@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mirrorlink.commonapi;
+package com.mirrorlink.android.commonapi;
 
 /**
  * The Common API specifies an interface to the MirrorLink Server,
@@ -46,15 +46,15 @@ public class MirrorLink {
     /**
      *  Common API Level provided by this interface
      */
-    public static final int API_LEVEL = 10;
+    public static final int API_LEVEL = 1;
 
     /**
      *  Intent used to bind to the MirrorLink Server CommonAPI service
      */
     public static final class Intents {
-        public static final String BIND_MIRRORLINK_API = "com.mirrorlink.service.BIND";
-        public static final String LAUNCH_MIRRORLINK_APP = "com.mirrorlink.app.LAUNCH";
-        public static final String TERMINATE_MIRRORLINK_APP = "com.mirrorlink.app.TERMINATE";
+        public static final String BIND_MIRRORLINK_API = "com.mirrorlink.android.service.BIND";
+        public static final String LAUNCH_MIRRORLINK_APP = "com.mirrorlink.android.app.LAUNCH";
+        public static final String TERMINATE_MIRRORLINK_APP = "com.mirrorlink.android.app.TERMINATE";
     }
     /*****************************************************************************
      3 DEFINITIONS
@@ -627,7 +627,7 @@ public class MirrorLink {
         /**
          *  Location Service name
          */
-        public static final String SERVICE_NAME = "com.mirrorlink.LOCATION";
+        public static final String SERVICE_NAME = "com.mirrorlink.android.LOCATION";
         /**
          *  Location Object uid
          */
@@ -652,7 +652,7 @@ public class MirrorLink {
         /**
          *  GPS Service name
          */
-        public static final String SERVICE_NAME = "com.mirrorlink.GPS";
+        public static final String SERVICE_NAME = "com.mirrorlink.android.GPS";
         /**
          *  NMEA Object uid
          */

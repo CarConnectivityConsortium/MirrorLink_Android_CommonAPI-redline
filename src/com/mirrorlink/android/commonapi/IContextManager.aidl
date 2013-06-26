@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.mirrorlink.commonapi;
+package com.mirrorlink.android.commonapi;
 
-import com.mirrorlink.commonapi.IContextListener;
+import com.mirrorlink.android.commonapi.IContextListener;
 
 /**
  * Provides the interface related to 4.6 Context Information

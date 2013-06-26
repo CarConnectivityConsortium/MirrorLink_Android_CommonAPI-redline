@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.mirrorlink.commonapi;
+package com.mirrorlink.android.commonapi;
 
-import com.mirrorlink.commonapi.ICertificationManager;
-import com.mirrorlink.commonapi.IConnectionManager;
-import com.mirrorlink.commonapi.IContextManager;
-import com.mirrorlink.commonapi.IDataServicesManager;
-import com.mirrorlink.commonapi.IDeviceInfoManager;
-import com.mirrorlink.commonapi.IDeviceStatusManager;
-import com.mirrorlink.commonapi.IDisplayManager;
-import com.mirrorlink.commonapi.IEventMappingManager;
-import com.mirrorlink.commonapi.INotificationManager;
+import com.mirrorlink.android.commonapi.ICertificationManager;
+import com.mirrorlink.android.commonapi.IConnectionManager;
+import com.mirrorlink.android.commonapi.IContextManager;
+import com.mirrorlink.android.commonapi.IDataServicesManager;
+import com.mirrorlink.android.commonapi.IDeviceInfoManager;
+import com.mirrorlink.android.commonapi.IDeviceStatusManager;
+import com.mirrorlink.android.commonapi.IDisplayManager;
+import com.mirrorlink.android.commonapi.IEventMappingManager;
+import com.mirrorlink.android.commonapi.INotificationManager;
 
 /**
  * The main interface through which the MirrorLink Common API

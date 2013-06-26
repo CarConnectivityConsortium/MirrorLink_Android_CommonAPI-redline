@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.mirrorlink.commonapi;
+package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
-import com.mirrorlink.commonapi.INotificationListener;
+import com.mirrorlink.android.commonapi.INotificationListener;
 
 /**
  * Provides the interface related to 4.9 Notifications
