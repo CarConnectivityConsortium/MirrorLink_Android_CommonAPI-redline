@@ -30,7 +30,7 @@ oneway interface IDeviceInfoListener {
      *
      * @param mirrorLinkVersionMinor MirrorLink Session minor version
      *
-     * @param Bundle containg the client information or null if no client is connected
+     * @param clientInformation containg the client information or null if no client is connected
      */
     void onDeviceInfoChanged(in int mirrorLinkVersionMajor, in int mirrorLinkVersionMinor, in Bundle clientInformation);
 

@@ -63,7 +63,7 @@ interface IContextManager {
      *        If set to True, the application is creating an audio stream,
      *        which is potentially mixed with other audio sources.
      *
-     * @param applicationCategory Category of the application
+     * @param appCategory Category of the application
      *
      * @return Flag, to indicate whether the action is successful
      */

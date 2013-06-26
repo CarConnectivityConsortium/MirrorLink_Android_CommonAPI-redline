@@ -68,7 +68,7 @@ oneway interface IDataServicesListener {
      *
      * @param objectId Hash value of the object
      *
-     * @param Bundle Bundle containing the object payload. Every value in the object is mapped to a corresponding
+     * @param object Bundle containing the object payload. Every value in the object is mapped to a corresponding
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
      *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
      */
@@ -82,7 +82,7 @@ oneway interface IDataServicesListener {
      *
      * @param objectId Hash value of the object
      *
-     * @param Bundle Bundle containing the object payload. Every value in the object is mapped to a corresponding
+     * @param object Bundle containing the object payload. Every value in the object is mapped to a corresponding
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
      *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
      */

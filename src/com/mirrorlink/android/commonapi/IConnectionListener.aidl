@@ -43,7 +43,7 @@ oneway interface IConnectionListener {
      * 4.3.6 Established Remote Display Connection Callback
      * Indicate that the remote display connections changed.
      *
-     * @param remoteConnection Bundle containing the status of the remote display connections available
+     * @param remoteDisplayConnection Bundle containing the status of the remote display connections available
      */
     void onRemoteDisplayConnectionChanged(in Bundle remoteDisplayConnection);
 

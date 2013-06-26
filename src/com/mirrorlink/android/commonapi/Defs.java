@@ -42,18 +42,30 @@ package com.mirrorlink.android.commonapi;
  * url       | String    | Data type representing a URL
  * </pre>
  */
-public class MirrorLink {
+public class Defs {
     /**
      *  Common API Level provided by this interface
      */
     public static final int API_LEVEL = 1;
 
     /**
-     *  Intent used to bind to the MirrorLink Server CommonAPI service
+     *  Intents used to communicate between the MirrorLink server and MirrorLink aware applications.
      */
     public static final class Intents {
+        /**
+         *  Intents used by applications to bind to the MirrorLink Server CommonAPI service.
+         */
         public static final String BIND_MIRRORLINK_API = "com.mirrorlink.android.service.BIND";
+        /**
+         * Intent used by the MirrorLink service to ask applications to launch. All the MirrorLink
+         * aware applications must handle this Intent and connect to the MirrorLink service once
+         * started by using {@link #BIND_MIRRORLINK_API}.
+         */
         public static final String LAUNCH_MIRRORLINK_APP = "com.mirrorlink.android.app.LAUNCH";
+        /**
+         * Intent used by the MirrorLink service to ask applications to terminate. All the MirrorLink
+         * aware applications must handle this Intent and disconnect from the MirrorLink service.
+         */
         public static final String TERMINATE_MIRRORLINK_APP = "com.mirrorlink.android.app.TERMINATE";
     }
     /*****************************************************************************
