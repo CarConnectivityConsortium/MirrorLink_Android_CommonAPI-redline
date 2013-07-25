@@ -18,33 +18,32 @@ package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
- /**
- * Provides the interface related 4.3 Connection Information - Callbacks
+/**
+ * Provides the interface related 4.4 Connection Information - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link IConnectionManager}.
  */
 oneway interface IConnectionListener {
 
     /**
-     * 4.3.2 Established MirrorLink Session Callback
+     * 4.4.2 Established MirrorLink Session Callback.
+     *
      * Indicate that the MirrorLink Session status has changed.
-     *
-     * @param mirrolinkSessionIsEstablished the new status of the MirrorLink session
      */
-    void onMirrorLinkSessionChanged(in boolean mirrolinkSessionIsEstablished);
+    void onMirrorLinkSessionChanged();
 
     /**
-     * 4.3.4 Established Audio Connections Callback
+     * 4.4.4 Established Audio Connections Callback.
+     *
      * Indicate that the audio connections changed.
-     *
-     * @param audioConnections Bundle containing the status of the audio connections available
      */
-    void onAudioConnectionsChanged(in Bundle audioConnections);
+    void onAudioConnectionsChanged();
 
     /**
-     * 4.3.6 Established Remote Display Connection Callback
-     * Indicate that the remote display connections changed.
+     * 4.4.6 Established Remote Display Connection Callback.
      *
-     * @param remoteDisplayConnection Bundle containing the status of the remote display connections available
+     * Indicate that the remote display connections changed.
      */
-    void onRemoteDisplayConnectionChanged(in Bundle remoteDisplayConnection);
+    void onRemoteDisplayConnectionChanged();
 
 }

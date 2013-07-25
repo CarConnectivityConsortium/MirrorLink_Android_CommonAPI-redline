@@ -21,31 +21,32 @@ import android.os.Bundle;
 import android.os.Parcelable;
 
 /**
- * Provides the interface related to 4.4 Display - Callbacks
+ * Provides the interface related to 4.5 Display - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link IDisplayManager}.
  */
 
 oneway interface IDisplayListener {
     /**
-     * 4.4.2 Client Display Configuration Callback
+     * 4.5.2 Client Display Configuration Callback.
+     *
      * Client Display Configuration has changed.
-     * 
-     * @param clientDisplayConfiguration the display configuration of the MirrorLink Client.
      */
-    void onClientDisplayConfigurationChanged(in Bundle clientDisplayConfiguration);
+    void onClientDisplayConfigurationChanged();
 
     /**
-     * 4.4.4 Client Pixel Format Callback
+     * 4.5.4 Client Pixel Format Callback.
+     *
      * Pixel format has changed.
-     *
-     * @param pixelFormat the pixel format of the framebuffer data
      */
-    void onPixelFormatChanged(in int pixelFormat);
+    void onPixelFormatChanged();
 
     /**
-     * 4.4.6 Server Scaling Configuration Callback
-     * Server scaling configuration changed.
+     * 4.5.6 Switch Framebuffer Orientation Callback.
      *
-     * @param serverScalingConfiguration the scaled display configuration of the MirrorLink Server.
+     * MirrorLink Server requests a framebuffer orientation switch from the application. The actual
+     * switch will happen via regular OS/platform mechanisms. An application MUST switch its
+     * orientation, if it has indicated support for Landscape and Portrait in 4.4.5.
      */
-    void onServerDisplayConfigurationChanged(in Bundle serverScalingConfiguration);
+    void onServerDisplayConfigurationChanged();
 }

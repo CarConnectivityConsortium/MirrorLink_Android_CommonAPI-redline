@@ -21,47 +21,66 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.IDeviceInfoListener;
 
 /**
- * Provides the interface related to 4.1 MirrorLink Device Info
+ * Provides the interface related to 4.2 MirrorLink Device Info.
+ *
+ * The callbacks are defined in {@link IDeviceInfoListener}.
+ *
+ * Module reference: 0x01
+ * Server requirement: Mandatory
  */
 interface IDeviceInfoManager {
 
     /**
-     * 4.1.1 MirrorLink Session Version
+     * 4.2.1 MirrorLink Session Version.
+     *
+     * Available MirrorLink Version for the established connection, as agreed between the MirrorLink
+     * Server and Client. Information MUST be available as soon as the MirrorLink session is
+     * connected
      *
      * @return  MirrorLink Session major version
-     *          or -1 if no session has been established yet
+     *          or 1 if version information is not available.
      */
     int getMirrorLinkSessionVersionMajor();
 
     /**
-     * 4.1.1 MirrorLink Session Version
+     * 4.2.1 MirrorLink Session Version.
+     *
+     * Available MirrorLink Version for the established connection, as agreed between the MirrorLink
+     * Server and Client. Information MUST be available as soon as the MirrorLink session is
+     * connected
      *
      * @return  MirrorLink Session minor version
-     *          or -1 if no session has been established yet
+     *          or 0 if version information is not available.
      */
     int getMirrorLinkConnectionVersionMinor();
+
     /**
-     * 4.1.4 MirrorLink Client Manufacturer and Model Information
-     * Provided MirrorLink client manufacturer and model information
-     * @return Bundle containg the client information or null if no client is connected
+     * 4.2.2 MirrorLink Client Manufacturer and Model Information.
+     *
+     * Provided MirrorLink client manufacturer and model information, as received through the UPnP
+     * Client Profile Service; any later change to the provided information MUST be notified via the
+     * callback function.
+     *
+     * @return Bundle containg the client information or null if no client is connected. The bundel
+     * will follow the strings defined in {@link Defs.ClientInformation}.
      */
     Bundle getMirrorLinkClientInformation();
 
     /**
-     * Register the listener for monitoring the DeviceInfoManager
+     * Register the listener for monitoring the DeviceInfoManager.
      *
-     * @param   listener the listener to register
+     * @param   listener the listener to register.
      *
-     * @return  true is the listener was registered, false otherwise
+     * @return  true is the listener was registered, false otherwise.
      */
     boolean registerListener(in IDeviceInfoListener listener);
 
     /**
-     * Unregister the listener monitoring the DeviceInfoManager
+     * Unregister the listener monitoring the DeviceInfoManager.
      *
-     * @param   listener the listener to unregister
+     * @param   listener the listener to unregister.
      *
-     * @return  true is the listener was unregistered, false otherwise
+     * @return  true is the listener was unregistered, false otherwise.
      */
     boolean unregisterListener(in IDeviceInfoListener listener);
 }

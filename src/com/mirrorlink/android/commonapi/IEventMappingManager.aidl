@@ -22,6 +22,9 @@ import com.mirrorlink.android.commonapi.IEventMappingListener;
 
 /**
  * Provides the interface related to 4.5 Event Features
+ *
+ * Module reference: 0x05
+ * Server requirement: Mandatory
  */
 interface IEventMappingManager {
 

@@ -18,36 +18,42 @@ package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
- /**
- * Provides the interface related to 4.2 Certification Information
+/**
+ * Provides the interface related to 4.3 Certification Information.
+ *
+ * Module reference: 0x02
+ * Server requirement: Mandatory
  */
 interface ICertificationManager {
 
     /**
-     * 4.2.1 Get Application Certification Status
-     * Provided application certificate status
+     * 4.3.1 Get Application Certification Status.
      *
-     * @return A bundle detailing the Application Certification Status.
+     * Provided application certificate status, as captured from the application certificate.
+     *
+     * @return A bundle detailing {@link Defs.ApplicationCertificationStatus}.
      */
     Bundle getApplicationCertificationStatus();
 
     /**
-     * 4.2.2 Get Application Certifying Entities
-     * Provide information on the certifying entities
+     * 4.3.2 Get Application Certifying Entities.
      *
-     * @return Comma-separated list of certifying entities, which certified the application
+     * Provide information on the certifying entities.
+     *
+     * @return Comma-separated list of certifying entities, which certified the application,
      */
     String getApplicationCertifyingEntities();
 
     /**
-     * 4.2.3 Get Application Certification Information
-     * Provided application certificate information;
+     * 4.3.3 Get Application Certification Information.
      *
-     * @param   entity the name of the certifying entity
+     * Provide application certificate information.
      *
-     * @return  Bundle containing the Certiticate information for the given entity 
-     *          or null if the application isn't certified
-     *          or the entity is not part of the list of certifying entities for the application
+     * @param   entity the name of the certifying entity,
+     *
+     * @return  Bundle containing {@link Defs.CertificateInformation} for the given entity 
+     *          or null if the application isn't certified or the entity is not part of the list of
+     *          certifying entities for the application,
      */
     Bundle getApplicationCertificationInformation(in String entity);
 }

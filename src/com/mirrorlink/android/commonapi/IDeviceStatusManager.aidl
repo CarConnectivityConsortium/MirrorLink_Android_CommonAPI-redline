@@ -20,6 +20,9 @@ import com.mirrorlink.android.commonapi.IDeviceStatusListener;
 
 /**
  * Provides the interface related to 4.7 Device Status
+ *
+ * Module reference: 0x09
+ * Server requirement: Mandatory
  */
 interface IDeviceStatusManager {
 

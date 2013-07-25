@@ -19,7 +19,7 @@ package com.mirrorlink.android.commonapi;
 import android.os.Bundle;
 
 /**
- * Provides the interface related to 4.9 Notifications - Callbacks
+ * Provides the interface related to 4.9 Notifications - Callbacks.
  */
 oneway interface INotificationListener
 {

@@ -21,39 +21,50 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.IDisplayListener;
 
 /**
- * Provides the interface related to 4.4 Display
+ * Provides the interface related to 4.5 Display.
+ *
+ * The callbacks are defined in {@link IDisplayListener}.
+ *
+ * Module reference: 0x04
+ * Server requirement: Mandatory
  */
 interface IDisplayManager {
 
     /**
-     * 4.4.1 Client Display Configuration
-     * ccess information on the display properties of the MirrorLink Client;
-     * this information is used by MirrorLink certified applications to adapt
-     * its user interface to fulfill driver distraction guidelines,
-     * in particular regarding font sizes.
+     * 4.5.1 Display Configuration.
      *
-     * @return Bundle object containing the display configuration of the MirrorLink Client.
+     * Access information on the display properties of the MirrorLink Session; this
+     * in-formation is used by MirrorLink certified applications to adapt its user interface to
+     * fulfill driver distraction guidelines, in particular regarding font sizes.
+     *
+     * @return Bundle object containing the display configuration, as defined in {@link
+     * Defs.DisplayConfiguration}, of the MirrorLink session.
      */
-    Bundle getClientDisplayConfiguration();
+    Bundle getDisplayConfiguration();
 
     /**
-     * 4.4.3 Client Pixel Format
-     * Access information about the pixel format of the framebuffer data,
-     * being transmitted to the MirrorLink Client
+     * 4.5.3 Client Pixel Format.
      *
-     * @return the pixel format of the framebuffer data
+     * Access information about the pixel format of the framebuffer data,
+     * being transmitted to the MirrorLink Client.
+     *
+     * @return The pixel format of the framebuffer data. The values are defined in {@link
+     * Defs.ClientPixelFormat}.
      */
     int getClientPixelFormat();
 
     /**
-     * 4.4.5 Server Scaling Configuration
-     * Access information on the scaling properties of the MirrorLink Server;
-     * this information is used from MirrorLink certified applications to adapt
-     * its user interface to fulfill driver distraction guidelines.
+     * 4.5.5 Set Framebuffer Orientation Support.
+     * 
+     * Inform the MirrorLink Server about the application’s framebuffer orientation support; unless
+     * otherwise set by the application, the VNC Server MUST assume that the applica-tion will only
+     * support Landscape.
      *
-     * @return Bundle object containing the scaled display configuration of the MirrorLink Server.
+     * @param framebufferOrientation Orientation of the Application Framebuffer.
+     *
+     * @return true on success, fals if the orientation is not supported by the client.
      */
-    Bundle getServerScalingConfiguration();
+    boolean setFramebufferOrientationSupport(int framebufferOrientation);
 
     /**
      * Register the listener for monitoring the DisplayManager

@@ -18,20 +18,21 @@ package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
- /**
- * Provides the interface related to 4.1 MirrorLink Device Info - Callbacks
+/**
+ * Provides the interface related to 4.2 MirrorLink Device Info - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link IDeviceInfoManager}.
  */
 oneway interface IDeviceInfoListener {
 
     /**
-     * 4.1.5 MirrorLink Client Manufacturer and Model Information Callback
-     * Indicates that the Client information has changed;
-     * @param mirrorLinkVersionMajor MirrorLink Session major version
+     * 4.2.4 MirrorLink Client Manufacturer and Model Information Callback.
      *
-     * @param mirrorLinkVersionMinor MirrorLink Session minor version
-     *
-     * @param clientInformation containg the client information or null if no client is connected
+     * Indicates that the Client information has changed; an application MUST use the function
+     * described in {@link IDeviceInfoManager#getMirrorLinkSessionVersionMajor}, {@link
+     * IDeviceInfoManager#getMirrorLinkConnectionVersionMinor} and {@link
+     * IDeviceInfoManager#getMirrorLinkClientInformation} to retrieve the updated information.
      */
-    void onDeviceInfoChanged(in int mirrorLinkVersionMajor, in int mirrorLinkVersionMinor, in Bundle clientInformation);
+    void onDeviceInfoChanged();
 
 }

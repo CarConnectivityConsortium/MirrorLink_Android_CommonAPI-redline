@@ -22,6 +22,9 @@ import com.mirrorlink.android.commonapi.IDataServicesListener;
 
 /**
  * Provides the interface related to 4.8 Data Services
+ *
+ * Module reference: 0x0A
+ * Server requirement: Optional
  */
 interface IDataServicesManager {
     /**

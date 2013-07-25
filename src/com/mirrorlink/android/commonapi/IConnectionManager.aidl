@@ -21,32 +21,41 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.IConnectionListener;
 
 /**
- * Provides the interface related to 4.3 Connection Information
+ * Provides the interface related to 4.4 Connection Information.
+ *
+ * The callbacks are defined in {@link IConnectionListener}.
+ *
+ * Module reference: 0x03
+ * Server requirement: Mandatory
  */
 interface IConnectionManager {
 
     /**
-     *  indicates whether a MirrorLink session is currently established.
+     *  4.4.1 Indicates whether a MirrorLink session is currently established.
      *  A MirrorLink is considered established if a ClientProfile has been
-     *  set on the MirrorLink Server for the current tethering session
+     *  set on the MirrorLink Server for the current tethering session.
      */
     boolean isMirrorLinkSessionEstablished();
 
     /**
-     * 4.3.1 Established Audio Connections
+     * 4.4.3 Established Audio Connections.
+     *
      * Established Audio connections within MirrorLink Session
      *
-     * @return Bundle containing the status of the audio connections available
+     * @return Bundle containing the status of the audio connections available. The details of the
+     * fields available are found in {@link Defs.AudioConnections}.
      */
     Bundle getAudioConnections();
 
     /**
-     * 4.3.3 Established Remote Display Connection
-     * Established remote display connection within MirrorLink Session
+     * 4.4.5 Established Remote Display Connection.
      *
-     * @return Bundle containing the status of the remote display connections available
+     * Established remote display connection within MirrorLink Session.
+     *
+     * @return Value containing the status of the remote display connections available. The values
+     * are defined in {@link Defs.RemoteDisplayConnection}.
      */
-    byte getRemoteDisplayConnections();
+    int getRemoteDisplayConnections();
 
     /**
      * Register the listener for monitoring the ConnectionManager

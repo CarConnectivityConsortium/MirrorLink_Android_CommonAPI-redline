@@ -20,6 +20,9 @@ import com.mirrorlink.android.commonapi.IContextListener;
 
 /**
  * Provides the interface related to 4.6 Context Information
+ *
+ * Module reference: 0x08
+ * Server requirement: Mandatory
  */
 interface IContextManager {
 

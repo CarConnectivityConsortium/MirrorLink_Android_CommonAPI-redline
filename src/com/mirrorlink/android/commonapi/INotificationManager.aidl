@@ -21,7 +21,10 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.INotificationListener;
 
 /**
- * Provides the interface related to 4.9 Notifications
+ * Provides the interface related to 4.9 Notifications.
+ *
+ * Module reference: 0x0B
+ * Server requirement: Optional
  */
 interface INotificationManager {
     /**

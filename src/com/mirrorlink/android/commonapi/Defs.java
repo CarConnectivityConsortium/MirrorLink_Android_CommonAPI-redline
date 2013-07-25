@@ -26,20 +26,24 @@ package com.mirrorlink.android.commonapi;
  * The Common API uses a set of Data Types, given in the table below, together
  * with the Java type used to represent the original Data type.
  * <pre>
- * Data Type | Java Type | Description
- * ----------|-----------|-----------------------------------------------------
- * bool      | boolean   | the logical values true and false.
- * uint8     | short     | integer values ranging from 0 to positive 255 (0xFF)
- * uint16    | int       | integer values ranging from 0 to positive 65,535 (0xFFFF)
- * uint32    | long      | integer values ranging from 0 to positive 4,294,967,295 (0xFFFFFFFF)
- * int8      | byte      | integer values ranging from negative 128 (0x80) to positive 127 (0x7F)
- * int16     | short     | integer values ranging from negative 32,768 (0x8000) to positive 32,767 (0x7FFF)
- * int32     | int       | an integer values ranging from negative 2,147,483,648 (0x80000000) to positive 2,147,483,647 (0x7FFFFFFF)
- * float     | Float     | a 32 bit  floating point value according IEEE754-1985, single-precision
- * double    | Double    | a 64 bit  floating point value according IEEE754-1985, double-precision
- * string8   | String    | Array of UTF8 characters. Each character takes 1 byte (UTF8).
- * string16  | String    | Array of UTF16 characters. Each character takes 2 bytes (UTF16).
- * url       | String    | Data type representing a URL
+ * Data Type  | Java Type  | Default Value | Description
+ * -----------|------------|---------------|------------------------------------------------------
+ * bool       | boolean    | false         | the logical values true and false.
+ * uint8      | short      | 0             | integer values ranging from 0 to positive 255 (0xFF)
+ * uint16     | int        | 0             | integer values ranging from 0 to positive 65,535 (0xFFFF)
+ * uint32     | long       | 0             | integer values ranging from 0 to positive 4,294,967,295 (0xFFFFFFFF)
+ * int8       | byte       | 0             | integer values ranging from negative 128 (0x80) to positive 127 (0x7F)
+ * int16      | short      | 0             | integer values ranging from negative 32,768 (0x8000) to positive 32,767 (0x7FFF)
+ * int32      | int        | 0             | an integer values ranging from negative 2,147,483,648 (0x80000000) to positive 2,147,483,647 (0x7FFFFFFF)
+ * float      | Float      | 0.0           | a 32 bit  floating point value according IEEE754-1985, single-precision
+ * double     | Double     | 0.0           | a 64 bit  floating point value according IEEE754-1985, double-precision
+ * string8    | String     | null          | Array of UTF8 characters. Each character takes 1 byte (UTF8).
+ * string16   | String     | null          | Array of UTF16 characters. Each character takes 2 bytes (UTF16).
+ * url        | String     | null          | Data type representing a URL
+ * typeName[] | typeName[] | empty array   | Data type representing an array of values of type typename
+ * typeName   | typeName   | default for   | Data type representing the structure typeName
+ *            |            | all elements  |
+ * void*      | Object     | null          | Reference to a data structure
  * </pre>
  */
 public class Defs {
@@ -150,10 +154,10 @@ public class Defs {
     /*****************************************************************************
      4 COMMON API ELEMENTS
      *****************************************************************************/
-    /** 4.1 MirrorLink Device Info */
+    /** 4.2 MirrorLink Device Info */
 
     /**
-     * 4.1.4 ClientInformation Bundle property names
+     * 4.2.4 ClientInformation Bundle property names
      */
     public static final class ClientInformation {
         /**
@@ -183,10 +187,10 @@ public class Defs {
         public static final String CLIENT_MODEL_NUMBER = "CLIENT_MODEL_NUMBER";
     }
 
-    /** 4.2 Certification Information */
+    /** 4.3 Certification Information */
 
     /**
-     * 4.2.1 ApplicationCertificationStatus Bundle property names and values
+     * 4.3.1 ApplicationCertificationStatus Bundle property names and values
      */
     public static final class ApplicationCertificationStatus {
         /**
@@ -201,7 +205,7 @@ public class Defs {
         public static final String ADVERTISED_AS_CERTIFIEDAPP = "ADVERTISED_AS_CERTIFIEDAPP";
     }
     /**
-     *  4.2.3 CertificateInformation Bundle property names and values
+     *  4.3.3 CertificateInformation Bundle property names and values
      */
     public static final class CertificateInformation {
         /**
@@ -228,10 +232,10 @@ public class Defs {
         public static final String NONRESTRICTED = "NONRESTRICTED";
     }
 
-    /** 4.3 Connection Information */
+    /** 4.4 Connection Information */
 
     /**
-     *  4.3.1 AudioConnections Bundle property names and values
+     *  4.4.3 AudioConnections Bundle property names and values
      */
     public static final class AudioConnections {
         /**
@@ -299,7 +303,7 @@ public class Defs {
         public static final byte INCALL_AUDIO_RTP = 0x02;
     }
     /**
-     *  4.3.3 RemoteDisplayConnection Bundle property names and values
+     *  4.4.5 RemoteDisplayConnection Bundle property names and values
      */
     public static final class RemoteDisplayConnection {
         /**
@@ -310,30 +314,43 @@ public class Defs {
         /**
          * RemoteDisplayConnection.RemoteDisplayType values
          */
-        public static final byte REMOTEDISPLAY_NONE = 0x00;
-        public static final byte REMOTEDISPLAY_VNC = 0x01;
-        public static final byte REMOTEDISPLAY_HSML = 0x02;
-        public static final byte REMOTEDISPLAY_WFD = 0x03;
+        public static final short REMOTEDISPLAY_NONE = 0x00;
+        public static final short REMOTEDISPLAY_VNC = 0x01;
+        public static final short REMOTEDISPLAY_HSML = 0x02;
+        public static final short REMOTEDISPLAY_WFD = 0x03;
+        public static final short REMOTEDISPLAY_OTHER = (short)0xFF;
     }
 
-    /** 4.4 Display Related Features */
+    /** 4.5 Display Information */
 
     /**
-     *  4.4.1 ClientDisplayConfiguration Bundle property names and values
+     *  4.5.1 DisplayConfiguration Bundle property names and values.
      */
-    public static final class ClientDisplayConfiguration {
+    public static final class DisplayConfiguration {
         /**
-         * Horizontal resolution in pixel of the MirrorLink Client framebuffer,
+         * Horizontal resolution in pixels of the MirrorLink Server framebuffer,
          * available for rendering the MirrorLink Server’s screen.
          * uint16 packaged as an int
          */
-        public static final String PIXEL_WIDTH = "PIXEL_WIDTH";
+        public static final String SERVER_PIXEL_WIDTH = "SERVER_PIXEL_WIDTH";
         /**
-         * Vertical resolution in pixel of the MirrorLink Client framebuffer,
-         * available for rendering the MirrorLink Server’s screen
+         * Vertical resolution in pixels of the MirrorLink Server framebuffer,
+         * available for rendering the MirrorLink Server’s screen.
          * uint16 packaged as an int
          */
-        public static final String PIXEL_HEIGHT = "PIXEL_HEIGHT";
+        public static final String SERVER_PIXEL_HEIGHT = "SERVER_PIXEL_HEIGHT";
+        /**
+         * Horizontal resolution in pixels of the MirrorLink Client framebuffer,
+         * available for rendering the MirrorLink Server’s screen.
+         * uint16 packaged as an int
+         */
+        public static final String CLIENT_PIXEL_WIDTH = "CLIENT_PIXEL_WIDTH";
+        /**
+         * Vertical resolution in pixels of the MirrorLink Client framebuffer,
+         * available for rendering the MirrorLink Server’s screen.
+         * uint16 packaged as an int
+         */
+        public static final String CLIENT_PIXEL_HEIGHT = "CLIENT_PIXEL_HEIGHT";
         /**
          * Physical width in mm of the MirrorLink Client display,
          * where the MirrorLink Server’s screen appears.
@@ -354,53 +371,25 @@ public class Defs {
         public static final String DISTANCE = "DISTANCE";
     }
     /**
-     * 4.4.3 IDisplayManager.getClientPixelFormat values
+     * 4.5.3 IDisplayManager.getClientPixelFormat values
      */
     public static final class ClientPixelFormat {
-        public static final byte ARGB8888 = 0x01;
-        public static final byte RGB888 = 0x02;
-        public static final byte ARGB565 = 0x03;
-        public static final byte RGB555 = 0x04;
-        public static final byte RGB444 = 0x05;
-        public static final byte RGB343 = 0x06;
-        public static final byte GRAY16 = 0x07;
-        public static final byte GRAY8 = 0x08;
+        public static final short ARGB8888 = 0x01;
+        public static final short RGB888 = 0x02;
+        public static final short ARGB565 = 0x03;
+        public static final short RGB555 = 0x04;
+        public static final short RGB444 = 0x05;
+        public static final short RGB343 = 0x06;
+        public static final short GRAY16 = 0x07;
+        public static final short GRAY8 = 0x08;
     }
     /**
-     *  4.4.5 ServerScalingConfiguration Bundle property names and values
-     */
-    public static final class ServerScalingConfiguration {
-        /**
-         * Horizontal resolution in pixel of the MirrorLink Server’s framebuffer,
-         * which gets replicated to the MirrorLink Client (after scaling).
-         * uint16 packaged as an int
-         */
-        public static final String SCALED_WIDTH = "SCALED_WIDTH";
-        /**
-         * Vertical resolution in pixel of the MirrorLink Server’s framebuffer,
-         * which gets replicated to the MirrorLink Client (after scaling).
-         * uint16 packaged as an int
-         */
-        public static final String SCALED_HEIGHT = "SCALED_HEIGHT";
-        /**
-         * Algorithm used for scaling
-         * uint8 packaged as a short
-         */
-        public static final String ALGORITHM = "ALGORITHM";
-        /**
-         * ServerScalingConfiguration ALGORITHM values
-         */
-        public static final byte SCALING_NONE = 0x00;
-        public static final byte SCALING_LINEAR = 0x01;
-        public static final byte SCALING_BILINEAR = 0x02;
-    }
-    /**
-     * 4.4.7 Set Framebuffer Orientation Support
+     * 4.5.5 Set Framebuffer Orientation Support
      */
     public static final class FramebufferOrientationSupport {
-        public static final byte LANDSCAPE_ONLY = 0x01;
-        public static final byte PORTRAIT_ONLY = 0x02;
-        public static final byte LANDSCAPE_AND_PORTRAIT = 0x03;
+        public static final short LANDSCAPE_ONLY = 0x01;
+        public static final short PORTRAIT_ONLY = 0x02;
+        public static final short LANDSCAPE_AND_PORTRAIT = 0x03;
     }
 
     /** 4.5 Event Related Features */
