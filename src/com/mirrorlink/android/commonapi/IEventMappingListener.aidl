@@ -19,22 +19,28 @@ package com.mirrorlink.android.commonapi;
 import android.os.Bundle;
 
 /**
- * Provides the interface related to 4.5 Event Features - Callbacks
+ * Provides the interface related to 4.6 Event Features - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link IEventMappingManager}.
  */
 oneway interface IEventMappingListener {
     /**
-     * 4.5.2 Event Configuration Callback
+     * 4.6.2 Event Configuration Callback.
+     * 
      * MirrorLink session event configuration information has changed.
      *
-     * @param eventConfiguration the event configuration of the MirrorLink session
+     * @param eventConfiguration The event configuration of the MirrorLink session. The fields
+     * available in the return type are defined in {@link Defs.EventConfiguration}.
      */
     void onEventConfigurationChanged(in Bundle eventConfiguration);
 
     /**
-     * 4.5.5 Get Event Mapping Callback
+     * 4.6.4 Get Event Mapping Callback.
+     *
      * The application MUST be notified, whenever the MirrorLink Server and Client change the mapping.
      *
-     * @param eventMapping the mapping information about remote events and local events
+     * @param eventMapping The mapping information about remote events and local events. This is a
+     * Bundle with the fields defined in {@link Defs.EventMapping}.
      */
     void onEventMappingChanged(in Bundle eventMapping);
 

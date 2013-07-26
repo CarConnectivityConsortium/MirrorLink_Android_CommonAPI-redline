@@ -21,7 +21,9 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.IEventMappingListener;
 
 /**
- * Provides the interface related to 4.5 Event Features
+ * Provides the interface related to 4.6 Event Features.
+ *
+ * The callbacks are defined in {@link IEventMappingListener}.
  *
  * Module reference: 0x05
  * Server requirement: Mandatory
@@ -29,42 +31,51 @@ import com.mirrorlink.android.commonapi.IEventMappingListener;
 interface IEventMappingManager {
 
     /**
-     * 4.5.1 Event Configuration
-     * Access information on the event properties of the MirrorLink connection,
-     * i.e. the event properties, which are supported from both,
-     * the MirrorLink Server and MirrorLink Client;
+     * 4.6.1 Event Configuration.
+     *
+     * Access information on the event properties of the MirrorLink connection, i.e. the event
+     * properties, which are supported from both, the MirrorLink Server and MirrorLink Client;
      * details on the event configuration are specified in the VNC specification.
      *
-     * @return  the event configuration of the connection
-     *          as specified in MirrorLink VNC specification
+     * Requires established VNC connection; any later change to the provided information MUST be
+     * notified via the callback function {@link IEventMappingListener#onEventConfigurationChanged}.
+     *
+     * @return  The event configuration of the connection as specified in MirrorLink VNC
+     * specification. The fields available in the return type are defined in {@link
+     * Defs.EventConfiguration}.
      */
     Bundle getEventConfiguration();
 
 
     /**
-     * 4.5.4 Get Event Mapping
-     * Mapping MirrorLink Client events to local MirrorLink Server events; 
-     * this API call gives access to the internal mapping in the MirrorLink Server.
+     * 4.6.3 Get Event Mapping.
      *
-     * @return  the key mapping information about remote events and local events
+     * Mapping MirrorLink Client events to local MirrorLink Server events; this API call gives
+     * access to the internal mapping in the MirrorLink Server.
+     *
+     * Requires established VNC connection; any later change to the provided information MUST be
+     * notified via the callback function {@link IEventMappingListener#onEventMappingChanged}.
+     *
+     * @return  The key mapping information about remote events and local events. This is a list of
+     * Bundles that have their fields defined in {@link Defs.EventMapping}.
      */
     List<Bundle> getEventMappings();
 
     /**
-     * Register the listener for monitoring the EventMappingManager
+     * Register the listener for monitoring the EventMappingManager.
      *
-     * @param   listener the listener to register
+     * @param   listener The listener to register.
      *
-     * @return  true is the listener was registered, false otherwise
+     * @return  true if the listener was registered, false otherwise.
      */
     boolean registerListener(in IEventMappingListener listener);
 
     /**
-     * Unregister the listener monitoring the EventMappingManager
+     * Unregister the listener monitoring the EventMappingManager.
      *
-     * @param   listener the listener to unregister
+     * @param   listener The listener to unregister.
      *
-     * @return  true is the listener was unregistered, false otherwise
+     * @return  true is the listener was unregistered, false otherwise.
      */
     boolean unregisterListener(in IEventMappingListener listener);
 }

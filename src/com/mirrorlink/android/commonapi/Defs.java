@@ -40,7 +40,7 @@ package com.mirrorlink.android.commonapi;
  * string8    | String     | null          | Array of UTF8 characters. Each character takes 1 byte (UTF8).
  * string16   | String     | null          | Array of UTF16 characters. Each character takes 2 bytes (UTF16).
  * url        | String     | null          | Data type representing a URL
- * typeName[] | typeName[] | empty array   | Data type representing an array of values of type typename
+ * typeName[] | List       | empty array   | Data type representing an array of values of type typename
  * typeName   | typeName   | default for   | Data type representing the structure typeName
  *            |            | all elements  |
  * void*      | Object     | null          | Reference to a data structure
@@ -392,9 +392,9 @@ public class Defs {
         public static final short LANDSCAPE_AND_PORTRAIT = 0x03;
     }
 
-    /** 4.5 Event Related Features */
+    /** 4.6 Event Related Features */
     /**
-     * 4.5.1 EventConfiguration Bundle property names and values
+     * 4.6.1 EventConfiguration Bundle property names and values
      */
     public static final class EventConfiguration {
         /**
@@ -429,7 +429,12 @@ public class Defs {
          * Number of simultaneous touch events, supported from the MirrorLink Client
          * uint8 packaged as a short
          */
-        public static final String POINTER_SUPPORT = "POINTER_SUPPORT";
+        public static final String TOUCH_SUPPORT = "TOUCH_SUPPORT";
+        /**
+         * The pressure mask indicates how many pressure levels can be distinguished from the
+         * MirrorLink Server and Client.
+         */
+        public static final String PRESSURE_MASK = "PRESSURE_MASK";
         /**
          * KNOB_KEY_SUPPORT values
          */
@@ -498,32 +503,34 @@ public class Defs {
         public static final long MULTIMEDIA_KEY_SUPPORT_UNMUTE   = 0x00000100;
         public static final long MULTIMEDIA_KEY_SUPPORT_PHOTO    = 0x00000200;
         /**
-         * POINTER_SUPPORT values
+         * TOUCH_SUPPORT values
          */
-        public static final byte POINTER_SUPPORT_NONE                     = 0x00;
-        public static final byte POINTER_SUPPORT_POINTER                  = 0x01;
-        public static final byte POINTER_SUPPORT_TOUCH                    = 0x02;
+        public static final int TOUCH_SUPPORT_NONE                     = 0x00;
+        public static final int TOUCH_SUPPORT_SINGLE                   = 0x01;
+        /**
+         * The multi touch value will be a number greater or equal than 2. It will represent the
+         * number of touches supported.
+         */
+        public static final int TOUCH_SUPPORT_MULTI                    = 0xFF;
     }
     /**
-     * 4.5.4 EventMapping Bundle property names and values
+     * 4.6.4 EventMapping Bundle property names and values
      */
     public static final class EventMapping {
         /**
-         * Key event value of the remote event
-         * uint32 packaged as a long
+         * Key event value of the remote event.
          */
         public static final String REMOTE_EVENT = "REMOTE_EVENT";
         /**
          * Key event value of the local event, as it will be emulated on the
          * MirrorLink Server device in response to the received remote event.
-         * uint32 packaged as a long
          */
         public static final String LOCAL_EVENT = "LOCAL_EVENT";
     }
 
-    /** 4.6 Context Information Related Features */
+    /** 4.9 Context Information Related Features */
     /**
-     *  4.6.3 BlockingInformation values
+     *  4.9.3 BlockingInformation values
      */
     public static final class BlockingInformation {
         /**
@@ -552,7 +559,7 @@ public class Defs {
         public static final int ORIENTATIONBLOCKED_PORTRAIT = 0x02;
     }
     /**
-     *  4.6.2, 4.6.5 Framebuffer and Audio Context Information values
+     *  4.9.1, 4.9.3 Framebuffer and Audio Context Information values
      */
     public static final class ContextInformation {
         /**
@@ -619,7 +626,17 @@ public class Defs {
         public static final long VISUAL_CONTENT_CATEGORY_MISC = 0x80000000;
     }
 
-    /** 4.8 Data Services  */
+    /** 4.11 Data Services  */
+
+    /**
+     * Constants used for the types of subscriptions. A value defined here is used in the {@link
+     * IDataServicesListener#onSubscribeResponse}.
+     */
+    public static final class SubscriptionType {
+        public static final int REGULAR_INTERVAL = 0x00;
+        public static final int ON_CHANGE        = 0x01;
+        public static final int AUTOMATIC        = 0x02;
+    }
 
     /**
      * Constants used when interacting with the Location data service
@@ -682,9 +699,10 @@ public class Defs {
         public static final int SUPPORT_VTG              = 0x20;
         public static final int SUPPORT_GST              = 0x40;
     }
-    /** 4.9 Notifications */
+
+    /** 4.12 Notifications */
     /**
-     * 4.9.4 NotificationConfiguration Bundle property names
+     * 4.12.4 NotificationConfiguration Bundle property names
      */
     public static final class NotificationConfiguration {
         /**
@@ -693,23 +711,19 @@ public class Defs {
          */
         public static final String NOTIFICATION_SUPPORTED = "NOTIFICATION_SUPPORTED";
         /**
-         * Maximum number of actions
-         * uint8 packaged as a short
+         * Maximum number of actions.
          */
         public static final String MAX_ACTIONS = "MAX_ACTIONS";
         /**
-         * Maximum number of characters of the Action Name
-         * uint8 packaged as a short
+         * Maximum number of characters of the Action Name.
          */
         public static final String MAX_ACTION_NAME_LENGTH = "MAX_ACTION_NAME_LENGTH";
         /**
-         * Maximum number of characters of the notification title
-         * uint16 packaged as an int
+         * Maximum number of characters of the notification title.
          */
         public static final String MAX_TITLE_LENGTH = "MAX_TITLE_LENGTH";
         /**
-         * Maximum number of characters of the notification body
-         * uint16 packaged as an int
+         * Maximum number of characters of the notification body.
          */
         public static final String MAX_BODY_LENGTH = "MAX_BODY_LENGTH";
     }

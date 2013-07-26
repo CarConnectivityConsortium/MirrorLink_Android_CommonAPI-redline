@@ -18,43 +18,36 @@ package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
- /**
- * Provides the interface related to 4.6 Context Information - Callbacks
+/**
+ * Provides the interface related to 4.9 Context Information - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link IContextManager}.
  */
 oneway interface IContextListener {
 
     /**
-     * 4.6.3 Framebuffer Blocking Information Callback
-     * Provides information on Framebuffer Blocking
+     * 4.9.2 Framebuffer Blocking Information Callback.
+     *
+     * Framebuffer is blocked from the MirrorLink Client; in case the application has indicated that
+     * it will handle the blocking it MUST remove the blocked content.
+     *
+     * The application MUST switch to an activity with updated context information.  If the not, the
+     * MirrorLink Server will unblock the framebuffer by terminating the application.
      *
      * @param reason Reason for Framebuffer blocking
      *        Note: Blocking because of the wrong framebuffer orientation, is not reported via this function.
      * @param framebufferArea Framebuffer rectangle for the specified region.
      *
-     * The application must switch to an activity with updated context information.
-     * If the not, the MirrorLink Server will unblock the framebuffer
-     * by terminating the application
      */
     void onFramebufferBlocked(in int reason, in Rect framebufferArea);
 
     /**
-     * 4.6.4 Framebuffer Orientation Blocked Callback
-     * A framebuffer orientation is blocked from the MirrorLink Client;
-     * the application is requested to switch back to the other orientation.
-     * If not implemented, applications will be able to support landscape only.
+     * 4.9.4 Audio Blocking Information.
      *
-     * @param orientation the Orientation blocked by the client
-     */
-    void onFramebufferOrientationBlocked(in byte orientation);
-
-    /**
-     * 4.6.6 Audio Blocking Information
-     * Provides information on Framebuffer Blocking
+     * Audio is blocked from the MirrorLink Client; in case the application has indicated that
+     * it will handle the blocking it MUST remove the blocked content.
      *
      * @param reason Reason for Audio blocking
-     *
-     * The application must switch to an audio stream with updated context information.
-     * If not the server will unblock the audio by muting the audio stream
      */
     void onAudioBlocked(in int reason);
 }

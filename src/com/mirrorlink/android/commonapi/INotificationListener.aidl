@@ -19,28 +19,32 @@ package com.mirrorlink.android.commonapi;
 import android.os.Bundle;
 
 /**
- * Provides the interface related to 4.9 Notifications - Callbacks.
+ * Provides the interface related to 4.12 Notifications - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link INotificationManager}.
  */
-oneway interface INotificationListener
-{
+oneway interface INotificationListener {
     /**
-     * 4.9.3 Notifications Enabled Callback
-     * Notification that enablement has changed
+     * 4.12.3 Notifications Enabled Callback.
      *
-     * @param   notiEnabled the flag indicating the notifications are enabled or not
+     * Notification that enablement has changed.
+     *
+     * @param   notiEnabled The flag indicating the notifications are enabled or not.
      */
     void onNotificationEnabledChanged(in boolean notiEnabled);
 
     /**
-     * 4.9.5 Notification Configuration Callback
+     * 4.12.5 Notification Configuration Callback.
+     *
      * Notification Configuration information has changed.
      *
-     * @param   notificationConfiguration the UPnP notification service related preference of Client
+     * @param   notificationConfiguration The UPnP notification service related preference of
+     * Client. The fields available are defined in {@link Defs.NotificationConfiguration}.
      */
     void onNotificationConfigurationChanged(in Bundle notificationConfiguration);
 
     /**
-     * 4.9.10 Receive Action Callback
+     * 4.12.9 Receive Action Callback
      * Receive action from the MirrorLink Client for a notification;
      *
      * @param notificationId Identifier of the notification

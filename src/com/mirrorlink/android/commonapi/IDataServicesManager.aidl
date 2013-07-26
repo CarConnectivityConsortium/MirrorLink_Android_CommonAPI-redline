@@ -21,93 +21,109 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.IDataServicesListener;
 
 /**
- * Provides the interface related to 4.8 Data Services
+ * Provides the interface related to 4.11 Data Services.
+ *
+ * The callbacks are defined in {@link IDataServicesListener}.
  *
  * Module reference: 0x0A
  * Server requirement: Optional
  */
 interface IDataServicesManager {
     /**
-     * 4.8.1 Get Available Services
-     * Retrieve list of available Services provided from the MirrorLink Client
-     * and supported from the MirrorLink Server.
+     * 4.11.1 Get Available Services.
+     *
+     * Retrieve list of available Services provided from the MirrorLink Client and supported from
+     * the MirrorLink Server.
+     *
      * @return  List of provided services;
-     *          an empty list is returned if the CDB connection has not been established.
+     *          an empty list is returned if the CDB connection has not been established. The list
+     *          contains Strings with the names of the available services. The known services are
+     *          {@link Defs.LocationService} and {@link Defs.GPSService}. 
      */
-    List<Bundle> getAvailableServices();
+    List<String> getAvailableServices();
 
     /**
-     * 4.8.3 Register to a Service
-     * Register to an available Service
+     * 4.11.3 Register to a Service.
      *
-     * @param serviceId Service identifier
+     * Register to an available Service.
      *
-     * @return Flag, to indicate whether the action is successful
+     * @param serviceId Service identifier. Will be one of {@link
+     * Defs.LocationService#LOCATION_OBJECT_UID}, or {@link Defs.GPSService#NMEA_OBJECT_UID}.
      */
-    boolean registerToService(in int serviceId);
+    void registerToService(in int serviceId);
 
     /**
-     * 4.8.5 Unregister from a Service
-     * Unregister from an available Service
+     * 4.11.5 Unregister from a Service.
      *
-     * @param serviceId Service identifier
+     * Unregister from an available Service.
      *
-     * @return Flag, to indicate whether the action is successful
+     * @param serviceId Service identifier.
      */
-    boolean unregisterFromService(in int serviceId);
+    void unregisterFromService(in int serviceId);
 
     /**
-     * 4.8.6 Subscribe to an Object
-     * Subscribe a Service Object
+     * 4.11.6 Subscribe to an Object.
      *
-     * @param serviceId Service identifier
+     * Subscribe a Service Object.
      *
-     * @param objectId Hash value of the object
+     * @param serviceId Service identifier.
      *
-     * @return Flag, to indicate whether the action is successful
+     * @param objectId Hash value of the object.
      */
-    boolean subscribeObject(in int serviceId, in long objectId);
+    void subscribeObject(in int serviceId, in long objectId);
 
     /**
-     * 4.8.8 Unsubscribe from an Object
-     * Unsubscribe from a Service Object
+     * 4.11.8 Unsubscribe from an Object.
      *
-     * @param serviceId Service identifier
+     * Unsubscribe from a Service Object.
      *
-     * @param objectId Hash value of the object
+     * @param serviceId Service identifier.
      *
-     * @return Flag, to indicate whether the action is successful
+     * @param objectId Hash value of the object.
      */
-    boolean unsubscribeObject(in int serviceId, in long objectId);
+    void unsubscribeObject(in int serviceId, in long objectId);
 
     /**
-     * 4.8.10 Get an Object
-     * Get a Service Object
+     * 4.11.9 Set an Object.
+     *
+     * Set a Service Object. Requires established CDB connection and registered service.
+     *
+     * @param serviceId Service identifier.
+     *
+     * @param objectId the hash value of the object.
+     *
+     * @param object Bundle containing the object payload. Every value in the object is mapped to a corresponding
+     *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
+     *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
+     */
+    void setObject(in int serviceId, in long objectId, in Bundle object);
+
+    /**
+     * 4.11.10 Get an Object.
+     *
+     * Get a Service Object. Requires established CDB connection and registered service.
      *
      * @param serviceId Service identifier
      *
      * @param objectId the hash value of the object
-     *
-     * @return Flag, to indicate whether the action is successful
      */
-
-    boolean getObject(in int serviceId, in long objectId);
+    void getObject(in int serviceId, in long objectId);
 
     /**
-     * Register the listener for monitoring the DataServicesManager
+     * Register the listener for monitoring the DataServicesManager.
      *
-     * @param   listener the listener to register
+     * @param   listener The listener to register.
      *
-     * @return  true is the listener was registered, false otherwise
+     * @return  true if the listener was registered, false otherwise.
      */
     boolean registerListener(in IDataServicesListener listener);
 
     /**
-     * Unregister the listener monitoring the DataServicesManager
+     * Unregister the listener monitoring the DataServicesManager.
+     
+     * @param   listener The listener to unregister.
      *
-     * @param   listener the listener to unregister
-     *
-     * @return  true is the listener was unregistered, false otherwise
+     * @return  true if the listener was unregistered, false otherwise.
      */
     boolean unregisterListener(in IDataServicesListener listener);
 }

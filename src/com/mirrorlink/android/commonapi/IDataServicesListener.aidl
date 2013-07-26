@@ -18,51 +18,60 @@ package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
- /**
- * Provides the interface related to 4.8 Data Services - Callbacks
+/**
+ * Provides the interface related to 4.11 Data Services - Callbacks.
+ *
+ * This is the interface for callbacks coming from {@link IDataServicesManager}.
  */
 oneway interface IDataServicesListener {
 
     /**
-     * 4.8.2 Available Services Callback
-     * Change in available services.
+     * 4.11.2 Available Services Callback.
      *
-     * @param  services List of provided services;
+     * Change in available services. Callback must be called, when CDB connection is established.
+     *
+     * @param  services List of provided services. The list contains Strings with the names of the
+     * available services. The known services are {@link Defs.LocationService} and {@link
+     * Defs.GPSService}. 
      */
     void onAvailableServicesChanged(in List<Bundle> services);
 
     /**
-     * 4.8.4 Register to a Service Callback
-     * Registration completed
+     * 4.11.4 Register to a Service Callback.
      *
-     * @param serviceId Service identifier
+     * Registration completed.
      *
-     * @param success Flag, to indicate whether the action is successful
+     * @param serviceId Service identifier.
+     *
+     * @param success Flag, to indicate whether the action is successful.
      */
     void onRegisterForService(in int serviceId, in boolean success);
 
     /**
-     * 4.8.7 Subscribe to an Object Callback
-     * Subscription complete
+     * 4.11.7 Subscribe to an Object Callback.
      *
-     * @param serviceId Service identifier
+     * Subscription complete.
      *
-     * @param objectId Hash value of the object
+     * @param serviceId Service identifier.
      *
-     * @param success Flag, to indicate whether the action is successful
+     * @param objectId Hash value of the object.
      *
-     * @param subscriptionType the subscription type
-     *              0x00:   Regular interval
-     *              0x01:   On Change
-     *              0x02:   Automatic
+     * @param success Flag, to indicate whether the action is successful.
      *
-     * @param interval Regular time interval in ms, in which updates are sent.
+     * @param subscriptionType The subscription type. Will have one of the values defined in {@link
+     * Defs.SubscriptionType}.
+     *
+     * @param interval Regular time interval in ms, in which updates are sent. MUST be 0 for
+     * subscription types {@link Defs.SubscriptionType#ON_CHANGE} and {@link
+     * Defs.SubscriptionType#AUTOMATIC}.
      */
-    void onSubscribeResponse(in int serviceId, in long objectId, in boolean success, in byte subscriptionType, in int interval);
+    void onSubscribeResponse(in int serviceId, in long objectId, in boolean success,
+            in byte subscriptionType, in int interval);
 
     /**
-     * 4.8.7 Subscribe to an Object Callback
-     * Object received
+     * 4.11.? Subscribe Data Object Changed Callback.
+     *
+     * Object received.
      *
      * @param serviceId Service identifier
      *
@@ -75,12 +84,15 @@ oneway interface IDataServicesListener {
     void onSubscribeDataObjectChanged(in int serviceId, in long objectId, in Bundle object);
 
     /**
-     * 4.8.11 Get an Object Callback
-     * Object received
+     * 4.11.11 Get an Object Callback.
+     *
+     * Object received.
      *
      * @param serviceId Service identifier
      *
      * @param objectId Hash value of the object
+     *
+     * @param success Flag to indicate whether the action is successful.
      *
      * @param object Bundle containing the object payload. Every value in the object is mapped to a corresponding
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.

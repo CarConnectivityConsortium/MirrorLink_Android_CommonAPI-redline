@@ -21,46 +21,51 @@ import android.os.Bundle;
 import com.mirrorlink.android.commonapi.INotificationListener;
 
 /**
- * Provides the interface related to 4.9 Notifications.
+ * Provides the interface related to 4.12 Notifications.
+ *
+ * The callbacks are defined in {@link INotificationListener}.
  *
  * Module reference: 0x0B
  * Server requirement: Optional
  */
 interface INotificationManager {
     /**
-     * 4.9.1 Notifications Supported
-     * Indicate support for UPnP notifications from the application;
-     * the MirrorLink Server will issue a NotiAppListUpdate event,
-     * to inform the MirrorLink Client that the notification support
-     * for this application has changed.
+     * 4.12.1 Notifications Supported.
      *
-     * @param notificationSupported Flag indicating notification support from the application
+     * Indicate support for UPnP notifications from the application; the MirrorLink Server will
+     * issue a NotiAppListUpdate event, to inform the MirrorLink Client that the notification
+     * support for this application has changed. Unless otherwise set by the application, the
+     * MirrorLink Server MUST assume that the application will not support notifications.
      *
-     * @return Flag, to indicate whether the action is successful
+     * @param notificationSupported Flag indicating notification support from the application.
      */
-    boolean setNotificationSupported(in boolean notificationSupported);
+    void setNotificationSupported(in boolean notificationSupported);
 
     /**
-     * 4.9.2 Notifications Enabled
-     * Checks whether notifications are enabled for the application
-     * from the MirrorLink Server and Client.
+     * 4.12.2 Notifications Enabled.
      *
-     * @return Flag indicating that notifications are enabled from MirrorLink
-     *         Server and Client for the application
+     * Checks whether notifications are enabled for the application from the MirrorLink Server and
+     * Client.
+     *
+     * @return Flag indicating that notifications are enabled from MirrorLink Server and Client for
+     * the application.
      */
     boolean getNotificationEnabled();
 
     /**
-     * 4.9.4 Notification Configuration
-     * Get information, in case the MirrorLink client is providing 
-     * configuration information for the notification service.
+     * 4.12.4 Notification Configuration.
      *
-     * @return Bundle containing the notification configuration
+     * Get configuration information for the notification service, any later change to the provided
+     * information MUST be notified via the callback function.
+     *
+     * @return Bundle containing the notification configuration. The fields available are defined in
+     * {@link Defs.NotificationConfiguration}.
      */
     Bundle getNotificationConfiguration();
 
     /**
-     * 4.9.6 Send Notification for client-based Notification UI
+     * 4.12.6 Send Notification for client-based Notification UI.
+     *
      * Send a notification from the application; this notification replaces a previously send notification.
      *
      * @param   title Title of the notification event
@@ -73,41 +78,41 @@ interface INotificationManager {
      *
      * @return The notification identifier; a Zero value will be returned, if the action was not successful.
      */
-     long sendClientNotification(in String title, in String body, in Uri iconUrl, in List<Bundle> actionList);
+     int sendClientNotification(in String title, in String body, in Uri iconUrl, in List<String> actionList);
 
     /**
-     * 4.9.7 Send Notification for VNC-based Notification UI
+     * 4.12.7 Send Notification for VNC-based Notification UI.
+     *
      * Send a notification from the application; this notification replaces a previously send notification.
      *
      * @return The notification identifier; a Zero value will be returned, if the action was not successful.
      */
-    boolean sendVncNotification();
+    int sendVncNotification();
 
     /**
-     * 4.9.9 Cancel Notification 
-     * Cancel a notification from the application;
+     * 4.12.8 Cancel Notification .
+     *
+     * Cancel a notification from the application.
      *
      * @param notificationId Identifier of the notification, which needs to get canceled. 
-     *
-     * @return Flag, to indicate whether the action is successful
      */
-    boolean cancelNotification(in long notificationId);
+    boolean cancelNotification(in int notificationId);
 
     /**
-     * Register the listener for monitoring the NotificationManager
+     * Register the listener for monitoring the NotificationManager.
      *
-     * @param   listener the listener to register
+     * @param   listener The listener to register.
      *
-     * @return  true is the listener was registered, false otherwise
+     * @return  true if the listener was registered, false otherwise.
      */
     boolean registerListener(in INotificationListener listener);
 
     /**
-     * Unregister the listener monitoring the NotificationManager
+     * Unregister the listener monitoring the NotificationManager.
      *
-     * @param   listener the listener to unregister
+     * @param   listener The listener to unregister.
      *
-     * @return  true is the listener was unregistered, false otherwise
+     * @return  true if the listener was unregistered, false otherwise.
      */
     boolean unregisterListener(in INotificationListener listener);
 }

@@ -57,7 +57,7 @@ interface IDisplayManager {
      * 4.5.5 Set Framebuffer Orientation Support.
      * 
      * Inform the MirrorLink Server about the application’s framebuffer orientation support; unless
-     * otherwise set by the application, the VNC Server MUST assume that the applica-tion will only
+     * otherwise set by the application, the VNC Server MUST assume that the application will only
      * support Landscape.
      *
      * @param framebufferOrientation Orientation of the Application Framebuffer. The possible values
