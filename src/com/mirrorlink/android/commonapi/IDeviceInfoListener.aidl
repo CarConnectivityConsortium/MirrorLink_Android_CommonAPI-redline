@@ -28,11 +28,15 @@ oneway interface IDeviceInfoListener {
     /**
      * 4.2.4 MirrorLink Client Manufacturer and Model Information Callback.
      *
-     * Indicates that the Client information has changed; an application MUST use the function
-     * described in {@link IDeviceInfoManager#getMirrorLinkSessionVersionMajor}, {@link
-     * IDeviceInfoManager#getMirrorLinkConnectionVersionMinor} and {@link
-     * IDeviceInfoManager#getMirrorLinkClientInformation} to retrieve the updated information.
+     * Indicates that the Client information has changed;
+     *
+     * @param mirrorLinkVersionMajor MirrorLink Session major version.
+     *
+     * @param mirrorLinkVersionMinor MirrorLink Session minor version.
+     *
+     * @param clientInformation containg the client information or null if no client is connected. The bundle
+     * will contain the values defined in {@link Defs.ClientInformation}.
      */
-    void onDeviceInfoChanged();
+    void onDeviceInfoChanged(in int mirrorLinkVersionMajor, in int mirrorLinkVersionMinor, in Bundle clientInformation);
 
 }

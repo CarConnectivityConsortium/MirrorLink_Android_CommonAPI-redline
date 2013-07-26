@@ -28,25 +28,34 @@ import android.os.Parcelable;
 
 oneway interface IDisplayListener {
     /**
-     * 4.5.2 Client Display Configuration Callback.
+     * 4.5.2 Display Configuration Callback.
      *
-     * Client Display Configuration has changed.
+     * Display Configuration has changed.
+     * 
+     * @param displayConfiguration the display configuration of the MirrorLink Client. The
+     * fields available in the data type are in {@link Defs.DisplayConfiguration}.
      */
-    void onClientDisplayConfigurationChanged();
+    void onDisplayConfigurationChanged(in Bundle displayConfiguration);
 
     /**
      * 4.5.4 Client Pixel Format Callback.
      *
      * Pixel format has changed.
+     *
+     * @param pixelFormat the pixel format of the framebuffer data. The values are defined in {@link
+     * Defs.ClientPixelFormat}.
      */
-    void onPixelFormatChanged();
+    void onPixelFormatChanged(in int pixelFormat);
 
     /**
      * 4.5.6 Switch Framebuffer Orientation Callback.
      *
      * MirrorLink Server requests a framebuffer orientation switch from the application. The actual
      * switch will happen via regular OS/platform mechanisms. An application MUST switch its
-     * orientation, if it has indicated support for Landscape and Portrait in 4.4.5.
+     * orientations, if it has indicated support for Landscape and Portrait.
+     *
+     * @param framebufferOrientation Orientation of the Application Framebuffer. The possible values
+     * are defined in {@link Defs.FramebufferOrientationSupport}.
      */
-    void onServerDisplayConfigurationChanged();
+    void onServerDisplayConfigurationChanged(in int framebufferOrientation);
 }

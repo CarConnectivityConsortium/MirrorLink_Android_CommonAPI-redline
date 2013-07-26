@@ -61,8 +61,8 @@ interface IDeviceInfoManager {
      * Client Profile Service; any later change to the provided information MUST be notified via the
      * callback function.
      *
-     * @return Bundle containg the client information or null if no client is connected. The bundel
-     * will follow the strings defined in {@link Defs.ClientInformation}.
+     * @return Bundle containg the client information or null if no client is connected. The bundle
+     * will contain the values defined in {@link Defs.ClientInformation}.
      */
     Bundle getMirrorLinkClientInformation();
 

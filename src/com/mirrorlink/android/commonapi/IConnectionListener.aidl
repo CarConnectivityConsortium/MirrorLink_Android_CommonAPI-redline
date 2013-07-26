@@ -29,21 +29,29 @@ oneway interface IConnectionListener {
      * 4.4.2 Established MirrorLink Session Callback.
      *
      * Indicate that the MirrorLink Session status has changed.
+     *
+     * @param mirrolinkSessionIsEstablished the new status of the MirrorLink session.
      */
-    void onMirrorLinkSessionChanged();
+    void onMirrorLinkSessionChanged(in boolean mirrolinkSessionIsEstablished);
 
     /**
      * 4.4.4 Established Audio Connections Callback.
      *
      * Indicate that the audio connections changed.
+     *
+     * @param audioConnections Bundle containing the status of the audio connections available. The
+     * details of the fields available are found in {@link Defs.AudioConnections}.
      */
-    void onAudioConnectionsChanged();
+    void onAudioConnectionsChanged(in Bundle audioConnections);
 
     /**
      * 4.4.6 Established Remote Display Connection Callback.
      *
      * Indicate that the remote display connections changed.
+     *
+     * @param remoteDisplayConnection Bundle containing the status of the remote display connections
+     * available. The values are defined in {@link Defs.RemoteDisplayConnection}.
      */
-    void onRemoteDisplayConnectionChanged();
+    void onRemoteDisplayConnectionChanged(in Bundle remoteDisplayConnection);
 
 }

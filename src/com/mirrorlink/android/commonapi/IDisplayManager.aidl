@@ -60,9 +60,10 @@ interface IDisplayManager {
      * otherwise set by the application, the VNC Server MUST assume that the applica-tion will only
      * support Landscape.
      *
-     * @param framebufferOrientation Orientation of the Application Framebuffer.
+     * @param framebufferOrientation Orientation of the Application Framebuffer. The possible values
+     * are defined in {@link Defs.FramebufferOrientationSupport}.
      *
-     * @return true on success, fals if the orientation is not supported by the client.
+     * @return true on success, false if the orientation is not supported by the client.
      */
     boolean setFramebufferOrientationSupport(int framebufferOrientation);
 
