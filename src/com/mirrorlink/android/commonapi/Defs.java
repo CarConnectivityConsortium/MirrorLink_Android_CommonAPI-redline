@@ -194,12 +194,16 @@ public class Defs {
      */
     public static final class ApplicationCertificationStatus {
         /**
-         * Flag, indicating whether the MirrorLink server has a valid certificate for the application
+         * Flag, indicating whether the MirrorLink server has a valid certificate for the
+         * application.
          * Boolean
          */
         public static final String HAS_VALID_CERTIFICATE = "HAS_VALID_CERTIFICATE";
         /**
-         * Flag, indicating, whether the MirrorLink server has included the application into its UPnP advertisements as a certified application.
+         * Flag, indicating, whether the MirrorLink server has included the application into its
+         * UPnP advertisements as a certified application. If the application is only certified by a
+         * manufacturer, the value of this will be false, unless the server is connected to a client
+         * that matches the manufacturer name.
          * Boolean
          */
         public static final String ADVERTISED_AS_CERTIFIEDAPP = "ADVERTISED_AS_CERTIFIEDAPP";
@@ -209,24 +213,24 @@ public class Defs {
      */
     public static final class CertificateInformation {
         /**
-         * Name of the certifying entity
+         * Name of the certifying entity.
          * String
          */
         public static final String ENTITY = "ENTITY";
         /**
-         * flag, whether the application has been certified from the given entity
+         * Flag, whether the application has been certified from the given entity.
          * Boolean
          */
         public static final String CERTIFIED = "CERTIFIED";
         /**
          * Comma-separated list of locales for which the application has been certified
-         * for restricted use (drive-level) from the given entity
+         * for restricted use (drive-level) from the given entity.
          * String
          */
-        public static final String RESTRICED = "RESTRICTED";
+        public static final String RESTRICTED = "RESTRICTED";
         /**
          * Comma-separated list of locales for which the application has been certified
-         * for non-restricted use (base-level) from the given entity
+         * for non-restricted use (base-level) from the given entity.
          * String
          */
         public static final String NONRESTRICTED = "NONRESTRICTED";
@@ -306,11 +310,6 @@ public class Defs {
      *  4.4.5 RemoteDisplayConnection Bundle property names and values
      */
     public static final class RemoteDisplayConnection {
-        /**
-         * Identifier of the remote display type.
-         * String
-         */
-        public static final String TYPE = "Type";
         /**
          * RemoteDisplayConnection.RemoteDisplayType values
          */

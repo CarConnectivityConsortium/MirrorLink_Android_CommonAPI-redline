@@ -49,9 +49,9 @@ oneway interface IConnectionListener {
      *
      * Indicate that the remote display connections changed.
      *
-     * @param remoteDisplayConnection Bundle containing the status of the remote display connections
+     * @param remoteDisplayConnection integer indicating the status of the remote display connections
      * available. The values are defined in {@link Defs.RemoteDisplayConnection}.
      */
-    void onRemoteDisplayConnectionChanged(in Bundle remoteDisplayConnection);
+    void onRemoteDisplayConnectionChanged(in int remoteDisplayConnection);
 
 }

@@ -35,80 +35,100 @@ import com.mirrorlink.android.commonapi.INotificationManager;
  */
 interface ICommonAPIService {
     /**
-     *  Reports the current CommonAPI api level supported by the service,
-     *  as opposed to the api level specified by this interface.
+     * Reports the current CommonAPI api level supported by the service,
+     * as opposed to the api level specified by this interface.
+     *
+     * @return The MirrorLink API level.
      */
     int getCommonAPIServiceApiLevel();
     /**
-     *  Returns a ICertificationManager for handling certificates.
+     * Returns a ICertificationManager for handling certificates.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link ICertificationManager}.
      */
-    ICertificationManager getCertificationManager();
+    ICertificationManager getCertificationManager(String packageName);
     /**
-     *  Returns a IConnectionManager for requesting connection information.
+     * Returns a IConnectionManager for requesting connection information.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IConnectionManager}.
      */
-    IConnectionManager getConnectionManager();
+    IConnectionManager getConnectionManager(String packageName);
     /**
-     *  Returns a IContextManagerManager for handling context information.
+     * Returns a IContextManagerManager for handling context information.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IContextManager}.
      */
-    IContextManager getContextManager();
+    IContextManager getContextManager(String packageName);
     /**
-     *  Returns a IDataServiceManager for handling Common Data Bus connections.
+     * Returns a IDataServiceManager for handling Common Data Bus connections.
      *
-     *  This service is optional so null may be returned.
+     * This service is optional so null may be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IDataServicesManager}.
      */
-    IDataServicesManager getDataServicesManager();
+    IDataServicesManager getDataServicesManager(String packageName);
     /**
-     *  Returns a IDeviceInfoManager for handling device information.
+     * Returns a IDeviceInfoManager for handling device information.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IDeviceInfoManager}.
      */
-    IDeviceInfoManager getDeviceInfoManager();
+    IDeviceInfoManager getDeviceInfoManager(String packageName);
     /**
-     *  Returns a IDeviceStatusManager for handling device status.
+     * Returns a IDeviceStatusManager for handling device status.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IDeviceStatusManager}.
      */
-    IDeviceStatusManager getDeviceStatusManager();
+    IDeviceStatusManager getDeviceStatusManager(String packageName);
     /**
-     *  Returns a IDisplayManager for handling remote displays.
+     * Returns a IDisplayManager for handling remote displays.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IDisplayManager}.
      */
-    IDisplayManager getDisplayManager();
+    IDisplayManager getDisplayManager(String packageName);
     /**
-     *  Returns a IEventMappingManager for handling event mapping.
+     * Returns a IEventMappingManager for handling event mapping.
      *
-     *  This service is mandatory so a reference to the manager should be returned.
+     * This service is mandatory so a reference to the manager should be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link IEventMappingManager}.
      */
-    IEventMappingManager getEventMappingManager();
+    IEventMappingManager getEventMappingManager(String packageName);
     /**
-     *  Returns a INotificationManager for handling notifications.
+     * Returns a INotificationManager for handling notifications.
      *
-     *  This service is optional so null may be returned.
+     * This service is optional so null may be returned.
+     *
+     * @param packageName The name of the package of the application.
      *
      * @return An instance of {@link INotificationManager}.
      */
-    INotificationManager getNotificationManager();
+    INotificationManager getNotificationManager(String packageName);
 }
