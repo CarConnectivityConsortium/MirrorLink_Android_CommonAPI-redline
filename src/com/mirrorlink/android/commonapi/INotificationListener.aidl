@@ -51,5 +51,5 @@ oneway interface INotificationListener {
      *
      * @param actionId Action identifier
      */
-    void onNotificationActionReceived(in long notificationId, in int actionId);
+    void onNotificationActionReceived(in int notificationId, in int actionId);
 }

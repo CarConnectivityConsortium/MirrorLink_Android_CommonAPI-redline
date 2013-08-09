@@ -25,16 +25,19 @@ package com.mirrorlink.android.commonapi;
  *
  * The Common API uses a set of Data Types, given in the table below, together
  * with the Java type used to represent the original Data type.
+ *
+ * Please note that all the integer types defined in the MirrorLink protocol are used as int in the
+ * Common API.
  * <pre>
  * Data Type  | Java Type  | Default Value | Description
  * -----------|------------|---------------|------------------------------------------------------
  * bool       | boolean    | false         | the logical values true and false.
- * uint8      | short      | 0             | integer values ranging from 0 to positive 255 (0xFF)
- * uint16     | int        | 0             | integer values ranging from 0 to positive 65,535 (0xFFFF)
- * uint32     | long       | 0             | integer values ranging from 0 to positive 4,294,967,295 (0xFFFFFFFF)
- * int8       | byte       | 0             | integer values ranging from negative 128 (0x80) to positive 127 (0x7F)
- * int16      | short      | 0             | integer values ranging from negative 32,768 (0x8000) to positive 32,767 (0x7FFF)
- * int32      | int        | 0             | an integer values ranging from negative 2,147,483,648 (0x80000000) to positive 2,147,483,647 (0x7FFFFFFF)
+ * uint8      | int        | 0             | integer values
+ * uint16     | int        | 0             | integer values
+ * uint32     | int        | 0             | integer values
+ * int8       | int        | 0             | integer values
+ * int16      | int        | 0             | integer values
+ * int32      | int        | 0             | integer values
  * float      | Float      | 0.0           | a 32 bit  floating point value according IEEE754-1985, single-precision
  * double     | Double     | 0.0           | a 64 bit  floating point value according IEEE754-1985, double-precision
  * string8    | String     | null          | Array of UTF8 characters. Each character takes 1 byte (UTF8).
@@ -107,12 +110,12 @@ public class Defs {
     public static final class ServiceInformation {
         /**
          * Major service version
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String VERSION_MAJOR = "VERSION_MAJOR";
         /**
          * Minor service version
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String VERSION_MINOR = "VERSION_MINOR";
         /**
@@ -244,22 +247,22 @@ public class Defs {
     public static final class AudioConnections {
         /**
          * Identifier of the audio connection for media audio (output)
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String MEDIA_AUDIO_OUT = "MEDIA_AUDIO_OUT";
         /**
          * Identifier of the audio connection for media audio (input)
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String MEDIA_AUDIO_IN = "MEDIA_AUDIO_IN";
         /**
          * Identifier of the audio connection for Voice Control audio (input)
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String VOICE_CONTROL = "VOICE_CONTROL";
         /**
          * Identifier of the audio connection for Phone audio (input & output)
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String PHONE_AUDIO = "PHONE_AUDIO";
         /**
@@ -272,39 +275,39 @@ public class Defs {
          * AudioConnections MEDIA_AUDIO_OUT values
          */
         /** Not established */
-        public static final byte MEDIA_OUT_NONE = 0x00;
+        public static final int MEDIA_OUT_NONE = 0x00;
         /** BT A2DP */
-        public static final byte MEDIA_OUT_BT_AD2DP = 0x01;
+        public static final int MEDIA_OUT_BT_AD2DP = 0x01;
         /** RTP */
-        public static final byte MEDIA_OUT_RTP = 0x02;
+        public static final int MEDIA_OUT_RTP = 0x02;
 
         /**
          * AudioConnections MEDIA_AUDIO_IN values
          */
         /** Not established */
-        public static final byte MEDIA_IN_NONE = 0x00;
+        public static final int MEDIA_IN_NONE = 0x00;
         /** RTP */
-        public static final byte MEDIA_IN_RTP = 0x02;
+        public static final int MEDIA_IN_RTP = 0x02;
 
         /**
          * AudioConnections VOICE_CONTROL values
          */
         /** Not established */
-        public static final byte VOICE_CONTROL_NONE = 0x00;
+        public static final int VOICE_CONTROL_NONE = 0x00;
         /** BT HFP + BVRA (Voice Control is outside MirrorLink Server’s responsibility; application must use existing platform APIs) */
-        public static final byte VOICE_CONTROL_BT_HFP = 0x01;
+        public static final int VOICE_CONTROL_BT_HFP = 0x01;
         /** RTP */
-        public static final byte VOICE_CONTROL_RTP = 0x02;
+        public static final int VOICE_CONTROL_RTP = 0x02;
 
         /**
          * AudioConnections PHONE_AUDIO values
          */
         /** Not established */
-        public static final byte INCALL_AUDIO_NONE = 0x00;
+        public static final int INCALL_AUDIO_NONE = 0x00;
         /** BT HFP */
-        public static final byte INCALL_AUDIO_BT_HFP = 0x01;
+        public static final int INCALL_AUDIO_BT_HFP = 0x01;
         /** RTP */
-        public static final byte INCALL_AUDIO_RTP = 0x02;
+        public static final int INCALL_AUDIO_RTP = 0x02;
     }
     /**
      *  4.4.5 RemoteDisplayConnection Bundle property names and values
@@ -313,11 +316,11 @@ public class Defs {
         /**
          * RemoteDisplayConnection.RemoteDisplayType values
          */
-        public static final short REMOTEDISPLAY_NONE = 0x00;
-        public static final short REMOTEDISPLAY_VNC = 0x01;
-        public static final short REMOTEDISPLAY_HSML = 0x02;
-        public static final short REMOTEDISPLAY_WFD = 0x03;
-        public static final short REMOTEDISPLAY_OTHER = (short)0xFF;
+        public static final int REMOTEDISPLAY_NONE = 0x00;
+        public static final int REMOTEDISPLAY_VNC = 0x01;
+        public static final int REMOTEDISPLAY_HSML = 0x02;
+        public static final int REMOTEDISPLAY_WFD = 0x03;
+        public static final int REMOTEDISPLAY_OTHER = 0xFF;
     }
 
     /** 4.5 Display Information */
@@ -373,22 +376,22 @@ public class Defs {
      * 4.5.3 IDisplayManager.getClientPixelFormat values
      */
     public static final class ClientPixelFormat {
-        public static final short ARGB8888 = 0x01;
-        public static final short RGB888 = 0x02;
-        public static final short ARGB565 = 0x03;
-        public static final short RGB555 = 0x04;
-        public static final short RGB444 = 0x05;
-        public static final short RGB343 = 0x06;
-        public static final short GRAY16 = 0x07;
-        public static final short GRAY8 = 0x08;
+        public static final int ARGB8888 = 0x01;
+        public static final int RGB888 = 0x02;
+        public static final int ARGB565 = 0x03;
+        public static final int RGB555 = 0x04;
+        public static final int RGB444 = 0x05;
+        public static final int RGB343 = 0x06;
+        public static final int GRAY16 = 0x07;
+        public static final int GRAY8 = 0x08;
     }
     /**
      * 4.5.5 Set Framebuffer Orientation Support
      */
     public static final class FramebufferOrientationSupport {
-        public static final short LANDSCAPE_ONLY = 0x01;
-        public static final short PORTRAIT_ONLY = 0x02;
-        public static final short LANDSCAPE_AND_PORTRAIT = 0x03;
+        public static final int LANDSCAPE_ONLY = 0x01;
+        public static final int PORTRAIT_ONLY = 0x02;
+        public static final int LANDSCAPE_AND_PORTRAIT = 0x03;
     }
 
     /** 4.6 Event Related Features */
@@ -399,24 +402,24 @@ public class Defs {
         /**
          * Supported knob events from the MirrorLink Session.
          * Bit mask as defined in the VNC specification.
-         * uint32 packaged as a long
+         * uint32 packaged as a int
          */
         public static final String KNOB_KEY_SUPPORT = "KNOB_KEY_SUPPORT";
         /**
          * Supported device key events from the MirrorLink Session.
          * Bit mask as defined in the VNC specification.
-         * uint32 packaged as a long
+         * uint32 packaged as a int
          */
         public static final String DEVICE_KEY_SUPPORT = "DEVICE_KEY_SUPPORT";
         /**
          * Supported multimedia key events from the MirrorLink Session.
          * Bit mask as defined in the VNC specification.
-         * uint32 packaged as a long
+         * uint32 packaged as a int
          */
         public static final String MULTIMEDIA_KEY_SUPPORT = "MULTIMEDIA_KEY_SUPPORT";
         /**
          * Number of supported function keys from the MirrorLink Session.
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String FUNC_KEY_SUPPORT = "FUNC_KEY_SUPPORT";
         /**
@@ -426,7 +429,7 @@ public class Defs {
         public static final String ITU_KEY_SUPPORT = "ITU_KEY_SUPPORT";
         /**
          * Number of simultaneous touch events, supported from the MirrorLink Client
-         * uint8 packaged as a short
+         * uint8 packaged as a int
          */
         public static final String TOUCH_SUPPORT = "TOUCH_SUPPORT";
         /**
@@ -437,70 +440,70 @@ public class Defs {
         /**
          * KNOB_KEY_SUPPORT values
          */
-        public static final long KNOB_KEY_SUPPORT_SHIFT_Y_0  = 0x00000002;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_XY_0 = 0x00000004;
-        public static final long KNOB_KEY_SUPPORT_PUSH_Z_0   = 0x00000008;
-        public static final long KNOB_KEY_SUPPORT_PULL_Z_0   = 0x00000010;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_X_0 = 0x00000020;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Y_0 = 0x00000040;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Z_0 = 0x00000080;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_X_1  = 0x00000100;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_Y_1  = 0x00000200;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_XY_1 = 0x00000400;
-        public static final long KNOB_KEY_SUPPORT_PUSH_Z_1   = 0x00000800;
-        public static final long KNOB_KEY_SUPPORT_PULL_Z_1   = 0x00001000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_X_1 = 0x00002000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Y_1 = 0x00004000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Z_1 = 0x00008000;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_X_2  = 0x00010000;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_Y_2  = 0x00020000;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_XY_2 = 0x00040000;
-        public static final long KNOB_KEY_SUPPORT_PUSH_Z_2   = 0x00080000;
-        public static final long KNOB_KEY_SUPPORT_PULL_Z_2   = 0x00100000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_X_2 = 0x00200000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Y_2 = 0x00400000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Z_2 = 0x00800000;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_X_3  = 0x01000000;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_Y_3  = 0x02000000;
-        public static final long KNOB_KEY_SUPPORT_SHIFT_XY_3 = 0x04000000;
-        public static final long KNOB_KEY_SUPPORT_PUSH_Z_3   = 0x08000000;
-        public static final long KNOB_KEY_SUPPORT_PULL_Z_3   = 0x10000000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_X_3 = 0x20000000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Y_3 = 0x40000000;
-        public static final long KNOB_KEY_SUPPORT_ROTATE_Z_3 = 0x80000000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_Y_0  = 0x00000002;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_XY_0 = 0x00000004;
+        public static final int KNOB_KEY_SUPPORT_PUSH_Z_0   = 0x00000008;
+        public static final int KNOB_KEY_SUPPORT_PULL_Z_0   = 0x00000010;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_X_0 = 0x00000020;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Y_0 = 0x00000040;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Z_0 = 0x00000080;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_X_1  = 0x00000100;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_Y_1  = 0x00000200;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_XY_1 = 0x00000400;
+        public static final int KNOB_KEY_SUPPORT_PUSH_Z_1   = 0x00000800;
+        public static final int KNOB_KEY_SUPPORT_PULL_Z_1   = 0x00001000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_X_1 = 0x00002000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Y_1 = 0x00004000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Z_1 = 0x00008000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_X_2  = 0x00010000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_Y_2  = 0x00020000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_XY_2 = 0x00040000;
+        public static final int KNOB_KEY_SUPPORT_PUSH_Z_2   = 0x00080000;
+        public static final int KNOB_KEY_SUPPORT_PULL_Z_2   = 0x00100000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_X_2 = 0x00200000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Y_2 = 0x00400000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Z_2 = 0x00800000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_X_3  = 0x01000000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_Y_3  = 0x02000000;
+        public static final int KNOB_KEY_SUPPORT_SHIFT_XY_3 = 0x04000000;
+        public static final int KNOB_KEY_SUPPORT_PUSH_Z_3   = 0x08000000;
+        public static final int KNOB_KEY_SUPPORT_PULL_Z_3   = 0x10000000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_X_3 = 0x20000000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Y_3 = 0x40000000;
+        public static final int KNOB_KEY_SUPPORT_ROTATE_Z_3 = 0x80000000;
         /**
          * DEVICE_KEY_SUPPORT values
          */
-        public static final long DEVICE_KEY_SUPPORT_PHONE_CALL  = 0x00000001;
-        public static final long DEVICE_KEY_SUPPORT_PHONE_END   = 0x00000002;
-        public static final long DEVICE_KEY_SUPPORT_SOFT_LEFT   = 0x00000004;
-        public static final long DEVICE_KEY_SUPPORT_SOFT_MIDDLE = 0x00000008;
-        public static final long DEVICE_KEY_SUPPORT_SOFT_RIGHT  = 0x00000010;
-        public static final long DEVICE_KEY_SUPPORT_APPLICATION = 0x00000020;
-        public static final long DEVICE_KEY_SUPPORT_OK          = 0x00000040;
-        public static final long DEVICE_KEY_SUPPORT_DELETE      = 0x00000080;
-        public static final long DEVICE_KEY_SUPPORT_ZOOM_IN     = 0x00000100;
-        public static final long DEVICE_KEY_SUPPORT_ZOOM_OUT    = 0x00000200;
-        public static final long DEVICE_KEY_SUPPORT_CLEAR       = 0x00000400;
-        public static final long DEVICE_KEY_SUPPORT_FORWARD     = 0x00000800;
-        public static final long DEVICE_KEY_SUPPORT_BACKWARD    = 0x00001000;
-        public static final long DEVICE_KEY_SUPPORT_HOME        = 0x00002000;
-        public static final long DEVICE_KEY_SUPPORT_SEARCH      = 0x00004000;
-        public static final long DEVICE_KEY_SUPPORT_MENU        = 0x00008000;
-        public static final long DEVICE_KEY_SUPPORT_ALL         = 0x00007fff;
+        public static final int DEVICE_KEY_SUPPORT_PHONE_CALL  = 0x00000001;
+        public static final int DEVICE_KEY_SUPPORT_PHONE_END   = 0x00000002;
+        public static final int DEVICE_KEY_SUPPORT_SOFT_LEFT   = 0x00000004;
+        public static final int DEVICE_KEY_SUPPORT_SOFT_MIDDLE = 0x00000008;
+        public static final int DEVICE_KEY_SUPPORT_SOFT_RIGHT  = 0x00000010;
+        public static final int DEVICE_KEY_SUPPORT_APPLICATION = 0x00000020;
+        public static final int DEVICE_KEY_SUPPORT_OK          = 0x00000040;
+        public static final int DEVICE_KEY_SUPPORT_DELETE      = 0x00000080;
+        public static final int DEVICE_KEY_SUPPORT_ZOOM_IN     = 0x00000100;
+        public static final int DEVICE_KEY_SUPPORT_ZOOM_OUT    = 0x00000200;
+        public static final int DEVICE_KEY_SUPPORT_CLEAR       = 0x00000400;
+        public static final int DEVICE_KEY_SUPPORT_FORWARD     = 0x00000800;
+        public static final int DEVICE_KEY_SUPPORT_BACKWARD    = 0x00001000;
+        public static final int DEVICE_KEY_SUPPORT_HOME        = 0x00002000;
+        public static final int DEVICE_KEY_SUPPORT_SEARCH      = 0x00004000;
+        public static final int DEVICE_KEY_SUPPORT_MENU        = 0x00008000;
+        public static final int DEVICE_KEY_SUPPORT_ALL         = 0x00007fff;
         /**
          * MULTIMEDIA_KEY_SUPPORT values
          */
-        public static final long MULTIMEDIA_KEY_SUPPORT_PLAY     = 0x00000001;
-        public static final long MULTIMEDIA_KEY_SUPPORT_PAUSE    = 0x00000002;
-        public static final long MULTIMEDIA_KEY_SUPPORT_STOP     = 0x00000004;
-        public static final long MULTIMEDIA_KEY_SUPPORT_FORWARD  = 0x00000008;
-        public static final long MULTIMEDIA_KEY_SUPPORT_REWIND   = 0x00000010;
-        public static final long MULTIMEDIA_KEY_SUPPORT_NEXT     = 0x00000020;
-        public static final long MULTIMEDIA_KEY_SUPPORT_PREVIOUS = 0x00000040;
-        public static final long MULTIMEDIA_KEY_SUPPORT_MUTE     = 0x00000080;
-        public static final long MULTIMEDIA_KEY_SUPPORT_UNMUTE   = 0x00000100;
-        public static final long MULTIMEDIA_KEY_SUPPORT_PHOTO    = 0x00000200;
+        public static final int MULTIMEDIA_KEY_SUPPORT_PLAY     = 0x00000001;
+        public static final int MULTIMEDIA_KEY_SUPPORT_PAUSE    = 0x00000002;
+        public static final int MULTIMEDIA_KEY_SUPPORT_STOP     = 0x00000004;
+        public static final int MULTIMEDIA_KEY_SUPPORT_FORWARD  = 0x00000008;
+        public static final int MULTIMEDIA_KEY_SUPPORT_REWIND   = 0x00000010;
+        public static final int MULTIMEDIA_KEY_SUPPORT_NEXT     = 0x00000020;
+        public static final int MULTIMEDIA_KEY_SUPPORT_PREVIOUS = 0x00000040;
+        public static final int MULTIMEDIA_KEY_SUPPORT_MUTE     = 0x00000080;
+        public static final int MULTIMEDIA_KEY_SUPPORT_UNMUTE   = 0x00000100;
+        public static final int MULTIMEDIA_KEY_SUPPORT_PHOTO    = 0x00000200;
         /**
          * TOUCH_SUPPORT values
          */
@@ -564,65 +567,65 @@ public class Defs {
         /**
          * Application Categories
          */
-        public static final long APPLICATION_CATEGORY_MASK = 0xffff0000;
-        public static final long APPLICATION_CATEGORY_UNKNOWN = 0x00000000;
-        public static final long APPLICATION_CATEGORY_UI = 0x00010000;
-        public static final long APPLICATION_CATEGORY_UI_HOME_SCREEN = 0x00010001;
-        public static final long APPLICATION_CATEGORY_UI_MENU = 0x00010002;
-        public static final long APPLICATION_CATEGORY_UI_NOTIFICATION = 0x00010003;
-        public static final long APPLICATION_CATEGORY_UI_APPLICATION_LISTING = 0x00010004;
-        public static final long APPLICATION_CATEGORY_UI_SETTINGS = 0x00010005;
-        public static final long APPLICATION_CATEGORY_PHONE = 0x00020000;
-        public static final long APPLICATION_CATEGORY_PHONE_CONTACT_LIST = 0x00020001;
-        public static final long APPLICATION_CATEGORY_PHONE_CALL_LOG = 0x00020002;
-        public static final long APPLICATION_CATEGORY_MEDIA = 0x00030000;
-        public static final long APPLICATION_CATEGORY_MEDIA_MUSIC = 0x00030001;
-        public static final long APPLICATION_CATEGORY_MEDIA_VIDEO = 0x00030002;
-        public static final long APPLICATION_CATEGORY_MEDIA_GAMING = 0x00030003;
-        public static final long APPLICATION_CATEGORY_MEDIA_IMAGE = 0x00030004;
-        public static final long APPLICATION_CATEGORY_MESSAGING = 0x00040000;
-        public static final long APPLICATION_CATEGORY_MESSAGING_SMS = 0x00040001;
-        public static final long APPLICATION_CATEGORY_MESSAGING_MMS = 0x00040002;
-        public static final long APPLICATION_CATEGORY_MESSAGING_EMAIL = 0x00040003;
-        public static final long APPLICATION_CATEGORY_NAVIGATION = 0x00050000;
-        public static final long APPLICATION_CATEGORY_BROWSER = 0x00060000;
-        public static final long APPLICATION_CATEGORY_BROWSER_APPLICATION_STORE = 0x00060001;
-        public static final long APPLICATION_CATEGORY_PRODUCTIVITY = 0x00070000;
-        public static final long APPLICATION_CATEGORY_PRODUCTIVITY_DOCUMENT_VIEWER = 0x00070001;
-        public static final long APPLICATION_CATEGORY_PRODUCTIVITY_DOCUMENT_EDITOR = 0x00070002;
-        public static final long APPLICATION_CATEGORY_INFORMATION = 0x00080000;
-        public static final long APPLICATION_CATEGORY_INFORMATION_NEWS = 0x00080001;
-        public static final long APPLICATION_CATEGORY_INFORMATION_WEATHER = 0x00080002;
-        public static final long APPLICATION_CATEGORY_INFORMATION_STOCKS = 0x00080003;
-        public static final long APPLICATION_CATEGORY_INFORMATION_TRAVEL = 0x00080004;
-        public static final long APPLICATION_CATEGORY_INFORMATION_SPORTS = 0x00080005;
-        public static final long APPLICATION_CATEGORY_INFORMATION_CLOCK = 0x00080006;
-        public static final long APPLICATION_CATEGORY_SOCIAL_NETWORKING = 0x00090000;
-        public static final long APPLICATION_CATEGORY_PIM = 0x000a0000;
-        public static final long APPLICATION_CATEGORY_PIM_CALENDAR = 0x000a0001;
-        public static final long APPLICATION_CATEGORY_PIM_NOTES = 0x000a0002;
-        public static final long APPLICATION_CATEGORY_NO_UI = 0xf0000000;
-        public static final long APPLICATION_CATEGORY_NO_UI_AUDIO_SERVER = 0xf0000001;
-        public static final long APPLICATION_CATEGORY_NO_UI_AUDIO_CLIENT = 0xf0000002;
-        public static final long APPLICATION_CATEGORY_NO_UI_VOICE_COMMAND_ENGINE = 0xf0000010;
-        public static final long APPLICATION_CATEGORY_NO_UI_CONVERSATIONAL_AUDIO = 0xf0000020;
-        public static final long APPLICATION_CATEGORY_SWITCH_TO_CLIENT_NATIVE_UI = 0xf000ffff;
-        public static final long APPLICATION_CATEGORY_SYSTEM = 0xffff0000;
-        public static final long APPLICATION_CATEGORY_SYSTEM_INPUT_UNLOCK_PIN = 0xffff0001;
-        public static final long APPLICATION_CATEGORY_SYSTEM_INPUT_BLUETOOTH_PIN = 0xffff0002;
-        public static final long APPLICATION_CATEGORY_SYSTEM_INPUT_OTHER_PASSWORD = 0xffff000f;
-        public static final long APPLICATION_CATEGORY_SYSTEM_VOICE_COMMAND_CONFIRMATION = 0xffff0010;
+        public static final int APPLICATION_CATEGORY_MASK = 0xffff0000;
+        public static final int APPLICATION_CATEGORY_UNKNOWN = 0x00000000;
+        public static final int APPLICATION_CATEGORY_UI = 0x00010000;
+        public static final int APPLICATION_CATEGORY_UI_HOME_SCREEN = 0x00010001;
+        public static final int APPLICATION_CATEGORY_UI_MENU = 0x00010002;
+        public static final int APPLICATION_CATEGORY_UI_NOTIFICATION = 0x00010003;
+        public static final int APPLICATION_CATEGORY_UI_APPLICATION_LISTING = 0x00010004;
+        public static final int APPLICATION_CATEGORY_UI_SETTINGS = 0x00010005;
+        public static final int APPLICATION_CATEGORY_PHONE = 0x00020000;
+        public static final int APPLICATION_CATEGORY_PHONE_CONTACT_LIST = 0x00020001;
+        public static final int APPLICATION_CATEGORY_PHONE_CALL_LOG = 0x00020002;
+        public static final int APPLICATION_CATEGORY_MEDIA = 0x00030000;
+        public static final int APPLICATION_CATEGORY_MEDIA_MUSIC = 0x00030001;
+        public static final int APPLICATION_CATEGORY_MEDIA_VIDEO = 0x00030002;
+        public static final int APPLICATION_CATEGORY_MEDIA_GAMING = 0x00030003;
+        public static final int APPLICATION_CATEGORY_MEDIA_IMAGE = 0x00030004;
+        public static final int APPLICATION_CATEGORY_MESSAGING = 0x00040000;
+        public static final int APPLICATION_CATEGORY_MESSAGING_SMS = 0x00040001;
+        public static final int APPLICATION_CATEGORY_MESSAGING_MMS = 0x00040002;
+        public static final int APPLICATION_CATEGORY_MESSAGING_EMAIL = 0x00040003;
+        public static final int APPLICATION_CATEGORY_NAVIGATION = 0x00050000;
+        public static final int APPLICATION_CATEGORY_BROWSER = 0x00060000;
+        public static final int APPLICATION_CATEGORY_BROWSER_APPLICATION_STORE = 0x00060001;
+        public static final int APPLICATION_CATEGORY_PRODUCTIVITY = 0x00070000;
+        public static final int APPLICATION_CATEGORY_PRODUCTIVITY_DOCUMENT_VIEWER = 0x00070001;
+        public static final int APPLICATION_CATEGORY_PRODUCTIVITY_DOCUMENT_EDITOR = 0x00070002;
+        public static final int APPLICATION_CATEGORY_INFORMATION = 0x00080000;
+        public static final int APPLICATION_CATEGORY_INFORMATION_NEWS = 0x00080001;
+        public static final int APPLICATION_CATEGORY_INFORMATION_WEATHER = 0x00080002;
+        public static final int APPLICATION_CATEGORY_INFORMATION_STOCKS = 0x00080003;
+        public static final int APPLICATION_CATEGORY_INFORMATION_TRAVEL = 0x00080004;
+        public static final int APPLICATION_CATEGORY_INFORMATION_SPORTS = 0x00080005;
+        public static final int APPLICATION_CATEGORY_INFORMATION_CLOCK = 0x00080006;
+        public static final int APPLICATION_CATEGORY_SOCIAL_NETWORKING = 0x00090000;
+        public static final int APPLICATION_CATEGORY_PIM = 0x000a0000;
+        public static final int APPLICATION_CATEGORY_PIM_CALENDAR = 0x000a0001;
+        public static final int APPLICATION_CATEGORY_PIM_NOTES = 0x000a0002;
+        public static final int APPLICATION_CATEGORY_NO_UI = 0xf0000000;
+        public static final int APPLICATION_CATEGORY_NO_UI_AUDIO_SERVER = 0xf0000001;
+        public static final int APPLICATION_CATEGORY_NO_UI_AUDIO_CLIENT = 0xf0000002;
+        public static final int APPLICATION_CATEGORY_NO_UI_VOICE_COMMAND_ENGINE = 0xf0000010;
+        public static final int APPLICATION_CATEGORY_NO_UI_CONVERSATIONAL_AUDIO = 0xf0000020;
+        public static final int APPLICATION_CATEGORY_SWITCH_TO_CLIENT_NATIVE_UI = 0xf000ffff;
+        public static final int APPLICATION_CATEGORY_SYSTEM = 0xffff0000;
+        public static final int APPLICATION_CATEGORY_SYSTEM_INPUT_UNLOCK_PIN = 0xffff0001;
+        public static final int APPLICATION_CATEGORY_SYSTEM_INPUT_BLUETOOTH_PIN = 0xffff0002;
+        public static final int APPLICATION_CATEGORY_SYSTEM_INPUT_OTHER_PASSWORD = 0xffff000f;
+        public static final int APPLICATION_CATEGORY_SYSTEM_VOICE_COMMAND_CONFIRMATION = 0xffff0010;
         /**
          * Content Categories
          */
-        public static final long VISUAL_CONTENT_CATEGORY_TEXT = 0x00000001;
-        public static final long VISUAL_CONTENT_CATEGORY_VIDEO = 0x00000002;
-        public static final long VISUAL_CONTENT_CATEGORY_IMAGE = 0x00000004;
-        public static final long VISUAL_CONTENT_CATEGORY_GRAPHICS_VECTOR = 0x00000080;
-        public static final long VISUAL_CONTENT_CATEGORY_GRAPHICS_3D = 0x00000010;
-        public static final long VISUAL_CONTENT_CATEGORY_UI = 0x00000020;
-        public static final long VISUAL_CONTENT_CATEGORY_CAR_MODE = 0x00010000;
-        public static final long VISUAL_CONTENT_CATEGORY_MISC = 0x80000000;
+        public static final int VISUAL_CONTENT_CATEGORY_TEXT = 0x00000001;
+        public static final int VISUAL_CONTENT_CATEGORY_VIDEO = 0x00000002;
+        public static final int VISUAL_CONTENT_CATEGORY_IMAGE = 0x00000004;
+        public static final int VISUAL_CONTENT_CATEGORY_GRAPHICS_VECTOR = 0x00000080;
+        public static final int VISUAL_CONTENT_CATEGORY_GRAPHICS_3D = 0x00000010;
+        public static final int VISUAL_CONTENT_CATEGORY_UI = 0x00000020;
+        public static final int VISUAL_CONTENT_CATEGORY_CAR_MODE = 0x00010000;
+        public static final int VISUAL_CONTENT_CATEGORY_MISC = 0x80000000;
     }
 
     /** 4.11 Data Services  */
@@ -648,7 +651,7 @@ public class Defs {
         /**
          *  Location Object uid
          */
-        public static final long LOCATION_OBJECT_UID = 0x572a6461;
+        public static final int LOCATION_OBJECT_UID = 0x572a6461;
         /**
          *  Location Object Bundle property names
          */
@@ -673,7 +676,7 @@ public class Defs {
         /**
          *  NMEA Object uid
          */
-        public static final long NMEA_OBJECT_UID = 0x0aac4540;
+        public static final int NMEA_OBJECT_UID = 0x0aac4540;
         /**
          *  NMEA Object Bundle property names
          */
@@ -682,7 +685,7 @@ public class Defs {
         /**
          *  NMEADescription Object uid
          */
-        public static final long NMEADESCRIPTION_OBJECT_UID = 0x9d08b19d;
+        public static final int NMEADESCRIPTION_OBJECT_UID = 0x9d08b19d;
         /**
          *  NMEADescription Object Bundle property names
          */

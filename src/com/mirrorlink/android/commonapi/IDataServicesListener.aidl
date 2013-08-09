@@ -65,8 +65,8 @@ oneway interface IDataServicesListener {
      * subscription types {@link Defs.SubscriptionType#ON_CHANGE} and {@link
      * Defs.SubscriptionType#AUTOMATIC}.
      */
-    void onSubscribeResponse(in int serviceId, in long objectId, in boolean success,
-            in byte subscriptionType, in int interval);
+    void onSubscribeResponse(in int serviceId, in int objectId, in boolean success,
+            in int subscriptionType, in int interval);
 
     /**
      * 4.11.? Subscribe Data Object Changed Callback.
@@ -81,7 +81,7 @@ oneway interface IDataServicesListener {
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
      *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
      */
-    void onSubscribeDataObjectChanged(in int serviceId, in long objectId, in Bundle object);
+    void onSubscribeDataObjectChanged(in int serviceId, in int objectId, in Bundle object);
 
     /**
      * 4.11.11 Get an Object Callback.
@@ -98,7 +98,7 @@ oneway interface IDataServicesListener {
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
      *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
      */
-    void onGetDataObjectResponse(in int serviceId, in long objectId, boolean success, in Bundle object);
+    void onGetDataObjectResponse(in int serviceId, in int objectId, boolean success, in Bundle object);
 
 }
 

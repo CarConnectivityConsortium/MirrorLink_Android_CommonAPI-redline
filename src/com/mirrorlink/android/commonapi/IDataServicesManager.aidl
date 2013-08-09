@@ -70,7 +70,7 @@ interface IDataServicesManager {
      *
      * @param objectId Hash value of the object.
      */
-    void subscribeObject(in int serviceId, in long objectId);
+    void subscribeObject(in int serviceId, in int objectId);
 
     /**
      * 4.11.8 Unsubscribe from an Object.
@@ -81,7 +81,7 @@ interface IDataServicesManager {
      *
      * @param objectId Hash value of the object.
      */
-    void unsubscribeObject(in int serviceId, in long objectId);
+    void unsubscribeObject(in int serviceId, in int objectId);
 
     /**
      * 4.11.9 Set an Object.
@@ -96,7 +96,7 @@ interface IDataServicesManager {
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
      *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
      */
-    void setObject(in int serviceId, in long objectId, in Bundle object);
+    void setObject(in int serviceId, in int objectId, in Bundle object);
 
     /**
      * 4.11.10 Get an Object.
@@ -107,7 +107,7 @@ interface IDataServicesManager {
      *
      * @param objectId the hash value of the object
      */
-    void getObject(in int serviceId, in long objectId);
+    void getObject(in int serviceId, in int objectId);
 
     /**
      * Notifies the Manager that the application is not using it anymore.

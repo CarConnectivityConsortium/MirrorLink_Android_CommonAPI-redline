@@ -48,7 +48,7 @@ interface IContextManager {
      * @param handleBlocking Flag indicating whether the application will take care of the blocking
      * if the MirrorLink Client blocks the content.
      */
-    void setFramebufferContextInformation(in long applicationCategory, in long contentCategory,
+    void setFramebufferContextInformation(in int applicationCategory, in int contentCategory,
             in Rect framebufferArea, in boolean handleBlocking);
 
     /**
@@ -73,7 +73,7 @@ interface IContextManager {
      * @param handleBlocking Flag indicating whether the application will take care of the blocking
      * if the MirrorLink Client blocks the content.
      */
-    void setAudioContextInformation(in boolean audioContent, in long appCategory, in boolean handleBlocking);
+    void setAudioContextInformation(in boolean audioContent, in int appCategory, in boolean handleBlocking);
 
     /**
      * 4.9.5 Context Information Reset.
