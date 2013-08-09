@@ -56,4 +56,13 @@ interface ICertificationManager {
      *          certifying entities for the application,
      */
     Bundle getApplicationCertificationInformation(in String entity);
+
+    /**
+     * Notifies the Manager that the application is not using it anymore.
+     *
+     * Applications are required to call this method when they no longer need to use the Manager.
+     * Once called, if at a later point they need the Manager again, they can re-request access to
+     * it from the {@link ICommonAPIService}.
+     */
+    void unregister();
 }

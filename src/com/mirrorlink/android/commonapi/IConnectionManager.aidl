@@ -58,20 +58,11 @@ interface IConnectionManager {
     int getRemoteDisplayConnections();
 
     /**
-     * Register the listener for monitoring the ConnectionManager
+     * Notifies the Manager that the application is not using it anymore.
      *
-     * @param   listener the listener to register
-     *
-     * @return  true is the listener was registered, false otherwise
+     * Applications are required to call this method when they no longer need to use the Manager.
+     * Once called, if at a later point they need the Manager again, they can re-request access to
+     * it from the {@link ICommonAPIService}.
      */
-    boolean registerListener(in IConnectionListener listener);
-
-    /**
-     * UnRegister the listener monitoring the ConnectionManager
-     *
-     * @param   listener the listener to unregister
-     *
-     * @return  true is the listener was registered, false otherwise
-     */
-    boolean unregisterListener(in IConnectionListener listener);
+    void unregister();
 }

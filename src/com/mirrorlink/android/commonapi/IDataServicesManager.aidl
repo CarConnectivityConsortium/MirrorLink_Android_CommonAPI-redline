@@ -110,20 +110,11 @@ interface IDataServicesManager {
     void getObject(in int serviceId, in long objectId);
 
     /**
-     * Register the listener for monitoring the DataServicesManager.
+     * Notifies the Manager that the application is not using it anymore.
      *
-     * @param   listener The listener to register.
-     *
-     * @return  true if the listener was registered, false otherwise.
+     * Applications are required to call this method when they no longer need to use the Manager.
+     * Once called, if at a later point they need the Manager again, they can re-request access to
+     * it from the {@link ICommonAPIService}.
      */
-    boolean registerListener(in IDataServicesListener listener);
-
-    /**
-     * Unregister the listener monitoring the DataServicesManager.
-     
-     * @param   listener The listener to unregister.
-     *
-     * @return  true if the listener was unregistered, false otherwise.
-     */
-    boolean unregisterListener(in IDataServicesListener listener);
+    void unregister();
 }

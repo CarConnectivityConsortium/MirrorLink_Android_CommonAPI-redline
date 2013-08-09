@@ -41,6 +41,27 @@ interface ICommonAPIService {
      * @return The MirrorLink API level.
      */
     int getCommonAPIServiceApiLevel();
+
+    /**
+     * Notifies the MirrorLink Server that an application has started.
+     *
+     * Applications MUST call this on start-up, whether they are launched by the MirrorLink server,
+     * or started otheriwse.
+     *
+     * @param packageName The name of the package of the application
+     */
+    void applicationStarted(in String packageName);
+
+    /**
+     * Notifies the MirrorLink Server that an application is stopping.
+     *
+     * Applications MUST call this on shut-down, whether they are terminated by the MirrorLink server,
+     * or stopped otheriwse.
+     *
+     * @param packageName The name of the package of the application
+     */
+    void applicationStopping(in String packageName);
+
     /**
      * Returns a ICertificationManager for handling certificates.
      *
@@ -50,7 +71,8 @@ interface ICommonAPIService {
      *
      * @return An instance of {@link ICertificationManager}.
      */
-    ICertificationManager getCertificationManager(String packageName);
+    ICertificationManager getCertificationManager(in String packageName);
+
     /**
      * Returns a IConnectionManager for requesting connection information.
      *
@@ -58,9 +80,12 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IConnectionManager}.
      */
-    IConnectionManager getConnectionManager(String packageName);
+    IConnectionManager getConnectionManager(in String packageName, in IConnectionListener listener);
+
     /**
      * Returns a IContextManagerManager for handling context information.
      *
@@ -68,9 +93,12 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IContextManager}.
      */
-    IContextManager getContextManager(String packageName);
+    IContextManager getContextManager(in String packageName, in IContextListener listener);
+
     /**
      * Returns a IDataServiceManager for handling Common Data Bus connections.
      *
@@ -78,9 +106,13 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IDataServicesManager}.
      */
-    IDataServicesManager getDataServicesManager(String packageName);
+    IDataServicesManager getDataServicesManager(in String packageName,
+            in IDataServicesListener listener);
+
     /**
      * Returns a IDeviceInfoManager for handling device information.
      *
@@ -88,9 +120,12 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IDeviceInfoManager}.
      */
-    IDeviceInfoManager getDeviceInfoManager(String packageName);
+    IDeviceInfoManager getDeviceInfoManager(in String packageName, in IDeviceInfoListener listener);
+
     /**
      * Returns a IDeviceStatusManager for handling device status.
      *
@@ -98,9 +133,13 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IDeviceStatusManager}.
      */
-    IDeviceStatusManager getDeviceStatusManager(String packageName);
+    IDeviceStatusManager getDeviceStatusManager(in String packageName,
+            in IDeviceStatusListener listener);
+
     /**
      * Returns a IDisplayManager for handling remote displays.
      *
@@ -108,9 +147,12 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IDisplayManager}.
      */
-    IDisplayManager getDisplayManager(String packageName);
+    IDisplayManager getDisplayManager(in String packageName, in IDisplayListener listener);
+
     /**
      * Returns a IEventMappingManager for handling event mapping.
      *
@@ -118,9 +160,13 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link IEventMappingManager}.
      */
-    IEventMappingManager getEventMappingManager(String packageName);
+    IEventMappingManager getEventMappingManager(in String packageName,
+            in IEventMappingListener listener);
+
     /**
      * Returns a INotificationManager for handling notifications.
      *
@@ -128,7 +174,10 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link INotificationManager}.
      */
-    INotificationManager getNotificationManager(String packageName);
+    INotificationManager getNotificationManager(in String packageName,
+            in INotificationListener listener);
 }

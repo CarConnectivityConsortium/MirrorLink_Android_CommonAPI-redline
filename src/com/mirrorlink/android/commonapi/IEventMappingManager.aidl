@@ -62,20 +62,11 @@ interface IEventMappingManager {
     List<Bundle> getEventMappings();
 
     /**
-     * Register the listener for monitoring the EventMappingManager.
+     * Notifies the Manager that the application is not using it anymore.
      *
-     * @param   listener The listener to register.
-     *
-     * @return  true if the listener was registered, false otherwise.
+     * Applications are required to call this method when they no longer need to use the Manager.
+     * Once called, if at a later point they need the Manager again, they can re-request access to
+     * it from the {@link ICommonAPIService}.
      */
-    boolean registerListener(in IEventMappingListener listener);
-
-    /**
-     * Unregister the listener monitoring the EventMappingManager.
-     *
-     * @param   listener The listener to unregister.
-     *
-     * @return  true is the listener was unregistered, false otherwise.
-     */
-    boolean unregisterListener(in IEventMappingListener listener);
+    void unregister();
 }

@@ -68,21 +68,11 @@ interface IDisplayManager {
     boolean setFramebufferOrientationSupport(int framebufferOrientation);
 
     /**
-     * Register the listener for monitoring the DisplayManager
+     * Notifies the Manager that the application is not using it anymore.
      *
-     * @param   listener the listener to register
-     *
-     * @return  true is the listener was registered, false otherwise
+     * Applications are required to call this method when they no longer need to use the Manager.
+     * Once called, if at a later point they need the Manager again, they can re-request access to
+     * it from the {@link ICommonAPIService}.
      */
-    boolean registerListener(in IDisplayListener listener);
-
-    /**
-     * Unregister the listener monitoring the DisplayManager
-     *
-     * @param   listener the listener to unregister
-     *
-     * @return  true is the listener was unregistered, false otherwise
-     */
-    boolean unregisterListener(in IDisplayListener listener);
-
+    void unregister();
 }

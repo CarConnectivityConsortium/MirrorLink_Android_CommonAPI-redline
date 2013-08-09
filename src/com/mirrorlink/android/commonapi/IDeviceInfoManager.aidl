@@ -67,20 +67,11 @@ interface IDeviceInfoManager {
     Bundle getMirrorLinkClientInformation();
 
     /**
-     * Register the listener for monitoring the DeviceInfoManager.
+     * Notifies the Manager that the application is not using it anymore.
      *
-     * @param   listener the listener to register.
-     *
-     * @return  true is the listener was registered, false otherwise.
+     * Applications are required to call this method when they no longer need to use the Manager.
+     * Once called, if at a later point they need the Manager again, they can re-request access to
+     * it from the {@link ICommonAPIService}.
      */
-    boolean registerListener(in IDeviceInfoListener listener);
-
-    /**
-     * Unregister the listener monitoring the DeviceInfoManager.
-     *
-     * @param   listener the listener to unregister.
-     *
-     * @return  true is the listener was unregistered, false otherwise.
-     */
-    boolean unregisterListener(in IDeviceInfoListener listener);
+    void unregister();
 }
