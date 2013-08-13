@@ -52,7 +52,7 @@ interface IDeviceInfoManager {
      * @return  MirrorLink Session minor version
      *          or 0 if version information is not available.
      */
-    int getMirrorLinkConnectionVersionMinor();
+    int getMirrorLinkSessionVersionMinor();
 
     /**
      * 4.2.2 MirrorLink Client Manufacturer and Model Information.

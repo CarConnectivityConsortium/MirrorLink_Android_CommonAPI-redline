@@ -34,7 +34,7 @@ oneway interface IDataServicesListener {
      * available services. The known services are {@link Defs.LocationService} and {@link
      * Defs.GPSService}. 
      */
-    void onAvailableServicesChanged(in List<Bundle> services);
+    void onAvailableServicesChanged(in List<String> services);
 
     /**
      * 4.11.4 Register to a Service Callback.
