@@ -378,7 +378,7 @@ public class Defs {
     public static final class ClientPixelFormat {
         public static final int ARGB8888 = 0x01;
         public static final int RGB888 = 0x02;
-        public static final int ARGB565 = 0x03;
+        public static final int RGB565 = 0x03;
         public static final int RGB555 = 0x04;
         public static final int RGB444 = 0x05;
         public static final int RGB343 = 0x06;
@@ -569,12 +569,6 @@ public class Defs {
          */
         public static final int APPLICATION_CATEGORY_MASK = 0xffff0000;
         public static final int APPLICATION_CATEGORY_UNKNOWN = 0x00000000;
-        public static final int APPLICATION_CATEGORY_UI = 0x00010000;
-        public static final int APPLICATION_CATEGORY_UI_HOME_SCREEN = 0x00010001;
-        public static final int APPLICATION_CATEGORY_UI_MENU = 0x00010002;
-        public static final int APPLICATION_CATEGORY_UI_NOTIFICATION = 0x00010003;
-        public static final int APPLICATION_CATEGORY_UI_APPLICATION_LISTING = 0x00010004;
-        public static final int APPLICATION_CATEGORY_UI_SETTINGS = 0x00010005;
         public static final int APPLICATION_CATEGORY_PHONE = 0x00020000;
         public static final int APPLICATION_CATEGORY_PHONE_CONTACT_LIST = 0x00020001;
         public static final int APPLICATION_CATEGORY_PHONE_CALL_LOG = 0x00020002;
@@ -604,17 +598,6 @@ public class Defs {
         public static final int APPLICATION_CATEGORY_PIM = 0x000a0000;
         public static final int APPLICATION_CATEGORY_PIM_CALENDAR = 0x000a0001;
         public static final int APPLICATION_CATEGORY_PIM_NOTES = 0x000a0002;
-        public static final int APPLICATION_CATEGORY_NO_UI = 0xf0000000;
-        public static final int APPLICATION_CATEGORY_NO_UI_AUDIO_SERVER = 0xf0000001;
-        public static final int APPLICATION_CATEGORY_NO_UI_AUDIO_CLIENT = 0xf0000002;
-        public static final int APPLICATION_CATEGORY_NO_UI_VOICE_COMMAND_ENGINE = 0xf0000010;
-        public static final int APPLICATION_CATEGORY_NO_UI_CONVERSATIONAL_AUDIO = 0xf0000020;
-        public static final int APPLICATION_CATEGORY_SWITCH_TO_CLIENT_NATIVE_UI = 0xf000ffff;
-        public static final int APPLICATION_CATEGORY_SYSTEM = 0xffff0000;
-        public static final int APPLICATION_CATEGORY_SYSTEM_INPUT_UNLOCK_PIN = 0xffff0001;
-        public static final int APPLICATION_CATEGORY_SYSTEM_INPUT_BLUETOOTH_PIN = 0xffff0002;
-        public static final int APPLICATION_CATEGORY_SYSTEM_INPUT_OTHER_PASSWORD = 0xffff000f;
-        public static final int APPLICATION_CATEGORY_SYSTEM_VOICE_COMMAND_CONFIRMATION = 0xffff0010;
         /**
          * Content Categories
          */
@@ -647,7 +630,7 @@ public class Defs {
         /**
          *  Location Service name
          */
-        public static final String SERVICE_NAME = "com.mirrorlink.android.LOCATION";
+        public static final String SERVICE_NAME = "com.mirrorlink.location";
         /**
          *  Location Object uid
          */
@@ -672,7 +655,7 @@ public class Defs {
         /**
          *  GPS Service name
          */
-        public static final String SERVICE_NAME = "com.mirrorlink.android.GPS";
+        public static final String SERVICE_NAME = "com.mirrorlink.gps";
         /**
          *  NMEA Object uid
          */

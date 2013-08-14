@@ -48,5 +48,5 @@ oneway interface IDeviceStatusListener {
      *
      * @param  micInput Flag whether mic input is enabled on MirrorLink Client.
      */
-    void onMicrohphoneStatusChanged(in boolean micInput);
+    void onMicrophoneStatusChanged(in boolean micInput);
 }
