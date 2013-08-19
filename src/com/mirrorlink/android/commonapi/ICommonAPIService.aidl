@@ -26,6 +26,7 @@ import com.mirrorlink.android.commonapi.IDisplayManager;
 import com.mirrorlink.android.commonapi.IEventMappingManager;
 import com.mirrorlink.android.commonapi.INotificationManager;
 
+import com.mirrorlink.android.commonapi.ICertificationListener;
 import com.mirrorlink.android.commonapi.IConnectionListener;
 import com.mirrorlink.android.commonapi.IContextListener;
 import com.mirrorlink.android.commonapi.IDataServicesListener;
@@ -78,9 +79,11 @@ interface ICommonAPIService {
      *
      * @param packageName The name of the package of the application.
      *
+     * @param listener The Listener object for the Manager.
+     *
      * @return An instance of {@link ICertificationManager}.
      */
-    ICertificationManager getCertificationManager(in String packageName);
+    ICertificationManager getCertificationManager(in String packageName, in ICertificationListener listener);
 
     /**
      * Returns a IConnectionManager for requesting connection information.

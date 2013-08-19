@@ -21,6 +21,8 @@ import android.os.Bundle;
 /**
  * Provides the interface related to 4.3 Certification Information.
  *
+ * This is the interface for callbacks coming from {@link ICertificationListener}.
+ *
  * Module reference: 0x02
  * Server requirement: Mandatory
  */
