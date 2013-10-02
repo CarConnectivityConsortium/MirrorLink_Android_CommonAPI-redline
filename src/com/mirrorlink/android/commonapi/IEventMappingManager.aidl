@@ -22,21 +22,26 @@ import com.mirrorlink.android.commonapi.IEventMappingListener;
 
 /**
  * Provides the interface related to 4.6 Event Features.
- *
+ * <br>
  * The callbacks are defined in {@link IEventMappingListener}.
  *
- * Module reference: 0x05
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0x05</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface IEventMappingManager {
 
     /**
      * 4.6.1 Event Configuration.
      *
+     * <br>
+     * <i>Function reference 0x0501.</i>
+     * <br>
      * Access information on the event properties of the MirrorLink connection, i.e. the event
      * properties, which are supported from both, the MirrorLink Server and MirrorLink Client;
      * details on the event configuration are specified in the VNC specification.
-     *
+     * <br>
      * Requires established VNC connection; any later change to the provided information MUST be
      * notified via the callback function {@link IEventMappingListener#onEventConfigurationChanged}.
      *
@@ -46,13 +51,14 @@ interface IEventMappingManager {
      */
     Bundle getEventConfiguration();
 
-
     /**
      * 4.6.3 Get Event Mapping.
-     *
+     * <br>
+     * Function reference 0x0503 and 0x0504.
+     * <br>
      * Mapping MirrorLink Client events to local MirrorLink Server events; this API call gives
      * access to the internal mapping in the MirrorLink Server.
-     *
+     * <br>
      * Requires established VNC connection; any later change to the provided information MUST be
      * notified via the callback function {@link IEventMappingListener#onEventMappingChanged}.
      *
@@ -63,7 +69,7 @@ interface IEventMappingManager {
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

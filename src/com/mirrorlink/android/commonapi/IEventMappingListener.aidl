@@ -20,13 +20,16 @@ import android.os.Bundle;
 
 /**
  * Provides the interface related to 4.6 Event Features - Callbacks.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link IEventMappingManager}.
  */
 oneway interface IEventMappingListener {
     /**
      * 4.6.2 Event Configuration Callback.
-     * 
+     *
+     * <br>
+     * <i>Function reference 0x0502.</i>
+     * <br>
      * MirrorLink session event configuration information has changed.
      *
      * @param eventConfiguration The event configuration of the MirrorLink session. The fields
@@ -37,6 +40,9 @@ oneway interface IEventMappingListener {
     /**
      * 4.6.4 Get Event Mapping Callback.
      *
+     * <br>
+     * <i>Function reference 0x0505.</i>
+     * <br>
      * The application MUST be notified, whenever the MirrorLink Server and Client change the mapping.
      *
      * @param eventMapping The mapping information about remote events and local events. This is a

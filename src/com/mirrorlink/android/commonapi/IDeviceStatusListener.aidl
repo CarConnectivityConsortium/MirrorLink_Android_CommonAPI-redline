@@ -18,14 +18,17 @@ package com.mirrorlink.android.commonapi;
 
 /**
  * Provides the interface related to 4.10 Device Status - Callbacks.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link IDeviceStatusManager}.
  */
 oneway interface IDeviceStatusListener {
 
     /**
-     * 4.10.1 Drive Mode Callback.
+     * 4.10.2 Drive Mode Callback.
      *
+     * <br>
+     * <i>Function reference 0x0902.</i>
+     * <br>
      * Enable drive mode on the MirrorLink Server application.
      *
      * @param driveMode Flag indicating drive mode.
@@ -33,8 +36,11 @@ oneway interface IDeviceStatusListener {
     void onDriveModeChange(in boolean driveMode);
 
     /**
-     * 4.10.2 Night Mode Callback.
+     * 4.10.4 Night Mode Callback.
      *
+     * <br>
+     * <i>Function reference 0x0904.</i>
+     * <br>
      * Enable night mode on the MirrorLink Server application.
      *
      * @param nightMode Flag indicating night mode.
@@ -42,8 +48,11 @@ oneway interface IDeviceStatusListener {
     void onNightModeChanged(in boolean nightMode);
 
     /**
-     * 4.10.3 Open Microphone Callback.
+     * 4.10.6 Open Microphone Callback.
      *
+     * <br>
+     * <i>Function reference 0x0906.</i>
+     * <br>
      * Response on opening the Microphone from the MirrorLink Client.
      *
      * @param  micInput Flag whether mic input is enabled on MirrorLink Client.

@@ -18,19 +18,17 @@ package com.mirrorlink.android.commonapi;
 
 import android.os.Bundle;
 
-/**
- * Provides the interface related to 4.3 Certification Information - Callbacks.
- *
+/** Provides the interface related to 4.3 Certification Information - Callbacks.
+ * <br>
  * This is the interface for callbacks coming from {@link ICertificationManager}.
  */
 oneway interface ICertificationListener {
 
-    /**
-     * Indicate that the application certification status has changed.
-     *
+    /** Indicate that the application certification status has changed.
+     * <br>
      * The application would receive this callback if, for example, the certification status changes
      * when the certificate is revoked.
-     *
+     * <br>
      * The application should use the calls in the {@link ICertificationManager} to find the latest
      * certification details.
      */

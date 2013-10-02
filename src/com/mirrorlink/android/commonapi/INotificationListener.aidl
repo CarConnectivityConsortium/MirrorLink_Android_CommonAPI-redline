@@ -20,13 +20,16 @@ import android.os.Bundle;
 
 /**
  * Provides the interface related to 4.12 Notifications - Callbacks.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link INotificationManager}.
  */
 oneway interface INotificationListener {
     /**
      * 4.12.3 Notifications Enabled Callback.
      *
+     * <br>
+     * <i>Function reference 0x0B03.</i>
+     * <br>
      * Notification that enablement has changed.
      *
      * @param   notiEnabled The flag indicating the notifications are enabled or not.
@@ -36,6 +39,9 @@ oneway interface INotificationListener {
     /**
      * 4.12.5 Notification Configuration Callback.
      *
+     * <br>
+     * <i>Function reference 0x0B05.</i>
+     * <br>
      * Notification Configuration information has changed.
      *
      * @param   notificationConfiguration The UPnP notification service related preference of
@@ -44,11 +50,14 @@ oneway interface INotificationListener {
     void onNotificationConfigurationChanged(in Bundle notificationConfiguration);
 
     /**
-     * 4.12.9 Receive Action Callback
-     * Receive action from the MirrorLink Client for a notification;
+     * 4.12.9 Receive Action Callback.
+     *
+     * <br>
+     * <i>Function reference 0x0B09.</i>
+     * <br>
+     * Receive action from the MirrorLink Client for a notification.
      *
      * @param notificationId Identifier of the notification
-     *
      * @param actionId Action identifier
      */
     void onNotificationActionReceived(in int notificationId, in int actionId);

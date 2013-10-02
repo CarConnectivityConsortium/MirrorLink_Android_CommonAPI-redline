@@ -20,17 +20,60 @@ import com.mirrorlink.android.commonapi.IDeviceStatusListener;
 
 /**
  * Provides the interface related to 4.10 Device Status.
- *
+ * <br>
  * The callbacks are defined in {@link IDeviceStatusListener}.
  *
- * Module reference: 0x09
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0x09</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface IDeviceStatusManager {
 
+    // TODO: sb2: Add intent content catgory.
     /**
-     * 4.10.4 Set Open Microphone.
+     * 4.10.1 Drive Mode.
      *
+     * <br>
+     * <i>Function reference 0x0901.</i>
+     * <br>
+     * Check the drive mode status on the MirrorLink Server; requires established VNC connection.
+     *
+     * @return Flag set to true if the Server is in Drive Mode.
+     */
+    boolean isInDriveMode();
+
+    /**
+     * 4.10.3 Night Mode.
+     *
+     * <br>
+     * <i>Function reference 0x0903.</i>
+     * <br>
+     * Check the night mode status on the MirrorLink Server; requires established VNC connection.
+     *
+     * @return Flag set to true if the Server is in Night Mode.
+     */
+    boolean isInNightMode();
+
+    /**
+     * 4.10.5 Microphone State.
+     *
+     * <br>
+     * <i>Function reference 0x0905.</i>
+     * <br>
+     * Check the status of the Microphone from the MirrorLink Client; requires established VNC
+     * connection.
+     *
+     * @return Flag set to true if the mic input is enabled on MirrorLink Client.
+     */
+    boolean isMicrophoneOn();
+
+    /**
+     * 4.10.7 Set Open Microphone.
+     *
+     * <br>
+     * <i>Function reference 0x0907.</i>
+     * <br>
      * Open the Microphone on the MirrorLink Client.
      *
      * @param micInput Flag enabling mic input on the MirrorLink Client.
@@ -39,7 +82,7 @@ interface IDeviceStatusManager {
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

@@ -22,16 +22,21 @@ import com.mirrorlink.android.commonapi.IDataServicesListener;
 
 /**
  * Provides the interface related to 4.11 Data Services.
- *
+ * <br>
  * The callbacks are defined in {@link IDataServicesListener}.
  *
- * Module reference: 0x0A
- * Server requirement: Optional
+ * <br>
+ * <i>Module reference: 0x0A</i>
+ * <br>
+ * <i>Server requirement: Optional</i>
  */
 interface IDataServicesManager {
     /**
      * 4.11.1 Get Available Services.
      *
+     * <br>
+     * <i>Function reference 0x0A01.</i>
+     * <br>
      * Retrieve list of available Services provided from the MirrorLink Client and supported from
      * the MirrorLink Server.
      *
@@ -45,6 +50,9 @@ interface IDataServicesManager {
     /**
      * 4.11.3 Register to a Service.
      *
+     * <br>
+     * <i>Function reference 0x0A03.</i>
+     * <br>
      * Register to an available Service.
      *
      * @param serviceId Service identifier. Will be one of {@link
@@ -55,6 +63,9 @@ interface IDataServicesManager {
     /**
      * 4.11.5 Unregister from a Service.
      *
+     * <br>
+     * <i>Function reference 0x0A05.</i>
+     * <br>
      * Unregister from an available Service.
      *
      * @param serviceId Service identifier.
@@ -64,10 +75,12 @@ interface IDataServicesManager {
     /**
      * 4.11.6 Subscribe to an Object.
      *
+     * <br>
+     * <i>Function reference 0x0A06.</i>
+     * <br>
      * Subscribe a Service Object.
      *
      * @param serviceId Service identifier.
-     *
      * @param objectId Hash value of the object.
      */
     void subscribeObject(in int serviceId, in int objectId);
@@ -75,10 +88,12 @@ interface IDataServicesManager {
     /**
      * 4.11.8 Unsubscribe from an Object.
      *
+     * <br>
+     * <i>Function reference 0x0A08.</i>
+     * <br>
      * Unsubscribe from a Service Object.
      *
      * @param serviceId Service identifier.
-     *
      * @param objectId Hash value of the object.
      */
     void unsubscribeObject(in int serviceId, in int objectId);
@@ -86,12 +101,13 @@ interface IDataServicesManager {
     /**
      * 4.11.9 Set an Object.
      *
+     * <br>
+     * <i>Function reference 0x0A09.</i>
+     * <br>
      * Set a Service Object. Requires established CDB connection and registered service.
      *
      * @param serviceId Service identifier.
-     *
      * @param objectId the hash value of the object.
-     *
      * @param object Bundle containing the object payload. Every value in the object is mapped to a corresponding
      *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
      *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
@@ -99,19 +115,21 @@ interface IDataServicesManager {
     void setObject(in int serviceId, in int objectId, in Bundle object);
 
     /**
-     * 4.11.10 Get an Object.
+     * 4.11.11 Get an Object.
      *
+     * <br>
+     * <i>Function reference 0x0A0B.</i>
+     * <br>
      * Get a Service Object. Requires established CDB connection and registered service.
      *
      * @param serviceId Service identifier
-     *
      * @param objectId the hash value of the object
      */
     void getObject(in int serviceId, in int objectId);
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

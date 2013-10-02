@@ -20,7 +20,7 @@ import android.os.Bundle;
 
 /**
  * Provides the interface related 4.4 Connection Information - Callbacks.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link IConnectionManager}.
  */
 oneway interface IConnectionListener {
@@ -28,6 +28,9 @@ oneway interface IConnectionListener {
     /**
      * 4.4.2 Established MirrorLink Session Callback.
      *
+     * <br>
+     * <i>Function reference 0x0302.</i>
+     * <br>
      * Indicate that the MirrorLink Session status has changed.
      *
      * @param mirrolinkSessionIsEstablished the new status of the MirrorLink session.
@@ -37,6 +40,9 @@ oneway interface IConnectionListener {
     /**
      * 4.4.4 Established Audio Connections Callback.
      *
+     * <br>
+     * <i>Function reference 0x0304.</i>
+     * <br>
      * Indicate that the audio connections changed.
      *
      * @param audioConnections Bundle containing the status of the audio connections available. The
@@ -47,6 +53,9 @@ oneway interface IConnectionListener {
     /**
      * 4.4.6 Established Remote Display Connection Callback.
      *
+     * <br>
+     * <i>Function reference 0x0306.</i>
+     * <br>
      * Indicate that the remote display connections changed.
      *
      * @param remoteDisplayConnection integer indicating the status of the remote display connections

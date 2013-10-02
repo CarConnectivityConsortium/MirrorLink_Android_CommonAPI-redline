@@ -20,17 +20,22 @@ import android.os.Bundle;
 
 /**
  * Provides the interface related to 4.3 Certification Information.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link ICertificationListener}.
  *
- * Module reference: 0x02
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0x02</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface ICertificationManager {
 
     /**
      * 4.3.1 Get Application Certification Status.
      *
+     * <br>
+     * <i>Function reference 0x0201.</i>
+     * <br>
      * Provided application certificate status, as captured from the application certificate.
      *
      * @return A bundle detailing {@link Defs.ApplicationCertificationStatus}.
@@ -40,6 +45,9 @@ interface ICertificationManager {
     /**
      * 4.3.2 Get Application Certifying Entities.
      *
+     * <br>
+     * <i>Function reference 0x0202.</i>
+     * <br>
      * Provide information on the certifying entities.
      *
      * @return Comma-separated list of certifying entities, which certified the application,
@@ -49,6 +57,9 @@ interface ICertificationManager {
     /**
      * 4.3.3 Get Application Certification Information.
      *
+     * <br>
+     * <i>Function reference 0x0203.</i>
+     * <br>
      * Provide application certificate information.
      *
      * @param   entity the name of the certifying entity,
@@ -61,7 +72,7 @@ interface ICertificationManager {
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

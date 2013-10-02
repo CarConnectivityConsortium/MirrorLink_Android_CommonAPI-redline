@@ -40,13 +40,18 @@ import com.mirrorlink.android.commonapi.INotificationListener;
  * The main interface through which the MirrorLink Common API
  * services are to be accessed.
  *
- * Module reference: 0x00
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0xF0</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface ICommonAPIService {
     /**
      * Reports the current CommonAPI api level supported by the service,
      * as opposed to the api level specified by this interface.
+     *
+     * <br>
+     * <i>Function reference 0xF001.</i>
      *
      * @return The MirrorLink API level.
      */
@@ -54,7 +59,7 @@ interface ICommonAPIService {
 
     /**
      * Notifies the MirrorLink Server that an application has started.
-     *
+     * <br>
      * Applications MUST call this on start-up, whether they are launched by the MirrorLink server,
      * or started otheriwse.
      *
@@ -64,7 +69,7 @@ interface ICommonAPIService {
 
     /**
      * Notifies the MirrorLink Server that an application is stopping.
-     *
+     * <br>
      * Applications MUST call this on shut-down, whether they are terminated by the MirrorLink server,
      * or stopped otheriwse.
      *
@@ -75,10 +80,14 @@ interface ICommonAPIService {
     /**
      * Returns a ICertificationManager for handling certificates.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link ICertificationManager}.
@@ -88,10 +97,14 @@ interface ICommonAPIService {
     /**
      * Returns a IConnectionManager for requesting connection information.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IConnectionManager}.
@@ -101,10 +114,14 @@ interface ICommonAPIService {
     /**
      * Returns a IContextManagerManager for handling context information.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IContextManager}.
@@ -114,10 +131,14 @@ interface ICommonAPIService {
     /**
      * Returns a IDataServiceManager for handling Common Data Bus connections.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is optional so null may be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IDataServicesManager}.
@@ -128,10 +149,14 @@ interface ICommonAPIService {
     /**
      * Returns a IDeviceInfoManager for handling device information.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IDeviceInfoManager}.
@@ -141,10 +166,14 @@ interface ICommonAPIService {
     /**
      * Returns a IDeviceStatusManager for handling device status.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IDeviceStatusManager}.
@@ -155,10 +184,14 @@ interface ICommonAPIService {
     /**
      * Returns a IDisplayManager for handling remote displays.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IDisplayManager}.
@@ -168,10 +201,14 @@ interface ICommonAPIService {
     /**
      * Returns a IEventMappingManager for handling event mapping.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link IEventMappingManager}.
@@ -182,10 +219,14 @@ interface ICommonAPIService {
     /**
      * Returns a INotificationManager for handling notifications.
      *
+     * <br>
+     * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
+     * is available (by passing in the module reference), but there are get-functions for each
+     * module and if null is returned then the module is not available.
+     * <br>
      * This service is optional so null may be returned.
      *
      * @param packageName The name of the package of the application.
-     *
      * @param listener The Listener object for the Manager.
      *
      * @return An instance of {@link INotificationManager}.

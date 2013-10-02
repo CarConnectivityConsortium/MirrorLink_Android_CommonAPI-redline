@@ -20,20 +20,20 @@ import android.os.Bundle;
 
 /**
  * Provides the interface related to 4.2 MirrorLink Device Info - Callbacks.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link IDeviceInfoManager}.
  */
 oneway interface IDeviceInfoListener {
 
     /**
      * 4.2.4 MirrorLink Client Manufacturer and Model Information Callback.
-     *
+     * <br>
+     * Function reference 0x0102 and 0x0103.
+     * <br>
      * Indicates that the Client information has changed;
      *
      * @param mirrorLinkVersionMajor MirrorLink Session major version.
-     *
      * @param mirrorLinkVersionMinor MirrorLink Session minor version.
-     *
      * @param clientInformation containg the client information or null if no client is connected. The bundle
      * will contain the values defined in {@link Defs.ClientInformation}.
      */

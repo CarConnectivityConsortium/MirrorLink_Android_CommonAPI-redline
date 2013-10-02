@@ -20,17 +20,22 @@ import com.mirrorlink.android.commonapi.IContextListener;
 
 /**
  * Provides the interface related to 4.9 Context Information.
- *
+ * <br>
  * The callbacks are defined in {@link IContextListener}.
  *
- * Module reference: 0x08
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0x08</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface IContextManager {
 
     /**
      * 4.9.1 Framebuffer Context Information.
      *
+     * <br>
+     * <i>Function reference 0x0801.</i>
+     * <br>
      * Provides information of the current framebuffer context; the MirrorLink Server MUST use the
      * application and content category values from the UPnP advertisements, unless otherwise stated
      * from the application using this function. The MirrorLink Server MUST use the given values
@@ -39,12 +44,9 @@ interface IContextManager {
      *
      * @param applicationCategory Category of the application. Should be one defined in {@link
      * Defs.ContextInformation}.
-     *
      * @param contentCategory Category of the content. Should be one defined in {@link
      * Defs.ContextInformation}.
-     *
      * @param framebufferArea The framebuffer rectangle of the specified region.
-     *
      * @param handleBlocking Flag indicating whether the application will take care of the blocking
      * if the MirrorLink Client blocks the content.
      */
@@ -54,6 +56,9 @@ interface IContextManager {
     /**
      * 4.9.3 Audio Context Information.
      *
+     * <br>
+     * <i>Function reference 0x0803.</i>
+     * <br>
      * Provides information of the current audio context and whether the application is currently
      * providing audio; The MirrorLink Server MUST use the application category value from the UPnP
      * advertisements, unless otherwise stated from the application using this SET function. The
@@ -66,24 +71,24 @@ interface IContextManager {
      *        If set to True, the application is creating an audio stream,
      *        which is potentially mixed with other audio sources. Should be one defined in {@link
      *        Defs.ContextInformation}.
-     *
-     * @param appCategory Category of the application. Should be one defined in {@link
+     * @param audioCategory Category of the audio stream. Should be one defined in {@link
      * Defs.ContextInformation}.
-     *
      * @param handleBlocking Flag indicating whether the application will take care of the blocking
      * if the MirrorLink Client blocks the content.
      */
-    void setAudioContextInformation(in boolean audioContent, in int appCategory, in boolean handleBlocking);
+    void setAudioContextInformation(in boolean audioContent, in int audioCategory, in boolean handleBlocking);
 
     /**
      * 4.9.5 Context Information Reset.
      *
+     * <br>
+     * <i>Function reference 0x0805.</i>
+     * <br>
      * Resets the framebuffer and audio context information to the values given in the UPnP
      * advertisements; the Framebuffer Context.
      *
      * @param framebufferContext Reset the framebuffer context to the default values from the UPnP
      * Application Listing.
-     *
      * @param audioContext Reset the audio context to the default values from the UPnP Application
      * Listing.
      */
@@ -91,7 +96,7 @@ interface IContextManager {
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

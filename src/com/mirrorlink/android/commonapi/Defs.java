@@ -1,4 +1,4 @@
-/* Copyright 2013 RealVNC, ltd.
+/* Copyright 2013 RealVNC ltd.
  * Portions Copyright 2011-2013 Car Connectivity Consortium LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,10 +22,10 @@ package com.mirrorlink.android.commonapi;
  * MirrorLink Server or Client properties or to set them to specific values.
  * In addition, the API specifies callback functions, which are used from the
  * MirrorLink Server to inform the application about any change.
- *
+ * <br>
  * The Common API uses a set of Data Types, given in the table below, together
  * with the Java type used to represent the original Data type.
- *
+ * <br>
  * Please note that all the integer types defined in the MirrorLink protocol are used as int in the
  * Common API.
  * <pre>
@@ -51,16 +51,16 @@ package com.mirrorlink.android.commonapi;
  */
 public class Defs {
     /**
-     *  Common API Level provided by this interface
+     * Common API Level provided by this interface.
      */
     public static final int API_LEVEL = 1;
 
     /**
-     *  Intents used to communicate between the MirrorLink server and MirrorLink aware applications.
+     * Intents used to communicate between the MirrorLink server and MirrorLink aware applications.
      */
     public static final class Intents {
         /**
-         *  Intents used by applications to bind to the MirrorLink Server CommonAPI service.
+         * Intents used by applications to bind to the MirrorLink Server CommonAPI service.
          */
         public static final String BIND_MIRRORLINK_API = "com.mirrorlink.android.service.BIND";
         /**
@@ -74,82 +74,92 @@ public class Defs {
          * aware applications must handle this Intent and disconnect from the MirrorLink service.
          */
         public static final String TERMINATE_MIRRORLINK_APP = "com.mirrorlink.android.app.TERMINATE";
+        /**
+         * The category that the intent MUST use when an application is launched, or terminated.
+         */
+        public static final String INTENT_CATEGORY = "android.intent.category.DEFAULT";
     }
     /*****************************************************************************
      3 DEFINITIONS
      *****************************************************************************/
     /**
-     *  3.1 Rect Bundle property names
+     * 3.1 Rect Bundle property names.
+     * <br>
+     * <i>Structure reference: 0xE001.</i>
      */
     public static final class Rect {
         /**
-         * Horizontal offset of the upper left corner
+         * Horizontal offset of the upper left corner.
          * uint16 packaged as an int
          */
         public static final String X = "X";
         /**
-         * Vertical offset of the upper left corner
+         * Vertical offset of the upper left corner.
          * uint16 packaged as an int
          */
         public static final String Y = "Y";
         /**
-         * Width of the rectangle
+         * Width of the rectangle.
          * uint16 packaged as an int
          */
         public static final String WIDTH = "WIDTH";
         /**
-         * Height of the rectangle
+         * Height of the rectangle.
          * uint16 packaged as an int
          */
         public static final String HEIGHT = "HEIGHT";
 
     }
     /**
-     *  3.2 ServiceInformation Bundle property names
+     * 3.2 ServiceInformation Bundle property names.
+     * <br>
+     * <i>Structure reference: 0xE002.</i>
      */
     public static final class ServiceInformation {
         /**
-         * Major service version
+         * Major service version.
          * uint8 packaged as a int
          */
         public static final String VERSION_MAJOR = "VERSION_MAJOR";
         /**
-         * Minor service version
+         * Minor service version.
          * uint8 packaged as a int
          */
         public static final String VERSION_MINOR = "VERSION_MINOR";
         /**
-         * Service identifier
+         * Service identifier.
          * uint16 packaged as an int
          */
         public static final String SERVICE_ID = "SERVICE_ID";
         /**
-         * Service name
+         * Service name.
          * String
          */
         public static final String SERVICE_NAME = "SERVICE_NAME";
     }
     /**
-     *  3.3 Action Bundle property names
+     * 3.3 Action Bundle property names.
+     * <br>
+     * <i>Structure reference: 0xE003.</i>
      */
     public static final class Action {
         /**
-         * Action identifier
+         * Action identifier.
          * uint16 packaged as an int
          */
         public static final String ACTION_ID = "ACTION_ID";
         /**
-         * Action name
+         * Action name.
          * String
          */
         public static final String ACTION_NAME = "ACTION_NAME";
         /**
-         * Flag whether to launch the app
-         * Boolean
+         * Flag whether to launch the app.
+         * boolean
          */
         public static final String LAUNCH_APP = "LAUNCH_APP";
         /**
-         * URL to the con associated with the action
+         * URL to the con associated with the action.
          * url packaged as a String
          */
         public static final String ICON_URL = "ICON_URL";
@@ -160,46 +170,77 @@ public class Defs {
     /** 4.2 MirrorLink Device Info */
 
     /**
-     * 4.2.4 ClientInformation Bundle property names
+     * 4.2.4 ClientInformation Bundle property names.
      */
     public static final class ClientInformation {
         /**
-         * Identifier of the MirrorLink client
+         * Identifier of the MirrorLink client.
          * String
          */
         public static final String CLIENT_IDENTIFIER = "CLIENT_IDENTIFIER";
         /**
-         * Short user-friendly description of the MirrorLink client
+         * Short user-friendly description of the MirrorLink client.
          * String
          */
         public static final String CLIENT_FRIENDLY_NAME = "CLIENT_FRIENDLY_NAME";
         /**
-         * Manufacturer Name of the MirrorLink client
+         * Manufacturer Name of the MirrorLink client.
          * String
          */
         public static final String CLIENT_MANUFACTURER = "CLIENT_MANUFACTURER";
         /**
-         * Model name of the MirrorLink client
+         * Model name of the MirrorLink client.
          * String
          */
         public static final String CLIENT_MODEL_NAME = "CLIENT_MODEL_NAME";
         /**
-         * Model number of the MirrorLink client
+         * Model number of the MirrorLink client.
          * String
          */
         public static final String CLIENT_MODEL_NUMBER = "CLIENT_MODEL_NUMBER";
     }
 
+    /**
+     * 4.2.5 Server Device Virtual Keyboard Support property names.
+     */
+    public static final class VirtualKeyboardSupport {
+        /**
+         * Flag, to indicate the availability of a virtual keyboard 
+         * from the MirrorLink Server. 
+         * boolean
+         */
+        public static final String AVAILABLE = "AVAILABLE";
+        /**
+         * Flag, to indicate whether the virtual keyboard supports 
+         * touch events. 
+         * boolean
+         */
+        public static final String TOUCH_SUPPORT = "TOUCH_SUPPORT";
+        /**
+         * Flag, to indicate whether the virtual keyboard supports 
+         * knob events. 
+         * boolean
+         */
+        public static final String KNOB_SUPPORT = "KNOB_SUPPORT";
+        /**
+         * Flag, to indicate whether the virtual keyboard is following driver distraction ruling,
+         * as set force for CCC drive-certification.
+         * boolean
+         */
+        public static final String DRIVE_MODE = "DRIVE_MODE";
+    }
+
+
     /** 4.3 Certification Information */
 
     /**
-     * 4.3.1 ApplicationCertificationStatus Bundle property names and values
+     * 4.3.1 ApplicationCertificationStatus Bundle property names and values.
      */
     public static final class ApplicationCertificationStatus {
         /**
          * Flag, indicating whether the MirrorLink server has a valid certificate for the
          * application.
-         * Boolean
+         * boolean
          */
         public static final String HAS_VALID_CERTIFICATE = "HAS_VALID_CERTIFICATE";
         /**
@@ -207,12 +248,12 @@ public class Defs {
          * UPnP advertisements as a certified application. If the application is only certified by a
          * manufacturer, the value of this will be false, unless the server is connected to a client
          * that matches the manufacturer name.
-         * Boolean
+         * boolean
          */
         public static final String ADVERTISED_AS_CERTIFIEDAPP = "ADVERTISED_AS_CERTIFIEDAPP";
     }
     /**
-     *  4.3.3 CertificateInformation Bundle property names and values
+     * 4.3.3 CertificateInformation Bundle property names and values
      */
     public static final class CertificateInformation {
         /**
@@ -222,7 +263,7 @@ public class Defs {
         public static final String ENTITY = "ENTITY";
         /**
          * Flag, whether the application has been certified from the given entity.
-         * Boolean
+         * boolean
          */
         public static final String CERTIFIED = "CERTIFIED";
         /**
@@ -242,26 +283,26 @@ public class Defs {
     /** 4.4 Connection Information */
 
     /**
-     *  4.4.3 AudioConnections Bundle property names and values
+     * 4.4.3 AudioConnections Bundle property names and values
      */
     public static final class AudioConnections {
         /**
-         * Identifier of the audio connection for media audio (output)
+         * Identifier of the audio connection for media audio (output).
          * uint8 packaged as a int
          */
         public static final String MEDIA_AUDIO_OUT = "MEDIA_AUDIO_OUT";
         /**
-         * Identifier of the audio connection for media audio (input)
+         * Identifier of the audio connection for media audio (input).
          * uint8 packaged as a int
          */
         public static final String MEDIA_AUDIO_IN = "MEDIA_AUDIO_IN";
         /**
-         * Identifier of the audio connection for Voice Control audio (input)
+         * Identifier of the audio connection for Voice Control audio (input).
          * uint8 packaged as a int
          */
         public static final String VOICE_CONTROL = "VOICE_CONTROL";
         /**
-         * Identifier of the audio connection for Phone audio (input & output)
+         * Identifier of the audio connection for Phone audio (input & output).
          * uint8 packaged as a int
          */
         public static final String PHONE_AUDIO = "PHONE_AUDIO";
@@ -272,7 +313,7 @@ public class Defs {
         public static final String PAYLOAD_TYPES = "PAYLOAD_TYPES";
 
         /**
-         * AudioConnections MEDIA_AUDIO_OUT values
+         * AudioConnections MEDIA_AUDIO_OUT values.
          */
         /** Not established */
         public static final int MEDIA_OUT_NONE = 0x00;
@@ -282,7 +323,7 @@ public class Defs {
         public static final int MEDIA_OUT_RTP = 0x02;
 
         /**
-         * AudioConnections MEDIA_AUDIO_IN values
+         * AudioConnections MEDIA_AUDIO_IN values.
          */
         /** Not established */
         public static final int MEDIA_IN_NONE = 0x00;
@@ -290,7 +331,7 @@ public class Defs {
         public static final int MEDIA_IN_RTP = 0x02;
 
         /**
-         * AudioConnections VOICE_CONTROL values
+         * AudioConnections VOICE_CONTROL values.
          */
         /** Not established */
         public static final int VOICE_CONTROL_NONE = 0x00;
@@ -300,7 +341,7 @@ public class Defs {
         public static final int VOICE_CONTROL_RTP = 0x02;
 
         /**
-         * AudioConnections PHONE_AUDIO values
+         * AudioConnections PHONE_AUDIO values.
          */
         /** Not established */
         public static final int INCALL_AUDIO_NONE = 0x00;
@@ -310,11 +351,11 @@ public class Defs {
         public static final int INCALL_AUDIO_RTP = 0x02;
     }
     /**
-     *  4.4.5 RemoteDisplayConnection Bundle property names and values
+     * 4.4.5 RemoteDisplayConnection Bundle property names and values.
      */
     public static final class RemoteDisplayConnection {
         /**
-         * RemoteDisplayConnection.RemoteDisplayType values
+         * RemoteDisplayConnection.RemoteDisplayType values.
          */
         public static final int REMOTEDISPLAY_NONE = 0x00;
         public static final int REMOTEDISPLAY_VNC = 0x01;
@@ -326,21 +367,43 @@ public class Defs {
     /** 4.5 Display Information */
 
     /**
-     *  4.5.1 DisplayConfiguration Bundle property names and values.
+     * 4.5.1 DisplayConfiguration Bundle property names and values.
      */
     public static final class DisplayConfiguration {
         /**
-         * Horizontal resolution in pixels of the MirrorLink Server framebuffer,
-         * available for rendering the MirrorLink Server’s screen.
+         * Horizontal resolution in pixels of the framebuffer the application is rendering into.
+         * uint16 packaged as an int
+         */
+        public static final String APP_PIXEL_WIDTH = "APP_PIXEL_WIDTH";
+        /**
+         * Vertical resolution in pixels of the framebuffer the application is rendering into.
+         * uint16 packaged as an int
+         */
+        public static final String APP_PIXEL_HEIGHT = "APP_PIXEL_HEIGHT";
+        /**
+         * Horizontal resolution in pixel, after the MirrorLink Server has scaled the application
+         * framebuffer.
          * uint16 packaged as an int
          */
         public static final String SERVER_PIXEL_WIDTH = "SERVER_PIXEL_WIDTH";
         /**
-         * Vertical resolution in pixels of the MirrorLink Server framebuffer,
-         * available for rendering the MirrorLink Server’s screen.
+         * Vertical resolution in pixel, after the MirrorLink Server has scaled the application
+         * framebuffer. 
          * uint16 packaged as an int
          */
         public static final String SERVER_PIXEL_HEIGHT = "SERVER_PIXEL_HEIGHT";
+        /**
+         * Number of pad rows added from the MirrorLink Server to the scaled application
+         * framebuffer.
+         * uint16 packaged as an int
+         */
+        public static final String SERVER_PAD_ROWS = "SERVER_PAD_ROWS";
+        /**
+         * Number of pad columns added from the MirrorLink Server to the scaled application
+         * framebuffer.
+         * uint16 packaged as an int
+         */
+        public static final String SERVER_PAD_COLUMNS = "SERVER_PAD_COLUMNS";
         /**
          * Horizontal resolution in pixels of the MirrorLink Client framebuffer,
          * available for rendering the MirrorLink Server’s screen.
@@ -371,9 +434,16 @@ public class Defs {
          * uint16 packaged as an int
          */
         public static final String DISTANCE = "DISTANCE";
+        /**
+         * Number of application-level pixels, which will fit into 1 mm of Client Display space. 
+         * float
+         * <br>
+         * Note: This value is the same for the horizontal and vertical dimension.
+         */
+        public static final String APP_PIXELS_PER_CLIENT_MM = "APP_PIXELS_PER_CLIENT_MM";
     }
     /**
-     * 4.5.3 IDisplayManager.getClientPixelFormat values
+     * 4.5.3 IDisplayManager.getClientPixelFormat values.
      */
     public static final class ClientPixelFormat {
         public static final int ARGB8888 = 0x01;
@@ -386,7 +456,7 @@ public class Defs {
         public static final int GRAY8 = 0x08;
     }
     /**
-     * 4.5.5 Set Framebuffer Orientation Support
+     * 4.5.5 Set Framebuffer Orientation Support.
      */
     public static final class FramebufferOrientationSupport {
         public static final int LANDSCAPE_ONLY = 0x01;
@@ -396,7 +466,7 @@ public class Defs {
 
     /** 4.6 Event Related Features */
     /**
-     * 4.6.1 EventConfiguration Bundle property names and values
+     * 4.6.1 EventConfiguration Bundle property names and values.
      */
     public static final class EventConfiguration {
         /**
@@ -423,12 +493,12 @@ public class Defs {
          */
         public static final String FUNC_KEY_SUPPORT = "FUNC_KEY_SUPPORT";
         /**
-         * Support for ITU keys from the MirrorLink Session
+         * Support for ITU keys from the MirrorLink Session.
          * boolean
          */
         public static final String ITU_KEY_SUPPORT = "ITU_KEY_SUPPORT";
         /**
-         * Number of simultaneous touch events, supported from the MirrorLink Client
+         * Number of simultaneous touch events, supported from the MirrorLink Client.
          * uint8 packaged as a int
          */
         public static final String TOUCH_SUPPORT = "TOUCH_SUPPORT";
@@ -438,7 +508,7 @@ public class Defs {
          */
         public static final String PRESSURE_MASK = "PRESSURE_MASK";
         /**
-         * KNOB_KEY_SUPPORT values
+         * KNOB_KEY_SUPPORT values.
          */
         public static final int KNOB_KEY_SUPPORT_SHIFT_Y_0  = 0x00000002;
         public static final int KNOB_KEY_SUPPORT_SHIFT_XY_0 = 0x00000004;
@@ -472,7 +542,7 @@ public class Defs {
         public static final int KNOB_KEY_SUPPORT_ROTATE_Y_3 = 0x40000000;
         public static final int KNOB_KEY_SUPPORT_ROTATE_Z_3 = 0x80000000;
         /**
-         * DEVICE_KEY_SUPPORT values
+         * DEVICE_KEY_SUPPORT values.
          */
         public static final int DEVICE_KEY_SUPPORT_PHONE_CALL  = 0x00000001;
         public static final int DEVICE_KEY_SUPPORT_PHONE_END   = 0x00000002;
@@ -492,7 +562,7 @@ public class Defs {
         public static final int DEVICE_KEY_SUPPORT_MENU        = 0x00008000;
         public static final int DEVICE_KEY_SUPPORT_ALL         = 0x00007fff;
         /**
-         * MULTIMEDIA_KEY_SUPPORT values
+         * MULTIMEDIA_KEY_SUPPORT values.
          */
         public static final int MULTIMEDIA_KEY_SUPPORT_PLAY     = 0x00000001;
         public static final int MULTIMEDIA_KEY_SUPPORT_PAUSE    = 0x00000002;
@@ -505,7 +575,7 @@ public class Defs {
         public static final int MULTIMEDIA_KEY_SUPPORT_UNMUTE   = 0x00000100;
         public static final int MULTIMEDIA_KEY_SUPPORT_PHOTO    = 0x00000200;
         /**
-         * TOUCH_SUPPORT values
+         * TOUCH_SUPPORT values.
          */
         public static final int TOUCH_SUPPORT_NONE                     = 0x00;
         public static final int TOUCH_SUPPORT_SINGLE                   = 0x01;
@@ -516,7 +586,7 @@ public class Defs {
         public static final int TOUCH_SUPPORT_MULTI                    = 0xFF;
     }
     /**
-     * 4.6.4 EventMapping Bundle property names and values
+     * 4.6.4 EventMapping Bundle property names and values.
      */
     public static final class EventMapping {
         /**
@@ -532,11 +602,11 @@ public class Defs {
 
     /** 4.9 Context Information Related Features */
     /**
-     *  4.9.3 BlockingInformation values
+     * 4.9.3 BlockingInformation values.
      */
     public static final class BlockingInformation {
         /**
-         * IContextListener.onAudioBlocked reason values
+         * IContextListener.onAudioBlocked reason values.
          */
         public static final int AUDIOBLOCKED_APPLICATION_CATEGORY_NOT_ALLOWED = 0x0001;
         public static final int AUDIOBLOCKED_APPLICATION_NOT_TRUSTED = 0x0002;
@@ -544,7 +614,7 @@ public class Defs {
         public static final int AUDIOBLOCKED_GLOBALLY_MUTED = 0x0008;
         public static final int AUDIOBLOCKED_STREAM_MUTED = 0x0010;
         /**
-         * IContextListener.onFramebufferBlocked reason values
+         * IContextListener.onFramebufferBlocked reason values.
          */
         public static final int DISPLAYBLOCKED_CONTENT_CATEGORY_NOT_ALLOWED = 0x0001;
         public static final int DISPLAYBLOCKED_APPLICATION_CATEGORY_NOT_ALLOWED = 0x0002;
@@ -555,17 +625,17 @@ public class Defs {
         public static final int DISPLAYBLOCKED_UI_NOT_IN_FOCUS = 0x0100;
         public static final int DISPLAYBLOCKED_UI_NOT_VISIBLE = 0x0200;
         /**
-         * IContextListener.onFramebufferOrientationBlocked values
+         * IContextListener.onFramebufferOrientationBlocked values.
          */
         public static final int ORIENTATIONBLOCKED_LANDSCAPE = 0x01;
         public static final int ORIENTATIONBLOCKED_PORTRAIT = 0x02;
     }
     /**
-     *  4.9.1, 4.9.3 Framebuffer and Audio Context Information values
+     * 4.9.1, 4.9.3 Framebuffer and Audio Context Information values.
      */
     public static final class ContextInformation {
         /**
-         * Application Categories
+         * Application Categories.
          */
         public static final int APPLICATION_CATEGORY_MASK = 0xffff0000;
         public static final int APPLICATION_CATEGORY_UNKNOWN = 0x00000000;
@@ -599,7 +669,7 @@ public class Defs {
         public static final int APPLICATION_CATEGORY_PIM_CALENDAR = 0x000a0001;
         public static final int APPLICATION_CATEGORY_PIM_NOTES = 0x000a0002;
         /**
-         * Content Categories
+         * Content Categories.
          */
         public static final int VISUAL_CONTENT_CATEGORY_TEXT = 0x00000001;
         public static final int VISUAL_CONTENT_CATEGORY_VIDEO = 0x00000002;
@@ -624,19 +694,19 @@ public class Defs {
     }
 
     /**
-     * Constants used when interacting with the Location data service
+     * Constants used when interacting with the Location data service.
      */
     public static final class LocationService {
         /**
-         *  Location Service name
+         * Location Service name.
          */
         public static final String SERVICE_NAME = "com.mirrorlink.location";
         /**
-         *  Location Object uid
+         * Location Object uid.
          */
         public static final int LOCATION_OBJECT_UID = 0x572a6461;
         /**
-         *  Location Object Bundle property names
+         * Location Object Bundle property names.
          */
         public static final String COORD_FIELD_UID = "0xbad026d0";
         public static final String LATITUDE_FIELD_UID = "0x64f8f3f1";
@@ -649,32 +719,32 @@ public class Defs {
         public static final String TIMESTAMP_FIELD_UID = "0x59413fd1";
     }
     /**
-     * Constants used when interacting with the GPS data service
+     * Constants used when interacting with the GPS data service.
      */
     public static final class GPSService {
         /**
-         *  GPS Service name
+         * GPS Service name.
          */
         public static final String SERVICE_NAME = "com.mirrorlink.gps";
         /**
-         *  NMEA Object uid
+         * NMEA Object uid.
          */
         public static final int NMEA_OBJECT_UID = 0x0aac4540;
         /**
-         *  NMEA Object Bundle property names
+         * NMEA Object Bundle property names.
          */
         public static final String NMEA_DATA_FIELD_UID      = "0x144a776f";
         public static final String NMEA_TIMESTAMP_FIELD_UID = "0x59413fd1";
         /**
-         *  NMEADescription Object uid
+         * NMEADescription Object uid.
          */
         public static final int NMEADESCRIPTION_OBJECT_UID = 0x9d08b19d;
         /**
-         *  NMEADescription Object Bundle property names
+         * NMEADescription Object Bundle property names.
          */
         public static final String NMEADESCRIPTION_SUPPORTED_FIELD_UID = "0x6e72b167";
         /**
-         *  GPS supported sentences flags.
+         * GPS supported sentences flags.
          */
         public static final int SUPPORT_GGA              = 0x01;
         public static final int SUPPORT_GLL              = 0x02;
@@ -687,11 +757,11 @@ public class Defs {
 
     /** 4.12 Notifications */
     /**
-     * 4.12.4 NotificationConfiguration Bundle property names
+     * 4.12.4 NotificationConfiguration Bundle property names.
      */
     public static final class NotificationConfiguration {
         /**
-         * Flag, whether the MirrorLink client supports its own notification UI
+         * Flag, whether the MirrorLink client supports its own notification UI.
          * boolean
          */
         public static final String NOTIFICATION_SUPPORTED = "NOTIFICATION_SUPPORTED";

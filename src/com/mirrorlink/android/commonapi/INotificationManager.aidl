@@ -22,16 +22,21 @@ import com.mirrorlink.android.commonapi.INotificationListener;
 
 /**
  * Provides the interface related to 4.12 Notifications.
- *
+ * <br>
  * The callbacks are defined in {@link INotificationListener}.
  *
- * Module reference: 0x0B
- * Server requirement: Optional
+ * <br>
+ * <i>Module reference: 0x0B</i>
+ * <br>
+ * <i>Server requirement: Optional</i>
  */
 interface INotificationManager {
     /**
      * 4.12.1 Notifications Supported.
      *
+     * <br>
+     * <i>Function reference 0x0B01.</i>
+     * <br>
      * Indicate support for UPnP notifications from the application; the MirrorLink Server will
      * issue a NotiAppListUpdate event, to inform the MirrorLink Client that the notification
      * support for this application has changed. Unless otherwise set by the application, the
@@ -44,6 +49,9 @@ interface INotificationManager {
     /**
      * 4.12.2 Notifications Enabled.
      *
+     * <br>
+     * <i>Function reference 0x0B02.</i>
+     * <br>
      * Checks whether notifications are enabled for the application from the MirrorLink Server and
      * Client.
      *
@@ -55,6 +63,9 @@ interface INotificationManager {
     /**
      * 4.12.4 Notification Configuration.
      *
+     * <br>
+     * <i>Function reference 0x0B04.</i>
+     * <br>
      * Get configuration information for the notification service, any later change to the provided
      * information MUST be notified via the callback function.
      *
@@ -66,14 +77,14 @@ interface INotificationManager {
     /**
      * 4.12.6 Send Notification for client-based Notification UI.
      *
+     * <br>
+     * <i>Function reference 0x0B06.</i>
+     * <br>
      * Send a notification from the application; this notification replaces a previously send notification.
      *
      * @param   title Title of the notification event
-     *
      * @param   body Body of the notification event
-     *
      * @param   iconUrl Url to icon belonging to the notification
-     *
      * @param   actionList List of actions belonging to the notification
      *
      * @return The notification identifier; a Zero value will be returned, if the action was not successful.
@@ -83,6 +94,9 @@ interface INotificationManager {
     /**
      * 4.12.7 Send Notification for VNC-based Notification UI.
      *
+     * <br>
+     * <i>Function reference 0x0B07.</i>
+     * <br>
      * Send a notification from the application; this notification replaces a previously send notification.
      *
      * @return The notification identifier; a Zero value will be returned, if the action was not successful.
@@ -90,8 +104,11 @@ interface INotificationManager {
     int sendVncNotification();
 
     /**
-     * 4.12.8 Cancel Notification .
+     * 4.12.8 Cancel Notification.
      *
+     * <br>
+     * <i>Function reference 0x0B08.</i>
+     * <br>
      * Cancel a notification from the application.
      *
      * @param notificationId Identifier of the notification, which needs to get canceled. 
@@ -100,7 +117,7 @@ interface INotificationManager {
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

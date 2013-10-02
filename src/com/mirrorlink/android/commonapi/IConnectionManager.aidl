@@ -22,24 +22,33 @@ import com.mirrorlink.android.commonapi.IConnectionListener;
 
 /**
  * Provides the interface related to 4.4 Connection Information.
- *
+ * <br>
  * The callbacks are defined in {@link IConnectionListener}.
  *
- * Module reference: 0x03
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0x03</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface IConnectionManager {
 
     /**
-     *  4.4.1 Indicates whether a MirrorLink session is currently established.
-     *  A MirrorLink is considered established if a ClientProfile has been
-     *  set on the MirrorLink Server for the current tethering session.
+     * 4.4.1 Indicates whether a MirrorLink session is currently established.
+     *
+     * <br>
+     * <i>Function reference 0x0301.</i>
+     * <br>
+     * A MirrorLink is considered established if a ClientProfile has been
+     * set on the MirrorLink Server for the current tethering session.
      */
     boolean isMirrorLinkSessionEstablished();
 
     /**
      * 4.4.3 Established Audio Connections.
      *
+     * <br>
+     * <i>Function reference 0x0303.</i>
+     * <br>
      * Established Audio connections within MirrorLink Session
      *
      * @return Bundle containing the status of the audio connections available. The details of the
@@ -50,6 +59,9 @@ interface IConnectionManager {
     /**
      * 4.4.5 Established Remote Display Connection.
      *
+     * <br>
+     * <i>Function reference 0x0305.</i>
+     * <br>
      * Established remote display connection within MirrorLink Session.
      *
      * @return Value containing the status of the remote display connections available. The values
@@ -59,7 +71,7 @@ interface IConnectionManager {
 
     /**
      * Notifies the Manager that the application is not using it anymore.
-     *
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.

@@ -20,7 +20,7 @@ import android.os.Bundle;
 
 /**
  * Provides the interface related to 4.9 Context Information - Callbacks.
- *
+ * <br>
  * This is the interface for callbacks coming from {@link IContextManager}.
  */
 oneway interface IContextListener {
@@ -28,14 +28,17 @@ oneway interface IContextListener {
     /**
      * 4.9.2 Framebuffer Blocking Information Callback.
      *
+     * <br>
+     * <i>Function reference 0x0802.</i>
+     * <br>
      * Framebuffer is blocked from the MirrorLink Client; in case the application has indicated that
      * it will handle the blocking it MUST remove the blocked content.
-     *
+     * <br>
      * The application MUST switch to an activity with updated context information.  If the not, the
      * MirrorLink Server will unblock the framebuffer by terminating the application.
      *
-     * @param reason Reason for Framebuffer blocking
-     *        Note: Blocking because of the wrong framebuffer orientation, is not reported via this function.
+     * @param reason Reason for Framebuffer blocking.  Note: Blocking because of the wrong
+     * framebuffer orientation, is not reported via this function.
      * @param framebufferArea Framebuffer rectangle for the specified region.
      *
      */
@@ -44,6 +47,9 @@ oneway interface IContextListener {
     /**
      * 4.9.4 Audio Blocking Information.
      *
+     * <br>
+     * <i>Function reference 0x0804.</i>
+     * <br>
      * Audio is blocked from the MirrorLink Client; in case the application has indicated that
      * it will handle the blocking it MUST remove the blocked content.
      *

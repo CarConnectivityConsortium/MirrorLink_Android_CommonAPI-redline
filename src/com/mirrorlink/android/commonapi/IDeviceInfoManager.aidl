@@ -22,17 +22,22 @@ import com.mirrorlink.android.commonapi.IDeviceInfoListener;
 
 /**
  * Provides the interface related to 4.2 MirrorLink Device Info.
- *
+ * <br>
  * The callbacks are defined in {@link IDeviceInfoListener}.
  *
- * Module reference: 0x01
- * Server requirement: Mandatory
+ * <br>
+ * <i>Module reference: 0x01</i>
+ * <br>
+ * <i>Server requirement: Mandatory</i>
  */
 interface IDeviceInfoManager {
 
     /**
-     * 4.2.1 MirrorLink Session Version.
+     * 4.2.1 MirrorLink Session Major Version.
      *
+     * <br>
+     * <i>Function reference 0x0101.</i>
+     * <br>
      * Available MirrorLink Version for the established connection, as agreed between the MirrorLink
      * Server and Client. Information MUST be available as soon as the MirrorLink session is
      * connected
@@ -43,8 +48,11 @@ interface IDeviceInfoManager {
     int getMirrorLinkSessionVersionMajor();
 
     /**
-     * 4.2.1 MirrorLink Session Version.
+     * 4.2.1 MirrorLink Session Minor Version.
      *
+     * <br>
+     * <i>Function reference 0x0101.</i>
+     * <br>
      * Available MirrorLink Version for the established connection, as agreed between the MirrorLink
      * Server and Client. Information MUST be available as soon as the MirrorLink session is
      * connected
@@ -57,6 +65,9 @@ interface IDeviceInfoManager {
     /**
      * 4.2.2 MirrorLink Client Manufacturer and Model Information.
      *
+     * <br>
+     * <i>Function reference 0x0102.</i>
+     * <br>
      * Provided MirrorLink client manufacturer and model information, as received through the UPnP
      * Client Profile Service; any later change to the provided information MUST be notified via the
      * callback function.
@@ -67,8 +78,23 @@ interface IDeviceInfoManager {
     Bundle getMirrorLinkClientInformation();
 
     /**
-     * Notifies the Manager that the application is not using it anymore.
+     * 4.2.5 Server Device Virtual Keyboard Support.
      *
+     * <br>
+     * <i>Function reference 0x0104.</i>
+     * <br>
+     * Provides information about the available virtual keyboard from the MirrorLink Server,
+     * which can be used from application, during a MirrorLink session. Handling of the virtual
+     * keyboard is following regular Android means.
+     *
+     * @return Bundle containg the virtual keyboard support. It will contain the values defined in
+     * {@link Defs.VirtualKeyboardSupport}.
+     */
+    Bundle getServerVirtualKeyboardSupport();
+
+    /**
+     * Notifies the Manager that the application is not using it anymore.
+     * <br>
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.
