@@ -30,7 +30,6 @@ import com.mirrorlink.android.commonapi.IDeviceStatusListener;
  */
 interface IDeviceStatusManager {
 
-    // TODO: sb2: Add intent content catgory.
     /**
      * 4.10.1 Drive Mode.
      *
