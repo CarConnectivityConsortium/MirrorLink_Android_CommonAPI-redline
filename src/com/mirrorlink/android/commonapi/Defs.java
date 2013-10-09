@@ -694,6 +694,103 @@ public class Defs {
     }
 
     /**
+     * Defines the type of information that can be contained in a Bundle which represents an object
+     * passed in {@link IDataServicesManager} calls.
+     * <br>
+     * To give an example of how an Object can be packaged as a Bundle, consider the following
+     * example:
+     * <br>
+     * <pre>
+     * STRUCTURE {
+     *    FLOAT x; /// @UID: 0x52 @value: 1.5
+     *    ARRAY<LONG> y; /// @UID: 0x13 @count: 3 @value {3; 2; 1}
+     * }
+     * </pre>
+     * This will be packaged as:
+     * <br>
+     * <pre>
+     * Bundle {
+     *     TYPE: STRUCTURE
+     *     0x51: Bundle {
+     *         TYPE: FLOAT
+     *         VALUE: 1.5
+     *     }
+     *     0x13: Bundle {
+     *         TYPE: ARRAY
+     *         COUNT: 3
+     *         0: Bundle {
+     *             TYPE: LONG
+     *             VALUE: 3
+     *         }
+     *         1: Bundle {
+     *             TYPE: LONG
+     *             VALUE: 2
+     *         }
+     *         2: Bundle {
+     *             TYPE: LONG
+     *             VALUE: 1
+     *         }
+     *     }
+     * }
+     * </pre>
+     */
+    public static final class DataObjectKeys {
+        /** The name of the key that has the type of the object. */
+        public static final String KEY_NAME = "TYPE";
+        /** The name of the key that has the value of the object. */
+        public static final String VALUE = "VALUE";
+        /** The name of the key where the count of the elements in the array is stored. This will
+         * only be found in a Bundle of type {@link #ARRAY_TYPE}. */
+        public static final String COUNT = "COUNT";
+
+        /** The bundle represents a BOOLEAN value. Use getBoolean/pubBoolean to access the value in
+         * the Bundle. */
+        public static final int BOOLEAN_TYPE = 0x82;
+        /** The bundle represents a BYTE value. Use getByte/pubByte to access the value in the
+         * Bundle. */
+        public static final int BYTE_TYPE = 0x83;
+        /** The bundle represents a SHORT value. Use getShort/pubShort to access the value in
+         * the Bundle. */
+        public static final int SHORT_TYPE = 0x84;
+        /** The bundle represents a INT value. Use getInt/pubInt to access the value in the
+         * Bundle. */
+        public static final int INT_TYPE = 0x85;
+        /** The bundle represents a LONG value. Use getLong/pubLong to access the value in the
+         * Bundle. */
+        public static final int LONG_TYPE = 0x86;
+        /** The bundle represents a FLOAT value. Use getFloat/pubFloat to access the value in
+         * the Bundle. */
+        public static final int FLOAT_TYPE = 0x87;
+        /** The bundle represents a DOUBLE value. Use getDouble/pubDouble to access the value in
+         * the Bundle. */
+        public static final int DOUBLE_TYPE = 0x88;
+        /** The bundle represents a BYTES value. Use getByteArray/pubByteArray to access the value in
+         * the Bundle. */
+        public static final int BYTES_TYPE = 0x90;
+        /** The bundle represents a STRING value. Use getString/pubString to access the value in
+         * the Bundle. */
+        public static final int STRING_TYPE = 0x91;
+        /** The bundle represents an ARRAY. The number of elements in the array is stored under the
+         * {@link #COUNT}. Each element of the array will be a Bundle. The element at the i-th
+         * position will be stored under the key called "i" (so the first element will be stored
+         * under the key "0", the second under the key "1" and so on). Therefore to retrieve the
+         * value at index 0, getBundle("1").
+         * <br>
+         * Please note that the SBP STRUCTURE_ARRAY element will be covered by this as well.
+         */
+        public static final int ARRAY_TYPE = 0xA0;
+        /**
+         * The bundle represents a STRUCTURE. Each element of the structure will be stored as a
+         * Bundle, under a key which is a string hexadecimal representation of the UID of the
+         * element, starting with 0x, being zero-filled up to 8 characters, and having all letters
+         * lower case. For example if the UID is 31, the key would be "0x0000001F". To enumerate
+         * through the keys use the keySet() method of the Bundle class and then use getBundle to
+         * retrieve each value for keys starting with 0x.
+         */
+        public static final int STRUCTURE_TYPE = 0xA1;
+    }
+
+    /**
      * Constants used when interacting with the Location data service.
      */
     public static final class LocationService {

@@ -95,14 +95,12 @@ oneway interface IDataServicesListener {
      * <br>
      * <i>Function reference 0x0A0C.</i>
      * <br>
-     * Object received.
+     * Object received, packaged as a Bundle as described in {@link Defs.DataObjectKeys}.
      *
      * @param serviceId Service identifier
      * @param objectId Hash value of the object
      * @param success Flag to indicate whether the action is successful.
-     * @param object Bundle containing the object payload. Every value in the object is mapped to a corresponding
-     *        key in the bundle, using the lowercase hex representation of the field id prefixed by 0x.
-     *        Arrays are coded as a Bundle with keys 0,1,2,3 holding a Bundle object for every item in the array.
+     * @param object Bundle containing the object payload.
      */
     void onGetDataObjectResponse(in int serviceId, in int objectId, boolean success, in Bundle object);
 
