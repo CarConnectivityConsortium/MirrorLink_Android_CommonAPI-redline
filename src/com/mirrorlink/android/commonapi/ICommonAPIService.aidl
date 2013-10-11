@@ -63,9 +63,10 @@ interface ICommonAPIService {
      * Applications MUST call this on start-up, whether they are launched by the MirrorLink server,
      * or started otheriwse.
      *
-     * @param packageName The name of the package of the application
+     * @param packageName The name of the package of the application.
+     * @param commonApiLevel The level of the MirrorLink Common API implemented by the application.
      */
-    void applicationStarted(in String packageName);
+    void applicationStarted(in String packageName, int commonApiLevel);
 
     /**
      * Notifies the MirrorLink Server that an application is stopping.
@@ -73,7 +74,7 @@ interface ICommonAPIService {
      * Applications MUST call this on shut-down, whether they are terminated by the MirrorLink server,
      * or stopped otheriwse.
      *
-     * @param packageName The name of the package of the application
+     * @param packageName The name of the package of the application.
      */
     void applicationStopping(in String packageName);
 
