@@ -26,6 +26,8 @@ oneway interface ICertificationListener {
 
     /** Indicate that the application certification status has changed.
      * <br>
+     * <i>Function reference 0x0204.</i>
+     * <br>
      * The application would receive this callback if, for example, the certification status changes
      * when the certificate is revoked.
      * <br>

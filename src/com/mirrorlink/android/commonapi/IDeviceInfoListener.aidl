@@ -28,7 +28,7 @@ oneway interface IDeviceInfoListener {
     /**
      * 4.2.4 MirrorLink Client Manufacturer and Model Information Callback.
      * <br>
-     * Function reference 0x0102 and 0x0103.
+     * Function reference 0x0102 and 0x0104.
      * <br>
      * Indicates that the Client information has changed;
      *

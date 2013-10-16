@@ -76,8 +76,10 @@ interface IDeviceStatusManager {
      * Open the Microphone on the MirrorLink Client.
      *
      * @param micInput Flag enabling mic input on the MirrorLink Client.
+     * @param voiceInput Flag enabling voice input on the MirrorLink Client. The application MUST
+     * set the Mic Input flag to true if the Voice input flag is set to true.
      */
-    boolean setMicrophoneOpen(in boolean micInput);
+    boolean setMicrophoneOpen(in boolean micInput, in boolean voiceInput);
 
     /**
      * Notifies the Manager that the application is not using it anymore.

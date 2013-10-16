@@ -66,7 +66,7 @@ interface IDeviceInfoManager {
      * 4.2.2 MirrorLink Client Manufacturer and Model Information.
      *
      * <br>
-     * <i>Function reference 0x0102.</i>
+     * <i>Function reference 0x0103.</i>
      * <br>
      * Provided MirrorLink client manufacturer and model information, as received through the UPnP
      * Client Profile Service; any later change to the provided information MUST be notified via the
@@ -81,7 +81,7 @@ interface IDeviceInfoManager {
      * 4.2.5 Server Device Virtual Keyboard Support.
      *
      * <br>
-     * <i>Function reference 0x0104.</i>
+     * <i>Function reference 0x0105.</i>
      * <br>
      * Provides information about the available virtual keyboard from the MirrorLink Server,
      * which can be used from application, during a MirrorLink session. Handling of the virtual
