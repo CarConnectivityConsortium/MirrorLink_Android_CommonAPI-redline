@@ -42,10 +42,9 @@ interface IDataServicesManager {
      *
      * @return  List of provided services;
      *          an empty list is returned if the CDB connection has not been established. The list
-     *          contains Strings with the names of the available services. The known services are
-     *          {@link Defs.LocationService} and {@link Defs.GPSService}. 
+     *          contains Bundles with the fields as defined in {@link Defs.ServiceInformation}.
      */
-    List<String> getAvailableServices();
+    List<Bundle> getAvailableServices();
 
     /**
      * 4.11.3 Register to a Service.
@@ -55,10 +54,12 @@ interface IDataServicesManager {
      * <br>
      * Register to an available Service.
      *
-     * @param serviceId Service identifier. Will be one of {@link
+     * @param serviceId Service identifier. Can be one of {@link
      * Defs.LocationService#LOCATION_OBJECT_UID}, or {@link Defs.GPSService#NMEA_OBJECT_UID}.
+     * @param versionMajor The major version of the service supported by the application.
+     * @param versionMinor The minor version of the service supported by the application.
      */
-    void registerToService(in int serviceId);
+    void registerToService(in int serviceId, in int versionMajor, in int versionMinor);
 
     /**
      * 4.11.5 Unregister from a Service.
