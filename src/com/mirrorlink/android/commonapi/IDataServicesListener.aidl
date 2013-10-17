@@ -33,11 +33,10 @@ oneway interface IDataServicesListener {
      * <br>
      * Change in available services. Callback must be called, when CDB connection is established.
      *
-     * @param  services List of provided services. The list contains Strings with the names of the
-     * available services. The known services are {@link Defs.LocationService} and {@link
-     * Defs.GPSService}. 
+     * @param  services List of provided services.  The list contains Bundles with the fields as
+     * defined in {@link Defs.ServiceInformation}.
      */
-    void onAvailableServicesChanged(in List<String> services);
+    void onAvailableServicesChanged(in List<Bundle> services);
 
     /**
      * 4.11.4 Register to a Service Callback.

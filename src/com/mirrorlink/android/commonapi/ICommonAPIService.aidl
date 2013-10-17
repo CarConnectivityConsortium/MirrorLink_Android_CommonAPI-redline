@@ -66,7 +66,7 @@ interface ICommonAPIService {
      * @param packageName The name of the package of the application.
      * @param commonApiLevel The level of the MirrorLink Common API implemented by the application.
      */
-    void applicationStarted(in String packageName, int commonApiLevel);
+    void applicationStarted(in String packageName, in int commonApiLevel);
 
     /**
      * Notifies the MirrorLink Server that an application is stopping.
