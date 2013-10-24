@@ -29,6 +29,10 @@ import com.mirrorlink.android.commonapi.IDisplayListener;
  * <i>Module reference: 0x04</i>
  * <br>
  * <i>Server requirement: Mandatory</i>
+ * <br>
+ * Note: The setFramebufferOrientationSupport method (function reference 0x0405) is not defined
+ * because the MirrorLink Server can find out the orientations supported by the application from the
+ * information containted within the manifest of the application.
  */
 interface IDisplayManager {
 
@@ -77,27 +81,10 @@ interface IDisplayManager {
      * Access information about the pixel format of the framebuffer data,
      * being transmitted to the MirrorLink Client.
      *
-     * @return The pixel format of the framebuffer data. The values are defined in {@link
-     * Defs.ClientPixelFormat}.
+     * @return The pixel format of the framebuffer data. A Bundle with the fields defined
+     * in {@link Defs.ClientPixelFormat}.
      */
-    int getClientPixelFormat();
-
-    /**
-     * 4.5.5 Set Framebuffer Orientation Support.
-     *
-     * <br>
-     * <i>Function reference 0x0405.</i>
-     * <br>
-     * Inform the MirrorLink Server about the application’s framebuffer orientation support; unless
-     * otherwise set by the application, the VNC Server MUST assume that the application will only
-     * support Landscape.
-     *
-     * @param framebufferOrientation Orientation of the Application Framebuffer. The possible values
-     * are defined in {@link Defs.FramebufferOrientationSupport}.
-     *
-     * @return true on success, false if the orientation is not supported by the client.
-     */
-    boolean setFramebufferOrientationSupport(int framebufferOrientation);
+    Bundle getClientPixelFormat();
 
     /**
      * Notifies the Manager that the application is not using it anymore.
@@ -105,6 +92,9 @@ interface IDisplayManager {
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.
+     * <br>
+     * Once unregister is received by the server, the application will not receive any more
+     * callbacks from the Manager.
      */
     void unregister();
 }

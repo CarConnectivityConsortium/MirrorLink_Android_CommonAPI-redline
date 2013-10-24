@@ -47,10 +47,10 @@ oneway interface IDisplayListener {
      * <br>
      * Pixel format has changed.
      *
-     * @param pixelFormat the pixel format of the framebuffer data. The values are defined in {@link
-     * Defs.ClientPixelFormat}.
+     * @param pixelFormat the pixel format of the framebuffer data. A Bundle with the fields defined
+     * in {@link Defs.ClientPixelFormat}.
      */
-    void onPixelFormatChanged(in int pixelFormat);
+    void onPixelFormatChanged(in Bundle pixelFormat);
 
     /**
      * 4.5.6 Switch Framebuffer Orientation Callback.
@@ -59,11 +59,10 @@ oneway interface IDisplayListener {
      * <i>Function reference 0x0406.</i>
      * <br>
      * MirrorLink Server requests a framebuffer orientation switch from the application. The actual
-     * switch will happen via regular OS/platform mechanisms. An application MUST switch its
-     * orientations, if it has indicated support for Landscape and Portrait.
+     * switch will happen via regular OS/platform mechanisms.
      *
      * @param framebufferOrientation Orientation of the Application Framebuffer. The possible values
-     * are defined in {@link Defs.FramebufferOrientationSupport}.
+     * are defined in {@link Defs.FramebufferOrientation}.
      */
     void onServerDisplayConfigurationChanged(in int framebufferOrientation);
 }

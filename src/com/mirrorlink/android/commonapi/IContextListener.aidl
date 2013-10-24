@@ -34,15 +34,18 @@ oneway interface IContextListener {
      * Framebuffer is blocked from the MirrorLink Client; in case the application has indicated that
      * it will handle the blocking it MUST remove the blocked content.
      * <br>
-     * The application MUST switch to an activity with updated context information.  If the not, the
-     * MirrorLink Server will unblock the framebuffer by terminating the application.
+     * The application MUST switch to a new view and update its context information.  If the
+     * application is not able to update its context information, then the MirrorLink Server will
+     * unblock the framebuffer by terminating the application.
      *
-     * @param reason Reason for Framebuffer blocking.  Note: Blocking because of the wrong
+     * @param reason Reason for Framebuffer blocking. Will have a value defined in {@link
+     * Defs.BlockingInformation}.  Note: Blocking because of the wrong
      * framebuffer orientation, is not reported via this function.
-     * @param framebufferArea Framebuffer rectangle for the specified region.
+     * @param framebufferArea Framebuffer rectangle for the specified region. The values available
+     * are defined in {@link Defs.Rect}.
      *
      */
-    void onFramebufferBlocked(in int reason, in Rect framebufferArea);
+    void onFramebufferBlocked(in int reason, in Bundle framebufferArea);
 
     /**
      * 4.9.4 Audio Blocking Information.
@@ -53,7 +56,8 @@ oneway interface IContextListener {
      * Audio is blocked from the MirrorLink Client; in case the application has indicated that
      * it will handle the blocking it MUST remove the blocked content.
      *
-     * @param reason Reason for Audio blocking
+     * @param reason Reason for Audio blocking. Will have a value defined in {@link
+     * Defs.BlockingInformation}.
      */
     void onAudioBlocked(in int reason);
 }

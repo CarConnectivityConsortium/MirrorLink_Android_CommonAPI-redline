@@ -443,22 +443,40 @@ public class Defs {
         public static final String APP_PIXELS_PER_CLIENT_MM = "APP_PIXELS_PER_CLIENT_MM";
     }
     /**
-     * 4.5.3 IDisplayManager.getClientPixelFormat values.
+     * 4.5.3 IDisplayManager.getClientPixelFormat fields.
      */
     public static final class ClientPixelFormat {
-        public static final int ARGB8888 = 0x01;
-        public static final int RGB888 = 0x02;
-        public static final int RGB565 = 0x03;
-        public static final int RGB555 = 0x04;
-        public static final int RGB444 = 0x05;
-        public static final int RGB343 = 0x06;
-        public static final int GRAY16 = 0x07;
-        public static final int GRAY8 = 0x08;
+        /**
+         * The number of bits per pixel.
+         * uint8 packaged as int
+         */
+        public static final String BITS_PER_PIXEL = "BITS_PER_PIXEL";
+        /**
+         * The color depth.
+         * uint8 packaged as int
+         */
+        public static final String DEPTH = "DEPTH";
+        /**
+         * The maximum value for red.
+         * uint16 packaged as int
+         */
+        public static final String RED_MAX = "RED_MAX";
+        /**
+         * The maximum value for green.
+         * uint16 packaged as int
+         */
+        public static final String GREEN_MAX = "GREEN_MAX";
+        /**
+         * The maximum value for blue.
+         * uint16 packaged as int
+         */
+        public static final String BLUE_MAX = "BLUE_MAX";
     }
+
     /**
      * 4.5.5 Set Framebuffer Orientation Support.
      */
-    public static final class FramebufferOrientationSupport {
+    public static final class FramebufferOrientation {
         public static final int LANDSCAPE_ONLY = 0x01;
         public static final int PORTRAIT_ONLY = 0x02;
         public static final int LANDSCAPE_AND_PORTRAIT = 0x03;
@@ -624,11 +642,6 @@ public class Defs {
         public static final int DISPLAYBLOCKED_APPLICATION_UNIQUE_ID_NOT_ALLOWED = 0x0020;
         public static final int DISPLAYBLOCKED_UI_NOT_IN_FOCUS = 0x0100;
         public static final int DISPLAYBLOCKED_UI_NOT_VISIBLE = 0x0200;
-        /**
-         * IContextListener.onFramebufferOrientationBlocked values.
-         */
-        public static final int ORIENTATIONBLOCKED_LANDSCAPE = 0x01;
-        public static final int ORIENTATIONBLOCKED_PORTRAIT = 0x02;
     }
     /**
      * 4.9.1, 4.9.3 Framebuffer and Audio Context Information values.

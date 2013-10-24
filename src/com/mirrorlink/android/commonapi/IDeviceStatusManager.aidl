@@ -87,6 +87,9 @@ interface IDeviceStatusManager {
      * Applications are required to call this method when they no longer need to use the Manager.
      * Once called, if at a later point they need the Manager again, they can re-request access to
      * it from the {@link ICommonAPIService}.
+     * <br>
+     * Once unregister is received by the server, the application will not receive any more
+     * callbacks from the Manager.
      */
     void unregister();
 }
