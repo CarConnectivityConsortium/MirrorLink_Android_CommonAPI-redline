@@ -611,6 +611,21 @@ public class Defs {
 
     /** 4.9 Context Information Related Features */
     /**
+     * The content information for one framebuffer Area.
+     */
+    public static final class FramebufferAreaContent {
+        /**
+         * The rectangle of the framebuffer area. This returns a Bundle with the fields defined in
+         * {@link Rect}.
+         */
+        public static final String RECT = "RECT";
+        /**
+         * The category of the content. This is an int with a value as defined in {@link
+         * ContextInformation}.
+         */
+        public static final String CONTENT_CATEGORY = "CONTENT_CATEGORY";
+    }
+    /**
      * 4.9.3 BlockingInformation values.
      */
     public static final class BlockingInformation {

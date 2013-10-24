@@ -51,18 +51,16 @@ interface IContextManager {
      *
      * @param applicationCategory Category of the application. Should be one defined in {@link
      * Defs.ContextInformation}.
-     * @param contentCategoryInfo A list of rectangles with their context information. Any areas not
+     * @param content A list of rectangles with their context information. Any areas not
      * covered by the list will be treated as having the default context information. So if the list
      * is empty, then the server will just assume that the context information is the default one
-     * for the whole application. Each element of the list is a pair consisting of a Bundle which
-     * has the fields defined in {@link Defs.Rect} and an integer with one of the values defined in
-     * {@link Defs.ContextInformation}. Each rectangle should have the absolute screen coordinates.
+     * for the whole application. Each element of the list is a Bundle with the fields defined in 
+     * has the fields defined in {@link Defs.FramebufferAreaContent}.
      * @param handleBlocking Flag indicating whether the application will take care of the blocking
      * if the MirrorLink Client blocks the content.
      */
     void setFramebufferContextInformation(in int applicationCategory,
-            in List<Pair<Bundle, int>> contentCategoryInfo,
-            in boolean handleBlocking);
+            in List<Bundle> content, in boolean handleBlocking);
 
     /**
      * 4.9.3 Audio Context Information.
@@ -89,16 +87,16 @@ interface IContextManager {
      *        If set to True, the application is creating an audio stream,
      *        which is potentially mixed with other audio sources. Should be one defined in {@link
      *        Defs.ContextInformation}.
-     * @param audioCategories Categories of the audio stream. A list of cetegories defined in {@link
-     * Defs.ContextInformation}. Usually an application will only have one category (for example
-     * media), but if some applications have two or more audio sources contributing to the stream in
-     * parallel (for example one application might stream media and navigation at the same time),
-     * then it is possible to report both categories. The list should be ordered with the higher
-     * priority category first.
+     * @param audioCategories Categories of the audio stream. A list of categories with Bundles with
+     * an integer field as defined in {@link Defs.ContextInformation}. Usually an application will
+     * only have one category (for example media), but if some applications have two or more audio
+     * sources contributing to the stream in parallel (for example one application might stream
+     * media and navigation at the same time), then it is possible to report both categories. The
+     * list should be ordered with the higher priority category first.
      * @param handleBlocking Flag indicating whether the application will take care of the blocking
      * if the MirrorLink Client blocks the content.
      */
-    void setAudioContextInformation(in boolean audioContent, in List<int> audioCategory,
+    void setAudioContextInformation(in boolean audioContent, in List<Bundle> audioCategories,
             in boolean handleBlocking);
 
     /**
