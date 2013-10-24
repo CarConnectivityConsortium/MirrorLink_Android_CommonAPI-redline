@@ -473,15 +473,6 @@ public class Defs {
         public static final String BLUE_MAX = "BLUE_MAX";
     }
 
-    /**
-     * 4.5.5 Set Framebuffer Orientation Support.
-     */
-    public static final class FramebufferOrientation {
-        public static final int LANDSCAPE_ONLY = 0x01;
-        public static final int PORTRAIT_ONLY = 0x02;
-        public static final int LANDSCAPE_AND_PORTRAIT = 0x03;
-    }
-
     /** 4.6 Event Related Features */
     /**
      * 4.6.1 EventConfiguration Bundle property names and values.

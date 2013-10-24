@@ -24,6 +24,9 @@ import android.os.Parcelable;
  * Provides the interface related to 4.5 Display - Callbacks.
  * <br>
  * This is the interface for callbacks coming from {@link IDisplayManager}.
+ * <br>
+ * Note: The onFramebufferOrientationChanged method (function reference 0x0406) is not defined
+ * because the MirrorLink Server can choose an orientation through the standard Android OS means.
  */
 oneway interface IDisplayListener {
     /**
@@ -51,18 +54,4 @@ oneway interface IDisplayListener {
      * in {@link Defs.ClientPixelFormat}.
      */
     void onPixelFormatChanged(in Bundle pixelFormat);
-
-    /**
-     * 4.5.6 Switch Framebuffer Orientation Callback.
-     *
-     * <br>
-     * <i>Function reference 0x0406.</i>
-     * <br>
-     * MirrorLink Server requests a framebuffer orientation switch from the application. The actual
-     * switch will happen via regular OS/platform mechanisms.
-     *
-     * @param framebufferOrientation Orientation of the Application Framebuffer. The possible values
-     * are defined in {@link Defs.FramebufferOrientation}.
-     */
-    void onServerDisplayConfigurationChanged(in int framebufferOrientation);
 }
