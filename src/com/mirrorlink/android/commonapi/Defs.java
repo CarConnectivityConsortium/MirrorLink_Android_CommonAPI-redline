@@ -622,6 +622,7 @@ public class Defs {
         /**
          * The category of the content. This is an int with a value as defined in {@link
          * ContextInformation}.
+         * uint32 packaged as int
          */
         public static final String CONTENT_CATEGORY = "CONTENT_CATEGORY";
     }
