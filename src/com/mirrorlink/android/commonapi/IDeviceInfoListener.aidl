@@ -32,11 +32,9 @@ oneway interface IDeviceInfoListener {
      * <br>
      * Indicates that the Client information has changed;
      *
-     * @param mirrorLinkVersionMajor MirrorLink Session major version.
-     * @param mirrorLinkVersionMinor MirrorLink Session minor version.
      * @param clientInformation containg the client information or null if no client is connected. The bundle
      * will contain the values defined in {@link Defs.ClientInformation}.
      */
-    void onDeviceInfoChanged(in int mirrorLinkVersionMajor, in int mirrorLinkVersionMinor, in Bundle clientInformation);
+    void onDeviceInfoChanged(in Bundle clientInformation);
 
 }

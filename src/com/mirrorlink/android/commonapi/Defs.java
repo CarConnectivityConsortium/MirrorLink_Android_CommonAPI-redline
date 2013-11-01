@@ -174,6 +174,15 @@ public class Defs {
      */
     public static final class ClientInformation {
         /**
+         * MirrorLink Session major version, as defined by the client.
+         * int
+         */
+        public static final String VERSION_MAJOR = "VERSION_MAJOR";
+        /**
+         * MirrorLink Session minor version, as defined by the client.
+         */
+        public static final String VERSION_MINOR = "VERSION_MINOR";
+        /**
          * Identifier of the MirrorLink client.
          * String
          */
@@ -478,6 +487,26 @@ public class Defs {
      * 4.6.1 EventConfiguration Bundle property names and values.
      */
     public static final class EventConfiguration {
+        /**
+         * The keyboard layout language code (according to ISO 639-1).
+         * uint16 packaged as int
+         */
+        public static final String KEYBOARD_LANGUAGE = "KEYBOARD_LANGUAGE";
+        /**
+         * The keyboard layout country code (according to ISO 3166-1 aplha-2).
+         * uint16 packaged as int
+         */
+        public static final String KEYBOARD_COUNTRY = "KEYBOARD_COUNTRY";
+        /**
+         * The UI language code (according to ISO 639-1).
+         * uint16 packaged as int
+         */
+        public static final String UI_LANGUAGE = "UI_LANGUAGE";
+        /**
+         * The UI language country code (according to ISO 3166-1 aplha-2).
+         * uint16 packaged as int
+         */
+        public static final String UI_COUNTRY = "UI_COUNTRY";
         /**
          * Supported knob events from the MirrorLink Session.
          * Bit mask as defined in the VNC specification.
