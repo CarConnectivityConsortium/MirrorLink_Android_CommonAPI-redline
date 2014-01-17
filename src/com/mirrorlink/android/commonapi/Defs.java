@@ -641,6 +641,8 @@ public class Defs {
     /** 4.9 Context Information Related Features */
     /**
      * The content information for one framebuffer Area.
+     * <br>
+     * <i>Structure reference: 0xE004.</i>
      */
     public static final class FramebufferAreaContent {
         /**
@@ -648,6 +650,12 @@ public class Defs {
          * {@link Rect}.
          */
         public static final String RECT = "RECT";
+        /**
+         * Category of the application. This is an int with a value as defined in {@link
+         * Defs.ContextInformation}
+         * uint32 packaged as int
+         */
+        public static final String APPLICATION_CATEGORY = "APPLICATION_CATEGORY";
         /**
          * The category of the content. This is an int with a value as defined in {@link
          * ContextInformation}.

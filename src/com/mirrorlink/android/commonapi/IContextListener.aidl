@@ -60,4 +60,27 @@ oneway interface IContextListener {
      * Defs.BlockingInformation}.
      */
     void onAudioBlocked(in int reason);
+
+    /**
+     * 4.9.5 Framebuffer Unblocking Callback
+     * <br>
+     * <i>Function reference 0x0805.</i>
+     * <br>
+     * Framebuffer is unblocked from the MirrorLink Client. This signal will be emitted, if the
+     * MirrorLink Client has previously put the application's user interface into the background and
+     * stopped requesting new framebuffer updates. The application will receive this signal, as soon
+     * as the MirrorLink Client starts requesting framebuffer updates again.
+     */
+    void onFramebufferUnblocked();
+
+    /**
+     * 4.9.6 Audio Unblocking Callback
+     * <br>
+     * <i>Function reference 0x0806.</i>
+     * <br>
+     * Audio is unblocked from the MirrorLink Client. This signal will be emitted, if the
+     * MirrorLink Client has previously blocked application's audio stream. The application will
+     * receive this signal, as soon as the MirrorLink Client resumes the audio.
+     */
+    void onAudioUnblocked();
 }
