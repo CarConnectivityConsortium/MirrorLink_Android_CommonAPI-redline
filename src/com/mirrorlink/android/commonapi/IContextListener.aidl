@@ -34,9 +34,10 @@ oneway interface IContextListener {
      * Framebuffer is blocked from the MirrorLink Client; in case the application has indicated that
      * it will handle the blocking it MUST remove the blocked content.
      * <br>
-     * The application MUST switch to a new view and update its context information.  If the
-     * application is not able to update its context information, then the MirrorLink Server will
-     * unblock the framebuffer by terminating the application.
+     * Sometimes the application MUST switch to a new view and update its context information, other
+     * times there is nothing the application can do to help unblock the framebuffer. For details of
+     * reasons of blocking and what the application is required to do see {@link
+     * Defs.BlockingInformation}.
      *
      * @param reason Reason for Framebuffer blocking. Will have a value defined in {@link
      * Defs.BlockingInformation}.  Note: Blocking because of the wrong
@@ -44,6 +45,7 @@ oneway interface IContextListener {
      * @param framebufferArea Framebuffer rectangle for the specified region. The values available
      * are defined in {@link Defs.Rect}.
      *
+     * @see #onFramebufferUnblocked
      */
     void onFramebufferBlocked(in int reason, in Bundle framebufferArea);
 
@@ -57,7 +59,10 @@ oneway interface IContextListener {
      * it will handle the blocking it MUST remove the blocked content.
      *
      * @param reason Reason for Audio blocking. Will have a value defined in {@link
-     * Defs.BlockingInformation}.
+     * Defs.BlockingInformation}. The reason MUST be different from 0 as reason 0 means that the
+     * audio is unblocked, that is reported via {@link #onAudioUnblocked}.
+     *
+     * @see #onAudioUnblocked
      */
     void onAudioBlocked(in int reason);
 
@@ -66,10 +71,14 @@ oneway interface IContextListener {
      * <br>
      * <i>Function reference 0x0805.</i>
      * <br>
-     * Framebuffer is unblocked from the MirrorLink Client. This signal will be emitted, if the
-     * MirrorLink Client has previously put the application's user interface into the background and
-     * stopped requesting new framebuffer updates. The application will receive this signal, as soon
-     * as the MirrorLink Client starts requesting framebuffer updates again.
+     * Framebuffer is unblocked from the MirrorLink Client. There can be various ways to unblock the
+     * framebuffer, depending on the blocking reasons. See {@link Defs.BlockingInformation} for
+     * details.
+     * <p>
+     * If the framebuffer was blocked with more than one reason, all the reasons must be resolved
+     * before this callback will be issued.
+     *
+     * @see #onFramebufferBlocked
      */
     void onFramebufferUnblocked();
 
@@ -81,6 +90,8 @@ oneway interface IContextListener {
      * Audio is unblocked from the MirrorLink Client. This signal will be emitted, if the
      * MirrorLink Client has previously blocked application's audio stream. The application will
      * receive this signal, as soon as the MirrorLink Client resumes the audio.
+     *
+     * @see #onAudioBlocked
      */
     void onAudioUnblocked();
 }

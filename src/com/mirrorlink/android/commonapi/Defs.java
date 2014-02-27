@@ -678,13 +678,151 @@ public class Defs {
         /**
          * IContextListener.onFramebufferBlocked reason values.
          */
+        /**
+         * Not allowed content category.
+         *
+         * An application will receive this blocking notification if it has previously set the
+         * framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * On reception of the callback with this reason number, the application MUST immediately
+         * update its user interface and the application category. If no action is taken straight
+         * away, the server may choose to handle the blocking itself.
+         *
+         * An application that does handle blocking will receive the {@link
+         * IContextListener#onFramebufferUnblocked} once the Client stops sending blocking
+         * notifications between two consecutive framebuffer update requests.
+         *
+         * An application may receive repeated {@link IContextListener#onFramebufferBlocked}
+         * callbacks, with the same reason, if the Client keeps sending the blocking requests.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_CONTENT_CATEGORY_NOT_ALLOWED = 0x0001;
+
+        /**
+         * Not allowed application category.
+         *
+         * An application will receive this blocking notification if it has previously set the
+         * framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * On reception of the callback with this reason number, the application MUST immediately
+         * update its user interface and the application category. If no action is taken straight
+         * away, the server may choose to handle the blocking itself.
+         *
+         * An application that does handle blocking will receive the {@link
+         * IContextListener#onFramebufferUnblocked} once the Client stops sending blocking
+         * notifications between two consecutive framebuffer update requests.
+         *
+         * An application may receive repeated {@link IContextListener#onFramebufferBlocked}
+         * callbacks, with the same reason, if the Client keeps sending the blocking requests.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_APPLICATION_CATEGORY_NOT_ALLOWED = 0x0002;
+
+        /**
+         * Not sufficient content trust level.
+         *
+         * An application will not receive this blocking notification, even if it has previously set
+         * the framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * The server will handle this itself and switch applications, as the code means the
+         * application is non-certified.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_CONTENT_NOT_TRUSTED = 0x0004;
+
+        /**
+         * Not sufficient application trust level.
+         *
+         * An application will not receive this blocking notification, even if it has previously set
+         * the framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * The server will handle this itself and switch applications, as the code means the
+         * application is non-certified.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_APPLICATION_NOT_TRUSTED = 0x0008;
+
+        /**
+         * Content rules not followed.
+         *
+         * An application will not receive this blocking notification, even if it has previously set
+         * the framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * The server will handle this itself and switch applications, as the code means the
+         * application is non-certified.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_CONTENT_RULES_NOT_FOLLOWED = 0x0010;
+
+        /**
+         * Not allowed application ID.
+         *
+         * An application will not receive this blocking notification, even if it has previously set
+         * the framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * The server will handle this itself and switch applications, as the MirrorLink Client uses
+         * this flag if it blocks an application for certificate status reasons.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_APPLICATION_UNIQUE_ID_NOT_ALLOWED = 0x0020;
+
+        /**
+         * UI not in focus on remote display.
+         *
+         * This notifies the application that the user currently cannot interact with the
+         * application using touch and/or knob events, but the application is still visible.
+         *
+         * An application will receive this blocking notification if it has previously set the
+         * framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * An application that does handle blocking will receive the {@link
+         * IContextListener#onFramebufferUnblocked} once the Client stops sending blocking
+         * notifications between two consecutive framebuffer update requests.
+         *
+         * An application may receive repeated {@link IContextListener#onFramebufferBlocked}
+         * callbacks, with the same reason, if the Client keeps sending the blocking requests.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_UI_NOT_IN_FOCUS = 0x0100;
+
+        /**
+         * UI not visible on remote display.
+         *
+         * This notifies the application that the user currently cannot see the application on the
+         * MirrorLink Client's display.
+         *
+         * An application will receive this blocking notification if it has previously set the
+         * framebuffer context information via {@link
+         * IContextManager#setFramebufferContextInformation} with the handleBlocking parameter
+         * set to true.
+         *
+         * An application that does handle blocking will receive the {@link
+         * IContextListener#onFramebufferUnblocked} once the Client starts making framebuffer
+         * update requests again.
+         *
+         * @see IContextListener#onFramebufferBlocked
+         */
         public static final int DISPLAYBLOCKED_UI_NOT_VISIBLE = 0x0200;
     }
     /**
