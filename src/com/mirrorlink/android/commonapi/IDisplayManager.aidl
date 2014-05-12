@@ -96,5 +96,5 @@ interface IDisplayManager {
      * Once unregister is received by the server, the application will not receive any more
      * callbacks from the Manager.
      */
-    void unregister();
+    oneway void unregister();
 }

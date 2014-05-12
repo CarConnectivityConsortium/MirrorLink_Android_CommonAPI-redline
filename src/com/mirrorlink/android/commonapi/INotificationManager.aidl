@@ -82,14 +82,15 @@ interface INotificationManager {
      * <br>
      * Send a notification from the application; this notification replaces a previously send notification.
      *
-     * @param   title Title of the notification event
-     * @param   body Body of the notification event
-     * @param   iconUrl Url to icon belonging to the notification
-     * @param   actionList List of actions belonging to the notification
+     * @param   title Title of the notification event.
+     * @param   body Body of the notification event.
+     * @param   iconUrl Url to icon belonging to the notification.
+     * @param   actionList List of actions belonging to the notification. The elements are Bundles
+     * with the fields defined in {@link Defs.NotificationAction}.
      *
      * @return The notification identifier; a Zero value will be returned, if the action was not successful.
      */
-     int sendClientNotification(in String title, in String body, in Uri iconUrl, in List<String> actionList);
+     int sendClientNotification(in String title, in String body, in Uri iconUrl, in List<Bundle> actionList);
 
     /**
      * 4.12.7 Send Notification for VNC-based Notification UI.
@@ -125,5 +126,5 @@ interface INotificationManager {
      * Once unregister is received by the server, the application will not receive any more
      * callbacks from the Manager.
      */
-    void unregister();
+    oneway void unregister();
 }
