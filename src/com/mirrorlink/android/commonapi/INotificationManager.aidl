@@ -86,7 +86,7 @@ interface INotificationManager {
      * @param   body Body of the notification event.
      * @param   iconUrl Url to icon belonging to the notification.
      * @param   actionList List of actions belonging to the notification. The elements are Bundles
-     * with the fields defined in {@link Defs.NotificationAction}.
+     * with the fields defined in {@link Defs.Action}.
      *
      * @return The notification identifier; a Zero value will be returned, if the action was not successful.
      */

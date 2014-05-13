@@ -144,23 +144,39 @@ public class Defs {
      */
     public static final class Action {
         /**
-         * Action identifier.
-         * uint16 packaged as an int
+         * Action identifier. MUST be non-zero. The actionIDs MUST be unique within one
+         * notification. Otherwise the MirrorLink Server will reject the notification.
+         * <br>
+         * uint16 packaged as int
          */
         public static final String ACTION_ID = "ACTION_ID";
         /**
          * Action name.
+         * <br>
          * String
          */
         public static final String ACTION_NAME = "ACTION_NAME";
         /**
-         * Flag whether to launch the app.
+         * Flag whether to launch the application.
+         * <br>
+         * Optional. By default it is considered as false.
+         * <br>
          * boolean
          */
         public static final String LAUNCH_APP = "LAUNCH_APP";
         /**
-         * URL to the con associated with the action.
-         * url packaged as a String
+         * The URL to the icon associated with the action.
+         * <br>
+         * Optional. By default no icon will be used.
+         * <br>
+         * If defined it specifies the name of the resource where the icon is stored. If the Server
+         * fails to find the resource, then it SHOULD provide the notification to the Client without
+         * an icon.
+         * <br>
+         * It is up to the Server to provide the icon within the format and size negotiated with the
+         * MirrorLink Client.
+         * <br>
+         * String
          */
         public static final String ICON_URL = "ICON_URL";
     }
@@ -1073,49 +1089,5 @@ public class Defs {
          * Maximum number of characters of the notification body.
          */
         public static final String MAX_BODY_LENGTH = "MAX_BODY_LENGTH";
-    }
-    /**
-     * 4.12.6 NotificationAction Bundle property names.
-     * <br>
-     * <i>Structure reference: 0xE003</i>
-     * <br>
-     */
-    public static final class NotificationAction {
-        /**
-         * Action identifier. MUST be non-zero. The actionIDs MUST be unique within one
-         * notification. Otherwise the MirrorLink Server will reject the notification.
-         * <br>
-         * uint16 packaged as int
-         */
-        public static final String ID = "ID";
-        /**
-         * Action name.
-         * <br>
-         * String
-         */
-        public static final String NAME = "NAME";
-        /**
-         * Flag whether to launch the application.
-         * <br>
-         * Optional. By default it is considered as false.
-         * <br>
-         * boolean
-         */
-        public static final String LAUNCH_APP = "LAUNCH_APP";
-        /**
-         * The URL to the icon associated with the action.
-         * <br>
-         * Optional. By default no icon will be used.
-         * <br>
-         * If defined it specifies the name of the resource where the icon is stored. If the Server
-         * fails to find the resource, then it SHOULD provide the notification to the Client without
-         * an icon.
-         * <br>
-         * It is up to the Server to provide the icon within the format and size negotiated with the
-         * MirrorLink Client.
-         * <br>
-         * String
-         */
-        public static final String ICON_URL = "ICON_URL";
     }
 }
