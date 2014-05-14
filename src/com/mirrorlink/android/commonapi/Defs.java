@@ -905,53 +905,119 @@ public class Defs {
     }
 
     /**
-     * Defines the type of information that can be contained in a Bundle which represents an object
+     * Defines the type of information that can be contained in a Bundle which represents an Object
      * passed in {@link IDataServicesManager} calls.
      * <br>
-     * To give an example of how an Object can be packaged as a Bundle, consider the following
-     * example:
+     * To give a few examples of how an Object can be packaged as a Bundle, consider the following:
      * <br>
      * <pre>
-     * STRUCTURE {
-     *    FLOAT x; /// @UID: 0x52 @value: 1.5
-     *    ARRAY<LONG> y; /// @UID: 0x13 @count: 3 @value {3; 2; 1}
+     * &#47;** @UID: 0xD6804B4A @max_subscription_rate: 50Hz *&#47;
+     * Object accelerometer {
+     *    STRUCTURE accel_data {
+     *      FLOAT x; &#47;&#47;&#47; @UID: 0x150A2CB3
+     *      FLOAT y; &#47;&#47;&#47; @UID: 0x150A2CB4
+     *      LONG time; &#47;&#47;&#47; @UID: 0x00A0FDB2
+     *    }
+     *    STRUCTURE_ARRAY<accel_data> data; &#47;&#47;&#47; @UID 0x144A776F
      * }
      * </pre>
-     * This will be packaged as:
+     * Will be packaged as:
      * <br>
      * <pre>
      * Bundle {
      *     TYPE: STRUCTURE
-     *     0x51: Bundle {
-     *         TYPE: FLOAT
-     *         VALUE: 1.5
-     *     }
-     *     0x13: Bundle {
+     *     UID: 0xD6804B4A
+     *     0x144A776F: Bundle {
      *         TYPE: ARRAY
-     *         COUNT: 3
+     *         UID: 0x144A776F &#47; the UID is optional here
+     *         COUNT: 2
      *         0: Bundle {
-     *             TYPE: LONG
-     *             VALUE: 3
+     *             TYPE: STRUCTURE
+     *             0x150A2CB3: Bundle {
+     *               TYPE: FLOAT
+     *               VALUE: 1.5
+     *             }
+     *             0x150A2CB4: Bundle {
+     *               TYPE: FLOAT
+     *               VALUE: 2.5
+     *             }
+     *             0x00A0FDB2: Bundle {
+     *               TYPE: LONG
+     *               VALUE: 5023934
+     *             }
      *         }
      *         1: Bundle {
-     *             TYPE: LONG
-     *             VALUE: 2
-     *         }
-     *         2: Bundle {
-     *             TYPE: LONG
-     *             VALUE: 1
+     *             TYPE: STRUCTURE
+     *             0x150A2CB3: Bundle {
+     *               TYPE: FLOAT
+     *               VALUE: 4.2
+     *             }
+     *             0x150A2CB4: Bundle {
+     *               TYPE: FLOAT
+     *               VALUE: 2.5
+     *             }
+     *             0x00A0FDB2: Bundle {
+     *               TYPE: LONG
+     *               VALUE: 5024134
+     *             }
      *         }
      *     }
      * }
      * </pre>
+     * <br>
+     * <pre>
+     * &#47;** @UID: 0xD73DFF88 @writable @control: accelerometer *&#47;
+     * Object accelerometer {
+     *    BOOLEAN filterEnabled; &#47;&#47;&#47; @UID: 0x2B230C64
+     *    INT samplingRate; &#47;&#47;&#47; @UID: 0x5F2BF0EC
+     * }
+     * </pre>
+     * Will be packaged as:
+     * <br>
+     * <pre>
+     * Bundle {
+     *     TYPE: STRUCTURE
+     *     UID: 0xD73DFF88
+     *     0x2B230C64: Bundle {
+     *         TYPE: BOOLEAN
+     *         VALUE: false
+     *     }
+     *     0x5F2BF0EC: Bundle {
+     *         TYPE: INT
+     *         VALUE: 20
+     *     }
+     * }
+     * </pre>
+     * To summarise:
+     * <ul>
+     *  <li>the Object is a Bundle.</li>
+     *  <li>each Bundle can have any of the defined types.</li>
+     *  <li>the Bundle for the Object must contain a UID field.</li>
+     *  <li>the Bundle of STRUCTURE type contains other Bundles. The UIDs of the elemts are the keys
+     *  for accessing each inner Bundle.</li>
+     *  <li>the inner Bundles can in their turn have any of the defined type.</li>
+     *  <li>the Bundle of ARRAY type has a COUNT integer key and keys from 0 to COUNT-1, which are in
+     *  turn Bundles.</li>
+     *  <li>only Bundles of simple types (not STRUCTURE, or ARRAY) have a VALUE key.</li>
+     *  <li>the Object (which is the root Bundle) may be of a simple type.</li>
+     * </ul>
      */
     public static final class DataObjectKeys {
-        /** The name of the key that has the type of the object. */
-        public static final String KEY_NAME = "TYPE";
+        /** The name of the key that has the type of the object.
+         *  int
+         * */
+        public static final String TYPE = "TYPE";
+        /** The name of the key that has the UID of the element. This is mandatory only for the root
+         *  Bundle, which representes the whole objects, but other elements may have it as well.
+         *  int
+         * */
+        public static final String UID = "UID";
         /** The name of the key that has the value of the object. */
         public static final String VALUE = "VALUE";
         /** The name of the key where the count of the elements in the array is stored. This will
-         * only be found in a Bundle of type {@link #ARRAY_TYPE}. */
+         * only be found in a Bundle of type {@link #ARRAY_TYPE}.
+         * int
+         * */
         public static final String COUNT = "COUNT";
 
         /** The bundle represents a BOOLEAN value. Use getBoolean/pubBoolean to access the value in
