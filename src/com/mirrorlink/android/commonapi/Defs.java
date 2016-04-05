@@ -1068,8 +1068,11 @@ public class Defs {
     }
 
     /**
-     * Constants used when interacting with the Location data service.
+     * Constants used when interacting with the Location data service version 1.0.
+     *
+     * @deprecated use {@link com.mirrorlink.android.dataservices.LocationService} instead
      */
+    @Deprecated
     public static final class LocationService {
         /**
          * Location Service name.
@@ -1093,8 +1096,11 @@ public class Defs {
         public static final String TIMESTAMP_FIELD_UID = "0x59413fd1";
     }
     /**
-     * Constants used when interacting with the GPS data service.
+     * Constants used when interacting with the GPS data service version 1.0
+     *
+     * @deprecated use {@link com.mirrorlink.android.dataservices.GPSService} instead
      */
+    @Deprecated
     public static final class GPSService {
         /**
          * GPS Service name.
