@@ -40,8 +40,12 @@ import com.mirrorlink.android.commonapi.INotificationListener;
  * The main interface through which the MirrorLink Common API
  * services are to be accessed.
  *
+ * The MirrorLink applications MUST use {link IConnectionManager#isMirrorLinkSessionEstablished} and
+ * {@link IConnectionListener#onMirrorLinkSessionChanged} to determine, whether a MirrorLink session is
+ * established. MirrorLink applications SHOULD use the other Common API modules only, while a MirrorLink
+ * session is running. Return values outside of a MirrorLink session are implementation dependent.
  * <br>
- * <i>Module reference: 0xF0</i>
+ * <i>Module reference: 0xF0/i>
  * <br>
  * <i>Server requirement: Mandatory</i>
  */
@@ -79,7 +83,7 @@ interface ICommonAPIService {
     void applicationStopping(in String packageName);
 
     /**
-     * Returns a ICertificationManager for handling certificates.
+     * Returns a {@link ICertificationManager} for handling certificates.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -96,7 +100,7 @@ interface ICommonAPIService {
     ICertificationManager getCertificationManager(in String packageName, in ICertificationListener listener);
 
     /**
-     * Returns a IConnectionManager for requesting connection information.
+     * Returns a {@link IConnectionManager} for requesting connection information.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -113,7 +117,7 @@ interface ICommonAPIService {
     IConnectionManager getConnectionManager(in String packageName, in IConnectionListener listener);
 
     /**
-     * Returns a IContextManagerManager for handling context information.
+     * Returns a {@link IContextManager} for handling context information.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -130,7 +134,7 @@ interface ICommonAPIService {
     IContextManager getContextManager(in String packageName, in IContextListener listener);
 
     /**
-     * Returns a IDataServiceManager for handling Common Data Bus connections.
+     * Returns a {@link IDataServicesManager} for handling Data Services connections.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -148,7 +152,7 @@ interface ICommonAPIService {
             in IDataServicesListener listener);
 
     /**
-     * Returns a IDeviceInfoManager for handling device information.
+     * Returns a {@link IDeviceInfoManager} for handling device information.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -165,7 +169,7 @@ interface ICommonAPIService {
     IDeviceInfoManager getDeviceInfoManager(in String packageName, in IDeviceInfoListener listener);
 
     /**
-     * Returns a IDeviceStatusManager for handling device status.
+     * Returns a {@link IDeviceStatusManager}. for handling device status.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -183,7 +187,7 @@ interface ICommonAPIService {
             in IDeviceStatusListener listener);
 
     /**
-     * Returns a IDisplayManager for handling remote displays.
+     * Returns a {@link IDisplayManager} for handling remote displays.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -200,7 +204,7 @@ interface ICommonAPIService {
     IDisplayManager getDisplayManager(in String packageName, in IDisplayListener listener);
 
     /**
-     * Returns a IEventMappingManager for handling event mapping.
+     * Returns a {@link IEventMappingManager} for handling event mapping.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
@@ -218,7 +222,7 @@ interface ICommonAPIService {
             in IEventMappingListener listener);
 
     /**
-     * Returns a INotificationManager for handling notifications.
+     * Returns a {@link INotificationManager} for handling notifications.
      *
      * <br>
      * <i>Function reference 0xF002.</i> In the Android Common API there is no method to check if a module
