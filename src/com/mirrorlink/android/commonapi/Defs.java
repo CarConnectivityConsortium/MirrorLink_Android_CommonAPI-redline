@@ -1105,7 +1105,7 @@ public class Defs {
         /**
          * GPS Service name.
          */
-        public static final String SERVICE_NAME = "com.mirrorlink.gps";
+        public static final String SERVICE_NAME = "com.mirrorlink.GPS";
         /**
          * NMEA Object uid.
          */
