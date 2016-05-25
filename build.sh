@@ -6,7 +6,7 @@ pushd doc
 javadoc -verbose  \
 	           -windowtitle "MirrorLink Android Common API" \
 	           -doctitle "MirrorLink Android Common API" \
-             -overview ../src/com/mirrorlink/android/commonapi/overview.html \
+               -overview ../src/com/mirrorlink/android/commonapi/overview.html \
  	           -classpath $ANDROID_SDK/platforms/android-14/android.jar \
 	           ../src/com/mirrorlink/android/commonapi/*.java \
 	           ../src/com/mirrorlink/android/dataservices/*.java \
