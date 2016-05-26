@@ -734,7 +734,7 @@ public class Defs {
         /**
          * Not allowed content category.
          *
-         * @deprecated thie blocking reason MAY be ignored.
+         * @deprecated this blocking reason MAY be ignored.
          *
          * On reception of the callback with this reason number, the application MUST immediately
          * update its user interface and the application category. If no action is taken straight
@@ -776,7 +776,7 @@ public class Defs {
         /**
          * Not sufficient content trust level.
          *
-         * @deprecated thie blocking reason MAY be ignored.
+         * @deprecated this blocking reason MAY be ignored.
          *
          * The server will handle this itself and switch applications, as the code means the
          * application is non-certified.
@@ -801,7 +801,7 @@ public class Defs {
         /**
          * Content rules not followed.
          *
-         * @deprecated thie blocking reason MAY be ignored.
+         * @deprecated this blocking reason MAY be ignored.
          *
          * The server will handle this itself and switch applications, as the code means the
          * application is non-certified.
@@ -826,7 +826,7 @@ public class Defs {
         /**
          * UI not in focus on remote display.
          *
-         * @deprecated thie blocking reason MAY be ignored.
+         * @deprecated this blocking reason MAY be ignored.
          *
          * This notifies the application that the user currently cannot interact with the
          * application using touch and/or knob events, but the application is still visible.
