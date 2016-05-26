@@ -64,6 +64,14 @@ public class Defs {
          */
         public static final String BIND_MIRRORLINK_API = "com.mirrorlink.android.service.BIND";
         /**
+         * Application can use the “com.mirrorlink.android.service.API_LEVEL” integer extra to specify the
+         * Common API level they wish to bind to. If a MirrorLink Server does not support a particular API
+         * level, it will fail the bind operation.
+         * In the absence of the “com.mirrorlink.android.service.API_LEVEL” extra, MirrorLink Servers
+         * will return the Android CommonAPI Service Level 1 binder from the bind request.
+         */
+        public static final String BIND_MIRRORLINK_API_LEVEL_EXTRA = "com.mirrorlink.android.service.API_LEVEL";
+        /**
          * Intent used by the MirrorLink service to ask applications to launch. All the MirrorLink
          * aware applications must handle this Intent and connect to the MirrorLink service once
          * started by using {@link #BIND_MIRRORLINK_API}.
@@ -564,6 +572,7 @@ public class Defs {
         /**
          * KNOB_KEY_SUPPORT values.
          */
+        public static final int KNOB_KEY_SUPPORT_SHIFT_X_0  = 0x00000001;
         public static final int KNOB_KEY_SUPPORT_SHIFT_Y_0  = 0x00000002;
         public static final int KNOB_KEY_SUPPORT_SHIFT_XY_0 = 0x00000004;
         public static final int KNOB_KEY_SUPPORT_PUSH_Z_0   = 0x00000008;
