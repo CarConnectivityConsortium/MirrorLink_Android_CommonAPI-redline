@@ -60,6 +60,25 @@ public final class LocationService {
     public static final int COORDINATES_STRUCTURE_UID = 0x345d2c16;
 
     /**
+     * Flags used to identify and mark the availability of coordinate systems
+     */
+    /**
+     * AvailableCoordinateSystems#COORDINATESYSTEMS_FIELD FLAG
+     * CurrentCoordinateSystem#COORDINATESYSTEMS_FIELD FLAG
+     */
+    public static final int COORDINATESYSTEMS_FLAG_WGS84 = 0x00000001;
+    /**
+     * AvailableCoordinateSystems#COORDINATESYSTEMS_FIELD FLAG
+     * CurrentCoordinateSystem#COORDINATESYSTEMS_FIELD FLAG
+     */
+    public static final int COORDINATESYSTEMS_FLAG_GCJ02 = 0x00000002;
+    /**
+     * AvailableCoordinateSystems#COORDINATESYSTEMS_FIELD FLAG
+     * CurrentCoordinateSystem#COORDINATESYSTEMS_FIELD FLAG
+     */
+    public static final int COORDINATESYSTEMS_FLAG_PROPRIETARY = 0x80000000;
+
+    /**
      * AvailableCoordinateSystems Object Definitions (1.0 service version and upward)
      */
     public static final class AvailableCoordinateSystems {
