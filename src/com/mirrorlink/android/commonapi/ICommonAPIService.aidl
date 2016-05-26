@@ -92,8 +92,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link ICertificationManager}.
      */
@@ -109,8 +109,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IConnectionManager}.
      */
@@ -126,8 +126,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IContextManager}.
      */
@@ -143,8 +143,8 @@ interface ICommonAPIService {
      * <br>
      * This service is optional so null may be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IDataServicesManager}.
      */
@@ -161,8 +161,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IDeviceInfoManager}.
      */
@@ -178,8 +178,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IDeviceStatusManager}.
      */
@@ -196,8 +196,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IDisplayManager}.
      */
@@ -213,8 +213,8 @@ interface ICommonAPIService {
      * <br>
      * This service is mandatory so a reference to the manager should be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link IEventMappingManager}.
      */
@@ -231,8 +231,8 @@ interface ICommonAPIService {
      * <br>
      * This service is optional so null may be returned.
      *
-     * @param packageName The name of the package of the application.
-     * @param listener The Listener object for the Manager.
+     * @param packageName The name of the package of the application. MUST not be null.
+     * @param listener The Listener object for the Manager. MUST not be null.
      *
      * @return An instance of {@link INotificationManager}.
      */
