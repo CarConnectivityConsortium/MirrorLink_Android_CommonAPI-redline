@@ -45,7 +45,7 @@ import com.mirrorlink.android.commonapi.INotificationListener;
  * established. MirrorLink applications SHOULD use the other Common API modules only, while a MirrorLink
  * session is running. Return values outside of a MirrorLink session are implementation dependent.
  * <br>
- * <i>Module reference: 0xF0/i>
+ * <i>Module reference: 0xF0</i>
  * <br>
  * <i>Server requirement: Mandatory</i>
  */
